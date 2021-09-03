@@ -12,6 +12,10 @@ public class ExpressionsCodelab01 {
         // Create a short variable that holds the product of 2 other short variables (with values 5 and 105)
         // Does it work? Write a comment on why (not)
 
+        short nr1 = 5;
+        short nr2 = 105;
+        //short product = nr1 * nr2; I believe this doesn't apply because the product is automatically resolved as an
+        // int and that can not be saved into a short.
     }
 
 }

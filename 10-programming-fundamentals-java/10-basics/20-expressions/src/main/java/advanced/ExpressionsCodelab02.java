@@ -14,6 +14,11 @@ public class ExpressionsCodelab02 {
         // Print the result using: System.out.println("Printing product: " + <YOUR_PRODUCT_VARIABLE_NAME>);
         // Inspect the result, does it look as desired?
 
+        short productAssignment4 = 5 * 105;
+        // this works but i don't know why
+        System.out.println("Printing product: " + productAssignment4);
+        // is good
+
     }
 
 }
