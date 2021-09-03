@@ -10,7 +10,9 @@ public class ExpressionsCodelab01 {
 
         // ----------------
         //Which of the following statements contain an expression?
+        // 3 and 4
         //Which part of the statement is an expression?
+        //the part with the operands and operator
 
         int someVariable;               //1
         int someVariable2 = 2;          //2

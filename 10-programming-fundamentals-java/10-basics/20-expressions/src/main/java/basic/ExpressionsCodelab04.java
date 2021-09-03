@@ -13,5 +13,10 @@ public class ExpressionsCodelab04 {
         // Create a second int variable and give it the value 6
         // Increase the first int with the value of the second int
         // Print the result using: System.out.println("Printing sum: " + <YOUR_FIRST_VARIABLE>);
+
+        int five = 5;
+        int six = 6;
+        five += six;
+        System.out.println("Printing sum: " + five);
     }
 }

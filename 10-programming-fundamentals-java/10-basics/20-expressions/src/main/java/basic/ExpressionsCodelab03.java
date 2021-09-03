@@ -13,6 +13,12 @@ public class ExpressionsCodelab03 {
         // Print the result using: System.out.println("Printing sum: " + <YOUR_SUM_VARIABLE_NAME>);
         // Inspect the result, does it look as desired?
 
+        double nr1 = 4545.5;
+        int nr2 = 85454;
+
+        double sum = nr1 + nr2;
+        System.out.println("Printing sum: " + sum);
+        // yezzir
     }
 
 }
