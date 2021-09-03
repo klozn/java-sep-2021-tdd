@@ -13,6 +13,9 @@ public class VTCodelab18 {
         // Declare an int variable, initialize it with the double variable
         // Does it work? Write a comment on why (not)? If the code doesn't compile, put the code itself in comment
 
+        double aDouble = 45.95;
+        //int anInt =  aDouble; won't work without casting because of lossy conversion
+
     }
 
 }

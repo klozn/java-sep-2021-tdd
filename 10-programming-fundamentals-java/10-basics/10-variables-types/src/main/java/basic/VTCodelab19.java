@@ -15,6 +15,11 @@ public class VTCodelab19 {
         // Print the result using: System.out.println("Printing an int initialized with a casted double: " + <YOUR_LONG_VARIABLE_NAME>);
         // Do you notice something about what is printed?
 
+        double aDouble = 45.95;
+        int anInt = (int) aDouble;
+        // this works with explicit casting
+        System.out.println("Printing an int initialized with a casted double " + anInt);
+        // cuts off everything after the point, without rounding the number logically
     }
 
 }

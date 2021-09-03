@@ -12,6 +12,8 @@ public class VTCodelab12 {
         // Declare and initialize a boolean variable, give it value false
         // Print the result using: System.out.println("Printing boolean which should be false: " + <YOUR_VARIABLE_NAME>);
 
+        boolean isThisAChar = false;
+        System.out.println("Printing boolean which should be false: " + isThisAChar);
     }
 
 }

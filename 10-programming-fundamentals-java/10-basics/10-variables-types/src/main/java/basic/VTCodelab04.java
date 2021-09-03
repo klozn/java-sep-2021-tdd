@@ -12,6 +12,8 @@ public class VTCodelab04 {
         // Declare and initialize a char variable
         // Print the result using: System.out.println("Printing char with value: " + <YOUR_VARIABLE_NAME>);
 
+        char aCharacter = 'c';
+        System.out.println("Printing char with value: " + aCharacter);
     }
 
 }

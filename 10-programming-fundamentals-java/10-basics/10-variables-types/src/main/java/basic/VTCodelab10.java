@@ -12,6 +12,8 @@ public class VTCodelab10 {
         // Print out the characters 'H' 'E' 'L' 'L' 'O' in this exact order, on one line
         // It's possible a number instead of HELLO is printed, why do you think this is?
 
+        System.out.println('H' + 'E' + 'L' + 'L' + '0');
+        //because of the plus sign java interprets these chars as ints, grabbing their asci value and returning the sum
     }
 
 }

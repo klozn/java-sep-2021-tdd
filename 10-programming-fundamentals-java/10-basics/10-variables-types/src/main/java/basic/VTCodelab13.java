@@ -12,6 +12,8 @@ public class VTCodelab13 {
         // Declare and initialize a boolean variable, try giving it a different value than true or false
         // Does it work? Write a comment on why (not)? If the code doesn't compile, put the code itself in comment
 
+        //boolean doesThisWork = 5; boolean is only 1bit , can't hold anything other than y/n  1/0
+
     }
 
 }

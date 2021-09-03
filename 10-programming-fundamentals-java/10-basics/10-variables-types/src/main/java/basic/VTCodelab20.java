@@ -17,5 +17,11 @@ public class VTCodelab20 {
 
         // Hint: You can also use a new Type called String in this one, it works like char but values are denoted with " instead of '
         // Like so: String helloWorld = "Hello World"
+
+        int age = 24;
+        int zipCode = 2000;
+        double accountBalance = 23.46;
+        boolean isOnAddMailingList = false;
+
     }
 }

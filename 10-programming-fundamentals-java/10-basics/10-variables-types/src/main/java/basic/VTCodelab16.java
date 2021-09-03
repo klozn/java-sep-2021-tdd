@@ -14,6 +14,10 @@ public class VTCodelab16 {
         // Does it work? Write a comment on why (not)?
         // Print the result using: System.out.println("Printing a long initialized with an int: " + <YOUR_LONG_VARIABLE_NAME>);
 
+        int anIntVariable = 10;
+        long aLongVariable = anIntVariable;
+        // java does hidden casting when you initialize a long with a int because int is less data.
+        System.out.println("Printing a long initialized with an int: " + aLongVariable);
     }
 
 }

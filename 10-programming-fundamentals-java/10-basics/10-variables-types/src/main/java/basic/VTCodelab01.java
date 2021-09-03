@@ -11,7 +11,8 @@ public class VTCodelab01 {
         // ----------------
         // Declare and initialize an int variable
         // Print the result using: System.out.println("Printing int with value: " + <YOUR_VARIABLE_NAME>);
-
+        int anInt = 0;
+        System.out.println("Printing int with value: " + anInt);
     }
 
 }

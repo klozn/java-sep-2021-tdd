@@ -1,5 +1,7 @@
 package basic;
 
+import java.sql.SQLOutput;
+
 public class VTCodelab11 {
 
     public static void main(String[] args) {
@@ -12,6 +14,8 @@ public class VTCodelab11 {
         // Declare and initialize a boolean variable, give it value true
         // Print the result using: System.out.println("Printing boolean which should be true: " + <YOUR_VARIABLE_NAME>);
 
+        boolean isThisABoolean = true;
+        System.out.println("Printing boolean which should be true: " + isThisABoolean);
     }
 
 }

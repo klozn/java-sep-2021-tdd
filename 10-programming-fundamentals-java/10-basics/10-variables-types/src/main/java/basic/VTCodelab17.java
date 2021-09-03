@@ -14,6 +14,10 @@ public class VTCodelab17 {
         // How is this different than assignment 6?
         // Print the result using: System.out.println("Printing a int initialized with a casted long: " + <YOUR_INT_VARIABLE_NAME>);
 
+        long aLongVariable = 10000000000L;
+        int anIntVariable = (int) aLongVariable;
+        //with the casting we force the long into the int variable.
+        System.out.println("Printing a int initialized with a casted long: " + anIntVariable);
     }
 
 }

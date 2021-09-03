@@ -11,7 +11,8 @@ System.out.println("\n");
         // ----------------
         // Declare and initialize a long variable
         // Print the result using: System.out.println("Printing long with value: " + <YOUR_VARIABLE_NAME>);
-
+        long aLargeNumber = 100000000000L;
+        System.out.println("Printing long with value: " + aLargeNumber);
     }
 
 }

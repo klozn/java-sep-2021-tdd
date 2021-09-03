@@ -12,6 +12,7 @@ public class VTCodelab14 {
         // Declare and initialize a double variable, name it while
         // Does it work? Write a comment on why (not)? If the code doesn't compile, put the code itself in comment
 
+        //double while = 5.6; does not compile because while is a reserved word (do - while operator)
     }
 
 }
