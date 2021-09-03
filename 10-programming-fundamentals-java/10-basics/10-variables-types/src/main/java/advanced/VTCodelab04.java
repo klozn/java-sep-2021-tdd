@@ -13,6 +13,9 @@ public class VTCodelab04 {
         // Declare a short variable and initialize it with the above byte variable
         // Does it work? Write a comment on why (not)? If the code doesn't compile, put the code itself in comment
 
+        byte aByte = 6;
+        short aShort = aByte;
+        //compiles because short > byte (16bit > 8bit) so there is no risk for loss of data, casting happens automatically.
     }
 
 }

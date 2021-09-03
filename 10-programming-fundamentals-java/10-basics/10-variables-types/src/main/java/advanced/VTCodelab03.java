@@ -12,6 +12,8 @@ public class VTCodelab03 {
         // Declare and initialize a float variable (mind the f)
         // Print the result using: System.out.println("Printing float with value: " + <YOUR_VARIABLE_NAME>);
 
+        float aFloat = 0.56f;
+        System.out.println("Printing float with value: " + aFloat);
     }
 
 }

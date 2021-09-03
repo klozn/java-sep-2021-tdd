@@ -14,6 +14,10 @@ public class VTCodelab08 {
         // Print the result using: System.out.println("Printing a byte initialized with a casted short (128): " + <YOUR_BYTE_VARIABLE_NAME>);
         // Does it look as expected? Write a comment on why (not)?
 
+        short aShort = 128;
+        byte aByte = (byte) aShort;
+        System.out.println("Printing a byte initialized with a casted short (128): " + aByte);
+        // a byte can only hold integers up to 128, not 128 itself.
     }
 
 }

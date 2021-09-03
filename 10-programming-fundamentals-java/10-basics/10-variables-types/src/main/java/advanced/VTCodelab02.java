@@ -12,6 +12,8 @@ public class VTCodelab02 {
         // Declare and initialize a short variable
         // Print the result using: System.out.println("Printing short with value: " + <YOUR_VARIABLE_NAME>);
 
+        short aShortVariable = 123;
+        System.out.println("Printing short with value: " + aShortVariable);
     }
 
 }

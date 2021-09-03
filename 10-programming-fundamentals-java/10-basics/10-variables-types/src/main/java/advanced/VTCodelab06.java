@@ -13,6 +13,8 @@ public class VTCodelab06 {
         // Print the result using: System.out.println("Printing byte with value: " + <YOUR_VARIABLE_NAME>);
         // Does it work? Write a comment on why (not)? If the code doesn't compile, put the code itself in comment
 
+        //byte aByte = 250;
+        // Does not compile because the number given is too big.
     }
 
 }

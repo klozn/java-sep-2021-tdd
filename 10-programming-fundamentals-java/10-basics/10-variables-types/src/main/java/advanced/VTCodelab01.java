@@ -12,6 +12,8 @@ public class VTCodelab01 {
         // Declare and initialize a byte variable
         // Print the result using: System.out.println("Printing byte with value: " + <YOUR_VARIABLE_NAME>);
 
+        byte aByteVariable = 24;
+        System.out.println("Printing byte with value: " + aByteVariable);
     }
 
 }

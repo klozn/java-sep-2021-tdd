@@ -14,6 +14,10 @@ public class VTCodelab07 {
         // Print the result using: System.out.println("Printing a byte initialized with a casted short (127): " + <YOUR_BYTE_VARIABLE_NAME>);
         // Looks as expected, right?
 
+        short aShortVariable = 127;
+        byte aByte = (byte) aShortVariable;
+        System.out.println("Printing a byte initialized with a casted short (127): " + aByte);
+        // does to me
     }
 
 }
