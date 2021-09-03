@@ -4,6 +4,7 @@ public class MethodsCodelab02 {
 
     public static void main(String[] args) {
         // Call the legalDrinkingAge() method and print (write to the console) its returned value.
+        System.out.println(legalDrinkingAge());
     }
 
     // Do mind the static keyword!

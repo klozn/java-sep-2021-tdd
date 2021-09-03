@@ -3,10 +3,17 @@ package basic;
 public class MethodsCodelab03 {
 
     public static void main(String[] args) {
+        double result = 0;
         // Call the calculatePercentageValue(...) method 3 times
         //      1. Using value 100 and 80%
+        result = calculatePercentageValue(100, .8f);
+        System.out.println(result);
         //      2. Using value 250 and 5%
+        result = calculatePercentageValue(250, .05f);
+        System.out.println(result);
         //      3. Using 625 and 25%
+        result = calculatePercentageValue(625, .25f);
+        System.out.println(result);
         // Make sure to print (write to the console) each result.
     }
 

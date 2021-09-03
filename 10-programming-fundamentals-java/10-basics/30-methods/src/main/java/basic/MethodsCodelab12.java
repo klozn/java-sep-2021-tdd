@@ -11,6 +11,9 @@ public class MethodsCodelab12 {
         // - this code is used to ... (the final result of the code). Use this wording to find good method names.
         // - look for and remove duplication
 
+        printPersonalia("Jef", 1988);
+        printPersonalia("Sofie", 2005);
+        /*
         String name1 = "Jef";
         int birthYear1 = 1988;
         int age1 = 2021 - birthYear1;
@@ -49,5 +52,27 @@ public class MethodsCodelab12 {
         } else {
             System.out.println("not an adult");
         }
+        */
+    }
+
+    public static void printPersonalia(String name, int yearOfBirth) {
+        System.out.println("***********************");
+        System.out.println("Hi my name is " + name);
+        int age = calcAge(yearOfBirth);
+        System.out.println("I am " + age + " years old.");
+        System.out.println("Which means I am");
+        if (isAdult(age)) {
+            System.out.println("an adult");
+        } else {
+            System.out.println("not an adult");
+        }
+    }
+
+    public static int calcAge(int yearOfBirth) {
+        return 2021 - yearOfBirth;
+    }
+
+    public static boolean isAdult(int age) {
+        return age >= 18;
     }
 }

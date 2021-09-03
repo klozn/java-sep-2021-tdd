@@ -9,6 +9,13 @@ public class MethodsCodelab08 {
         // Method increment should print the message "Value <OLD_VALUE> incremented by 1. New value is <NEW_VALUE>"
         // Method increment should return the new (incremented) value
         // call the increment method with argument 10
+        increment(10);
+    }
+
+    public static int increment(int i) {
+        int result = i + 1;
+        System.out.print("Value " + i + " incremented by 1. New value is " + result);
+        return result;
     }
 
 }

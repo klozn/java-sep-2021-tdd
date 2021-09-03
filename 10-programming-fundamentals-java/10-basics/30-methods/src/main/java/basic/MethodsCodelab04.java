@@ -6,6 +6,11 @@ public class MethodsCodelab04 {
         // Call the methods below to produce the following output in the console:
         //      12345
         // Call every method exactly once (no more, no less)!
+        printOne();
+        printTwo();
+        printNumber(3);
+        System.out.print(getNumber(4));
+        System.out.print(getFive());
     }
 
     private static void printTwo() {

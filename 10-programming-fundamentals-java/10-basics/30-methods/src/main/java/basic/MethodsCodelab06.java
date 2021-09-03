@@ -7,6 +7,9 @@ public class MethodsCodelab06 {
         // Method add should define 2 parameters (both doubles)
         // Method add should return the addition of both parameters (as a double)
         // call the add method with arguments 80.51 and 10.01 and print the result
+        System.out.println(add(80.51, 10.01));
     }
-
+    public static double add(double number1, double number2) {
+        return number1+number2;
+    }
 }

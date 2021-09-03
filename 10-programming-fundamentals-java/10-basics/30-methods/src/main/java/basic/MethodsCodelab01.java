@@ -4,6 +4,7 @@ public class MethodsCodelab01 {
 
     public static void main(String[] args) {
         // Call the legalDrinkingAge() method.
+        legalDrinkingAge();
     }
 
     // Do mind the static keyword!
