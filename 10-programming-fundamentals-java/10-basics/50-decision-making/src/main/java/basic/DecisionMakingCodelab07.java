@@ -17,6 +17,15 @@ public class DecisionMakingCodelab07 {
         System.out.print("Please provide a number: ");
         String userInput = scanner.nextLine();
 
+        while (userInput.isBlank()) {
+            userInput = scanner.nextLine();
+        }
+
+        while (!isInteger(userInput)) {
+            System.out.println("That was not a number, try again: ");
+            userInput = scanner.nextLine();
+        }
+
         System.out.println("*******************");
         System.out.println();
         System.out.println(squareRoot(userInput));

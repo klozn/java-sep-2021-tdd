@@ -15,7 +15,24 @@ public class DecisionMakingCodelab04 {
      *      playBlackjack(19, 22) → 19
      */
     public static int playBlackjack(int cardValue1, int cardValue2) {
-        throw new UnsupportedOperationException("Implement me");
+        int difference1 = 21 - cardValue1;
+        int difference2 = 21 - cardValue2;
+
+        if (difference1 < 0 && difference2 < 0) {
+            return 0;
+        }
+        if (difference1 >= 0) {
+            if (difference2 < 0) {
+                return cardValue1;
+            } else if (difference1 <= difference2) {
+                return cardValue1;
+            } else {
+                return cardValue2;
+            }
+        } else {
+            return cardValue2;
+        }
+
     }
 
 

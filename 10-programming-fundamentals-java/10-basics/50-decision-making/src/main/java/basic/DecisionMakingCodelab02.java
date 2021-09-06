@@ -20,7 +20,16 @@ public class DecisionMakingCodelab02 {
      * playLottery(18, 4, 8) → 5
     */
     public static int playLottery(int lotteryNumberA, int lotteryNumberB, int lotteryNumberC) {
-        throw new UnsupportedOperationException("Implement me");
+        int sumOfAB = lotteryNumberA + lotteryNumberB;
+        int sumOfBC = lotteryNumberB + lotteryNumberC;
+        int sumOfAC = lotteryNumberA + lotteryNumberC;
+
+        if (sumOfAB == 10 || sumOfBC == 10 || sumOfAC == 10) {
+            return 10;
+        } else if (sumOfAB == sumOfBC + 10 || sumOfAB == sumOfAC + 10) {
+            return 5;
+        }
+        return 0;
     }
 
 

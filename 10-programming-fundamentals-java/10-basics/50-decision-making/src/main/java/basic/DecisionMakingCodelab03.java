@@ -15,7 +15,23 @@ public class DecisionMakingCodelab03 {
      *      uniqueSum(3, 3, 3) → 0
     */
     public static int uniqueSum(int operand1, int operand2, int operand3) {
-        throw new UnsupportedOperationException("Implement me");
+        int sum = 0;
+        if (operand1 != operand2) {
+            if (operand1 != operand3) {
+                if (operand2 != operand3) {
+                    sum = operand1 + operand2 + operand3;
+                } else {
+                    sum = operand1;
+                }
+            } else {
+                sum = operand2;
+            }
+        } else {
+            if (operand1 != operand3) {
+                sum = operand3;
+            }
+        }
+        return sum;
     }
 
 

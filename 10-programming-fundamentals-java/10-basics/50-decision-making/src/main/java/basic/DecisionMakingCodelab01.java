@@ -18,7 +18,8 @@ public class DecisionMakingCodelab01 {
      *      is1Or2MoreThanAMultipleOf20(41) → true
     */
      public static boolean is1Or2MoreThanAMultipleOf20(int numberToCheck) {
-        throw new UnsupportedOperationException("Implement me");
+        int rest = numberToCheck % 20;
+        return rest == 1 || rest == 2;
     }
 
 

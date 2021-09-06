@@ -1,5 +1,7 @@
 package basic;
 
+import java.util.Scanner;
+
 public class DecisionMakingCodelab06 {
 
     /**
@@ -17,6 +19,19 @@ public class DecisionMakingCodelab06 {
      * Adapt your solution with guard clauses so that even if the user writes something unexpected, your program still behaves in a logical way.
      */
     public static void main(String[] args) {
+        System.out.println("Which kind of greeting do you want (hello/goodbye)?: ");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine().toLowerCase();
 
+        switch (userInput) {
+            case "hello" :
+                System.out.println("We welcome you to our awesome application!");
+                break;
+            case "goodbye" :
+                System.out.println("Goodbye, hope to see you again.");
+                break;
+            default:
+                System.out.println("I could not interpret your input. Shutting down.");
+        }
     }
 }
