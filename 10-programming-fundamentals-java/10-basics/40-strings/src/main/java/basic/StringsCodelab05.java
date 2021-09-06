@@ -18,8 +18,11 @@ public class StringsCodelab05 {
      * Also: search how you can convert a char to a String, you'll need this as well.
      */
     public static String replaceCharacter(String text, char characterToReplace, char characterToReplaceWith) {
-        // implement me as described
-        return null;
+        String alteredText = "";
+        alteredText = text.replace(characterToReplace, characterToReplaceWith);
+        alteredText = alteredText.replace(Character.toUpperCase(characterToReplace), characterToReplaceWith);
+
+        return alteredText;
     }
 
 }

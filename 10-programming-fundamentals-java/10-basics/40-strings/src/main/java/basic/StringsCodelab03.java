@@ -16,8 +16,10 @@ public class StringsCodelab03 {
      * Using the documentation of String, search for the substring method, you'll need it.
      */
     public static String wrapWord(String wrapper, String wordToBeWrapped) {
-        // implement me as described
-        return null;
+        int middleIndex = wrapper.length() / 2;
+        String wrapStart = wrapper.substring(0,middleIndex);
+        String wrapEnd = wrapper.substring(middleIndex);
+        return wrapStart.concat(wordToBeWrapped).concat(wrapEnd);
     }
 
 }

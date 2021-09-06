@@ -15,7 +15,7 @@ public class StringsCodelab04 {
      */
     public static int findIndexOfWord(String text, String wordToFind) {
         // implement me as described
-        return -1;
+        return text.indexOf(wordToFind);
     }
 
 }

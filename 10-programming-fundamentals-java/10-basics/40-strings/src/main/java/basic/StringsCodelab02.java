@@ -15,7 +15,9 @@ public class StringsCodelab02 {
      */
     public static String wrapWord(String wrapper, String wordToBeWrapped) {
         // implement me as described
-        return null;
+        String wrapStart = wrapper.substring(0,2);
+        String wrapEnd = wrapper.substring(2);
+        return wrapStart.concat(wordToBeWrapped).concat(wrapEnd);
     }
 
 }

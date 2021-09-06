@@ -15,7 +15,7 @@ public class StringsCodelab01 {
      */
     public static String helloName(String name) {
         // implement me as described
-        return null;
+        return "Hello " + name + "!";
     }
 
 }
