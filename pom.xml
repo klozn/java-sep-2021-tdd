@@ -7,6 +7,10 @@
     <groupId>com.switchfully</groupId>
     <artifactId>track-java</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+    </properties>
     <packaging>pom</packaging>
 
     <modules>
