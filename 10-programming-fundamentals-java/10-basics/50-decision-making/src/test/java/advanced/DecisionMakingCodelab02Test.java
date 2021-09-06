@@ -55,7 +55,7 @@ public class DecisionMakingCodelab02Test {
     public void ifProvidingRugbyWillPrintOutFootballDescription() {
         printOutSport("Rugby");
         assertThat(outContent.toString()).isEqualToNormalizingNewlines("""
-                You have selected Rubgy
+                You have selected Rugby
                 Description: You run away with a ball and other people try to stop you by ramming you.
                 Popularity: 3
                 This sport is played with a ball
