@@ -39,7 +39,7 @@ public class DecisionMakingCodelab02 {
                 teamSport = true;
                 break;
             case "Rugby":
-                System.out.println("You have selected Rubgy");
+                System.out.println("You have selected Rugby");
                 popularity = 3;
                 description = "You run away with a ball and other people try to stop you by ramming you.";
                 hasBall = true;
