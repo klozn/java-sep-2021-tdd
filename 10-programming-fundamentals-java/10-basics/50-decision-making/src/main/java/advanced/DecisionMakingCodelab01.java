@@ -11,24 +11,23 @@ public class DecisionMakingCodelab01 {
      * Run the test afterwards to see if everything still works.
      */
     public static double calculateTaxRate(int earnings, int fringeBenefits, boolean dependentChildren, int vacationDays) {
-        if (earnings > 40000) {
-            if (fringeBenefits < 2000) {
-                return 0.3;
-            } else if (dependentChildren) {
-                if (vacationDays > 5) {
-                    return 0.35;
-                } else {
-                    if (fringeBenefits < 5000) {
-                        return 0.33;
-                    } else {
-                        return 0.34;
-                    }
-                }
-            } else {
-                return 0.4;
-            }
-        } else {
+        if (earnings <= 40000) {
             return 0.2;
         }
+        if (fringeBenefits < 2000) {
+            return 0.3;
+        }
+        if (dependentChildren && vacationDays > 5) {
+            return 0.35;
+        }
+        if (dependentChildren && fringeBenefits < 5000) {
+            return 0.33;
+        }
+        if (dependentChildren) {
+            return 0.34;
+        } else {
+            return 0.4;
+        }
+
     }
 }
