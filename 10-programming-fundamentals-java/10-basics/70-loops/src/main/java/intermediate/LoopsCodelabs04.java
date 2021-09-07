@@ -16,21 +16,54 @@ public class LoopsCodelabs04 {
      * For this method, only use the WHILE-LOOP
      */
     public static String textRepeatWhile(int numberOfTimes, String textToRepeat) {
-        throw new UnsupportedOperationException("Implement me");
+        if (!isPositive(numberOfTimes)) {
+            return "Impossible text repeat";
+        }
+        String result = "";
+        int counter = 0;
+        while (counter < numberOfTimes) {
+            result = result.concat(textToRepeat);
+            counter++;
+        }
+        return result;
     }
 
     /**
      * For this method, only use the DO-WHILE-LOOP
      */
     public static String textRepeatDoWhile(int numberOfTimes, String textToRepeat) {
-        throw new UnsupportedOperationException("Implement me");
+        if (!isPositive(numberOfTimes)) {
+            return "Impossible text repeat";
+        }
+        if (numberOfTimes == 0) {
+            return "";
+        }
+
+        String result = "";
+        int counter = 0;
+        do {
+            result = result.concat(textToRepeat);
+            counter++;
+        } while (counter < numberOfTimes);
+        return result;
     }
 
     /**
      * For this method, only use the FOR-LOOP
      */
     public static String textRepeatFor(int numberOfTimes, String textToRepeat) {
-        throw new UnsupportedOperationException("Implement me");
+        if (!isPositive(numberOfTimes)) {
+            return "Impossible text repeat";
+        }
+        String result = "";
+        for (int i = 0; i < numberOfTimes; i++) {
+            result = result.concat(textToRepeat);
+        }
+        return result;
+    }
+
+    private static boolean isPositive(int numberOfTimes) {
+        return numberOfTimes >= 0;
     }
 
 }

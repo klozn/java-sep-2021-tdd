@@ -13,5 +13,13 @@ public class LoopsCodelabs01 {
      * Thank you for using the print services
      */
     public static void printOutArray(String[] array) {
+        if (array.length < 1) {
+            System.out.println("Nothing to print");
+        } else {
+            for (int i = 0; i < array.length; i++) {
+                System.out.println("At index " + i + " there is: " + array[i]);
+            }
+            System.out.println("Thank you for using the print services");
+        }
     }
 }

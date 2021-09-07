@@ -9,6 +9,14 @@ public class LoopsCodelabs02 {
      * E.g. createRange(10) will return {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] createRange(int range) {
-        return new int[]{};
+        if (range < 1) {
+            return new int[]{};
+        }
+
+        int[] intArr = new int[range];
+        for (int i = 0; i < range; i++) {
+            intArr[i] = i + 1;
+        }
+        return intArr;
     }
 }
