@@ -14,7 +14,23 @@ public class LoopsCodelabs07 {
      *      getAmountOfSquads([1]) → 1
      */
     public static int getAmountOfSquads(int[] numbers) {
-        throw new UnsupportedOperationException("Implement me");
+        if (numbers.length < 1) {
+            throw new IllegalArgumentException("The argument array can not be empty");
+        }
+        if (numbers.length == 1) {
+            return numbers[0];
+        }
+
+        int nrOfSquads = 0;
+        for (int i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i] == numbers[i + 1]) {
+                nrOfSquads++;
+                while (i < numbers.length - 1 && numbers[i] == numbers[i + 1]) {
+                    i++;
+                }
+            }
+        }
+        return nrOfSquads;
     }
 
 }

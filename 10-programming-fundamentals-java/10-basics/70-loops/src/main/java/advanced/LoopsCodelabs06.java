@@ -14,7 +14,17 @@ public class LoopsCodelabs06 {
      *      areScoresAscending([1]) → Illegal Argument Exception
      */
     public static boolean areScoresAscending(int[] scores) {
-        throw new UnsupportedOperationException("Implement me");
+        if (scores.length < 2) {
+            throw new IllegalArgumentException("The scores argument needs to have at least 2 elements");
+        }
+        boolean isAscending = true;
+
+        for (int i = 0; i < scores.length - 1; i++) {
+            if (scores[i + 1] < scores[i]) {
+                isAscending = false;
+            }
+        }
+        return isAscending;
     }
 
 }
