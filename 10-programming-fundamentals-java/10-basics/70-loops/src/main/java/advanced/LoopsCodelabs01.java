@@ -37,5 +37,13 @@ public class LoopsCodelabs01 {
      * Now try to combine these two methods!
      */
     public static void triangle(int height) {
+        for (int i = 1; i < height + 1; i++) {
+            int j = 0;
+            while (j < i) {
+                System.out.print("*");
+                j++;
+            }
+            System.out.println("");
+        }
     }
 }
