@@ -14,7 +14,24 @@ public class LoopsCodelabs08 {
      *      doesOuterContainAllElementsOfInner([1, 2, 8, 800, 1050], [1, 800]) → true
      */
     public static boolean doesOuterContainAllElementsOfInner(int[] outer, int[] inner) {
-        throw new UnsupportedOperationException("Implement me");
+        if (inner.length < 1) {
+            return true;
+        }
+        if (inner.length > outer.length) {
+            throw new IllegalArgumentException("Inner cannot be bigger than outer");
+        }
+
+        int nrOfElementsOfInnerInOuter = 0;
+        for (int i: inner) {
+            boolean found = false;
+            for (int j = 0; j < outer.length && !found; j++) {
+                if (outer[j] == i) {
+                    found = true;
+                    nrOfElementsOfInnerInOuter++;
+                }
+            }
+        }
+        return nrOfElementsOfInnerInOuter == inner.length;
     }
 
 }

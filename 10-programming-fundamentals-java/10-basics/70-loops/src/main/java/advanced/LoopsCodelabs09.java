@@ -15,6 +15,19 @@ public class LoopsCodelabs09 {
      * fibonacci(n) = fibonacci(n - 1) + fibonacci (n - 2)
      */
     public static int fibonacci(int number) {
-        return 0;
+        if (number < 1) {
+            return 0;
+        }
+        if (number == 1) {
+            return 1;
+        }
+
+        int[] fibonacciSequence = new int[number];
+        fibonacciSequence[0] = 1;
+        fibonacciSequence[1] = 1;
+        for (int i = 2; i < number; i++) {
+            fibonacciSequence[i] = fibonacciSequence[i - 2] + fibonacciSequence[i - 1];
+        }
+        return fibonacciSequence[number - 1];
     }
 }
