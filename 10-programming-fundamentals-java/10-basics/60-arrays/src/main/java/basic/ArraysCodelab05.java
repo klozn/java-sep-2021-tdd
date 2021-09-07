@@ -18,7 +18,11 @@ public class ArraysCodelab05 {
      * replaceThirdWord(["Not", "Working"], "PewPew") → ["Not", "Working"]
      */
     public static String[] replaceThirdWord(String[] words, String replacingWord) {
-        return new String[0];
+        if (words.length <= 2) {
+            return words;
+        }
+        words[2] = replacingWord;
+        return words;
     }
 
 

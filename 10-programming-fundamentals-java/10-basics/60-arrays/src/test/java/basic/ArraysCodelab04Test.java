@@ -10,7 +10,7 @@ class ArraysCodelab04Test {
     class FirstElement {
         @Test
         void firstElementWillReturnTheNumberAtIndex() {
-            Assertions.assertThat(ArraysCodelab04.firstElement(new int[]{5, 78, 56, 3165, 45})).isEqualTo(6);
+            Assertions.assertThat(ArraysCodelab04.firstElement(new int[]{5, 78, 56, 3165, 45})).isEqualTo(5);
         }
 
         @Test
@@ -41,7 +41,7 @@ class ArraysCodelab04Test {
     class ElementAtIndex {
         @Test
         void elementAtIndexGiven4WillReturnTheNumberAtIndex4() {
-            Assertions.assertThat(ArraysCodelab04.elementAtIndex(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(46);
+            Assertions.assertThat(ArraysCodelab04.elementAtIndex(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(45);
         }
 
         @Test
@@ -59,17 +59,17 @@ class ArraysCodelab04Test {
     class SumOfElementAtIndexAndNextElement {
         @Test
         void sumOfElementAtIndexAndNextElementGiven3WillReturnTheNumberAtIndex3PlusTheNumberAtIndex4() {
-            Assertions.assertThat(ArraysCodelab04.elementAtIndex(3, new int[]{5, 78, 56, 3165, 45})).isEqualTo(3210);
+            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(3, new int[]{5, 78, 56, 3165, 45})).isEqualTo(3210);
         }
 
         @Test
         void sumOfElementAtIndexAndNextElementGivenNegativeNumberWillReturn0() {
-            Assertions.assertThat(ArraysCodelab04.elementAtIndex(-1, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
+            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(-1, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
         }
 
         @Test
         void sumOfElementAtIndexAndNextElementGivenIndexEqualOrLargerThanTheLengthOfTheArrayMinusOneThenReturnZero() {
-            Assertions.assertThat(ArraysCodelab04.elementAtIndex(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
+            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
         }
     }
 }

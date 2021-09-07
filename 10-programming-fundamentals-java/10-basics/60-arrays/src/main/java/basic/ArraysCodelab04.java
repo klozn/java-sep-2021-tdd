@@ -13,27 +13,39 @@ public class ArraysCodelab04 {
      * Implement this method so that it returns the first element of the given array
      */
     public static int firstElement(int[] array) {
-        return 0;
+        if (array.length == 0) {
+            return 0;
+        }
+        return array[0];
     }
 
     /**
      * Implement this method so that it returns the first and second element of the given array
      */
     public static int sumOfFirstAndSecondElement(int[] array) {
-        return 0;
+        if (array.length < 2) {
+            return 0;
+        }
+        return array[0] + array[1];
     }
 
     /**
      * 1. Implement this method so that it returns the element at place index
      */
     public static int elementAtIndex(int index, int[] array) {
-        return 0;
+        if (index < 0 || index > array.length - 1) {
+            return 0;
+        }
+        return array[index];
     }
 
     /**
      * 1. Implement this method so that it returns the sum of the element at place index and the element in the place next to index
      */
     public static int sumOfElementAtIndexAndNextElement(int index, int[] array) {
-        return 0;
+        if (index < 0 || index > array.length - 2) {
+            return 0;
+        }
+        return (array[index] + array[index + 1]);
     }
 }

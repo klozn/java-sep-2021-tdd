@@ -13,7 +13,7 @@ public class ArraysCodelab03 {
      * Implement this method so that it returns the size of the given array.
      */
     public static int getSize(int[] input) {
-        return 0;
+        return input.length;
     }
 
     /**
@@ -24,7 +24,10 @@ public class ArraysCodelab03 {
      * Provide guard clauses that return something appropriate.
      */
     public static int getElementAt(int index, int[] array) {
-        return 0;
+        if (index < 0 || index > array.length - 1) {
+            return 0;
+        }
+        return array[index];
     }
 
 
@@ -37,7 +40,10 @@ public class ArraysCodelab03 {
      * Think of the edge-cases and write guard clauses to handle them.
      */
     public static int getElementAtRealIndex(int index, int[] array) {
-        return 0;
+        if (index < 1 || index > array.length) {
+            return 0;
+        }
+        return array[index - 1];
     }
 
     /**
@@ -49,7 +55,11 @@ public class ArraysCodelab03 {
      * Think of the edge-cases and write guard clauses to handle them.
      */
     public static int getElementAtSumOfIndexes(int index1, int index2, int[] array) {
-        return 0;
+        int sumOfIndexes = index1 + index2;
+        if (sumOfIndexes < 0 || sumOfIndexes > array.length - 1) {
+            return 0;
+        }
+        return array[sumOfIndexes];
     }
 
 }

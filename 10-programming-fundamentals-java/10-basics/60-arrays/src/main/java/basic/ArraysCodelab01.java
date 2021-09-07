@@ -12,12 +12,13 @@ public class ArraysCodelab01 {
      * Implement this method so that it prints out the 3th element of the input array
      */
     public static void printOutThirdElement(String[] input) {
-
+        System.out.println(input[2]);
     }
 
     /**
      * Implement this method so that it prints out the 5th element of the input array
      */
     public static void printOutFifthElement(String[] input) {
+        System.out.println(input[4]);
     }
 }
