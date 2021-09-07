@@ -41,7 +41,7 @@ class ArraysCodelab04Test {
     class ElementAtIndex {
         @Test
         void elementAtIndexGiven4WillReturnTheNumberAtIndex4() {
-            Assertions.assertThat(ArraysCodelab04.elementAtIndex(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(3165);
+            Assertions.assertThat(ArraysCodelab04.elementAtIndex(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(45);
         }
 
         @Test
@@ -59,7 +59,7 @@ class ArraysCodelab04Test {
     class SumOfElementAtIndexAndNextElement {
         @Test
         void sumOfElementAtIndexAndNextElementGiven3WillReturnTheNumberAtIndex3PlusTheNumberAtIndex4() {
-            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(3, new int[]{5, 78, 56, 3165, 45})).isEqualTo(3221);
+            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(3, new int[]{5, 78, 56, 3165, 45})).isEqualTo(3210);
         }
 
         @Test
