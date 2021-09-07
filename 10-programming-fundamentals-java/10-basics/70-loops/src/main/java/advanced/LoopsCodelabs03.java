@@ -14,7 +14,25 @@ public class LoopsCodelabs03 {
      *      xyBalance("") → true
      */
     public static boolean xyBalance(String textToAnalyze) {
-        throw new UnsupportedOperationException("Implement me");
+        if (textToAnalyze.isEmpty()) {
+            return true;
+        }
+        boolean balanced = true;
+        char[] characters = textToAnalyze.toCharArray();
+
+        for (int i = 0; i < characters.length; i++) {
+            if (characters[i] == 'x') {
+                balanced = false;
+
+                for (int j = i; !balanced && j < characters.length; j++) {
+                    if (characters[j] == 'y') {
+                        balanced = true;
+                        i = j;
+                    }
+                }
+            }
+        }
+        return balanced;
     }
 
 }
