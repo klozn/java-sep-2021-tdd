@@ -22,7 +22,14 @@ public class StringsCodelab05 {
         alteredText = text.replace(characterToReplace, characterToReplaceWith);
         alteredText = alteredText.replace(Character.toUpperCase(characterToReplace), characterToReplaceWith);
 
+        /**
+         * with replaceAll:
+         * String characterLowerCase = Character.toString(characterToReplace);
+         * String characterUpperCase = Character.toString(characterToReplace).toUpperCase();
+         * return text.replaceAll(characterLowerCase, characterToReplaceWith).replaceAll(characterUpperCase, characterToReplaceWith);
+         */
+
+
         return alteredText;
     }
-
 }
