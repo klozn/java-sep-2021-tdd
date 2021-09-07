@@ -28,10 +28,8 @@ public class ArraysCodelab08 {
             if (hasPaidRent[apartmentNumber - 1]) {
                 System.out.println(tenantNames[apartmentNumber - 1] + " has paid his/her rent.");
             } else {
-                System.out.println(tenantNames[apartmentNumber -1] + " has not paid his/her rent.");
+                System.out.println(tenantNames[apartmentNumber - 1] + " has not paid his/her rent.");
             }
         }
     }
-
-
 }
