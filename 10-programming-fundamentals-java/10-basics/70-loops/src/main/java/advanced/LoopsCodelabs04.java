@@ -17,7 +17,25 @@ public class LoopsCodelabs04 {
      *      getElementsAfter4([]) → [4]
      */
     public static int[] getElementsAfter4(int[] numbers) {
-        throw new UnsupportedOperationException("Implement me");
+        if (numbers.length < 1) {
+            return new int[]{4};
+        }
+        int indexOfLast4 = -1;
+        
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 4) {
+                indexOfLast4 = i;
+            }
+        }
+        if (indexOfLast4 == -1) {
+            return new int[]{4};
+        }
+        
+        int[] elementsAfter4 = new int[numbers.length - (indexOfLast4 + 1)];
+        for (int i = 0; i < elementsAfter4.length; i++) {
+            elementsAfter4[i] = numbers[i + indexOfLast4 + 1];
+        }
+        return elementsAfter4;
     }
 
 }

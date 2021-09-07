@@ -13,7 +13,7 @@ class LoopsCodelabs03Test {
 
     @Test
     void simpleMerge() {
-        assertThat(LoopsCodelabs03.merge(new int[]{1, 2, 3}, new int[]{1, 2, 3})).contains(1, 1, 2, 2, 3, 3);
+        assertThat(LoopsCodelabs03.merge(new int[]{1, 2, 3}, new int[]{1, 2, 3})).containsExactly(1, 1, 2, 2, 3, 3);
     }
 
     @Test
