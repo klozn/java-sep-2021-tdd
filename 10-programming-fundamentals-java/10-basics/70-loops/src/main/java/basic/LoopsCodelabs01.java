@@ -22,7 +22,7 @@ public class LoopsCodelabs01 {
      */
     private static void repeatWithWhile() {
         int i = 0;
-        while (i < 5) {
+        while (i < 6) {
             System.out.println("Hello!");
             i++;
         }
@@ -43,10 +43,10 @@ public class LoopsCodelabs01 {
      * - Can you change the for-loop so that it prints out 'hello' one more time?
      */
     private static void repeatWithFor() {
-//        for(i <5 ; int i = 0; i++) {
-//            System.out.println("Hello!");
-//        }
-//        System.out.println("Finished");
+        for(int i = 0; i < 6 ; i++) {
+            System.out.println("Hello!");
+        }
+        System.out.println("Finished");
     }
 
     /**
@@ -78,6 +78,7 @@ public class LoopsCodelabs01 {
      * - Can you rewrite the code so that it prints out the same number of Hello's but it is easier to read?
      */
     private static void loopHard() {
+/*
         int index = 20;
         while (index > 0) {
             System.out.println("Hello!");
@@ -86,6 +87,11 @@ public class LoopsCodelabs01 {
             } else {
                 index--;
             }
+        }
+*/
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Hello");
         }
         System.out.println("Finished");
     }
