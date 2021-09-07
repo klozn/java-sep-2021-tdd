@@ -14,6 +14,10 @@ public class ArraysCodelab05 {
      * 2. If index is either too big or too small do nothing
      */
     public static String[] replaceElementAtIndexWith(int index, String replacement, String[] array) {
+        if (index < 0 || index > array.length -1) {
+            return array;
+        }
+        array[index] = replacement;
         return array;
     }
 
@@ -39,6 +43,12 @@ public class ArraysCodelab05 {
      * Use this saved value to overwrite the element at index2.
      */
     public static String[] swapElements(int index1, int index2, String[] array) {
+        if (index1 < 0 || index2 < 0 || index1 > array.length - 1 || index2 > array.length - 1) {
+            return array;
+        }
+        String temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
         return array;
     }
 }

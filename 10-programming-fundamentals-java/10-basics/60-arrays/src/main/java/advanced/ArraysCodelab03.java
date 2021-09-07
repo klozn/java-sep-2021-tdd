@@ -19,7 +19,10 @@ public class ArraysCodelab03 {
      *      concatArrays([9, 2], [3, 4]) → [9, 2, 3, 4]
      */
     public static int[] concatArrays(int[] firstNumbers, int[] secondNumbers) {
-        throw new UnsupportedOperationException("implement me");
+        if (firstNumbers.length != 2 || secondNumbers.length != 2) {
+            return firstNumbers;
+        }
+        return new int[] {firstNumbers[0], firstNumbers[1], secondNumbers[0], secondNumbers[1]};
     }
 
 }

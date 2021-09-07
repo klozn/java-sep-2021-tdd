@@ -20,7 +20,7 @@ public class ArraysCodelab01 {
      *      firstOrLast6([13, 6, 1, 2, 3]) → false
      */
     public static boolean firstOrLast6(int[] numbers) {
-        throw new UnsupportedOperationException("implement me");
+        return numbers[0] == 6 || numbers[numbers.length - 1] == 6;
     }
 
 }

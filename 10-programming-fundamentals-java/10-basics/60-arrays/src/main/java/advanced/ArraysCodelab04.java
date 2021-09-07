@@ -21,7 +21,12 @@ public class ArraysCodelab04 {
      *
      */
     public static int[] getLargestSum(int[] firstArray, int[] secondArray) {
-        throw new UnsupportedOperationException("implement me");
+        int sumOfFirstArray = firstArray[0] + firstArray[1] + firstArray[2];
+        int sumOfSecondArray = secondArray[0] + secondArray[1] + secondArray[2];
+        if (sumOfFirstArray == sumOfSecondArray) {
+            return firstArray;
+        }
+        return sumOfFirstArray > sumOfSecondArray ? firstArray : secondArray;
     }
 
 }

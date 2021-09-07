@@ -41,18 +41,28 @@ public class ArraysCodelab07 {
     }
 
     public static void increasePointsFromCustomerInFirstShop(int customerNumber, int points, int[] database) {
-
+        if ((customerNumber >= 1) && (customerNumber <= 10)) {
+            database[customerNumber - 1] = database[customerNumber - 1] + points;
+        }
     }
 
     public static int getPointsFromCustomerInFirstShop(int customerNumber, int[] database) {
-        return 0;
+        if (customerNumber < 1 || customerNumber > 10) {
+            return 0;
+        }
+        return database[customerNumber - 1];
     }
 
     public static void increasePointsFromCustomerInSecondShop(int customerNumber, int points, int[] database) {
-
+        if ((customerNumber >= 1) && (customerNumber <= 10)) {
+            database[customerNumber - 1 + 10] = database[customerNumber - 1 + 10] + points;
+        }
     }
 
     public static int getPointsFromCustomerInSecondShop(int customerNumber, int[] database) {
-        return 0;
+        if (customerNumber < 1 || customerNumber > 10) {
+            return 0;
+        }
+        return database[customerNumber - 1 + 10];
     }
 }

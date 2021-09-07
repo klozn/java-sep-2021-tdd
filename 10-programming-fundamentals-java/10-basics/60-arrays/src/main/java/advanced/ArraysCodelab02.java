@@ -18,7 +18,7 @@ public class ArraysCodelab02 {
      *      takeMiddleElements([5, 2, 9], [1, 4, 5]) → [2, 4]
      */
     public static int[] takeMiddleElements(int[] firstNumbers, int[] secondNumbers) {
-        throw new UnsupportedOperationException("implement me");
+        return new int[] {firstNumbers[1], secondNumbers[1]};
     }
 
 }

@@ -40,7 +40,13 @@ public class ArraysCodelab06 {
      *
      */
     public static int[] enlarge(int[] array) {
-        return null;
+        if (array.length != 2) {
+            return array;
+        }
+        int[] largeArr = new int[10];
+        largeArr[0] = array[0];
+        largeArr[1] = array[1];
+        return largeArr;
     }
 
     /**
@@ -76,6 +82,12 @@ public class ArraysCodelab06 {
      *
      */
     public static int[] enlargeFromTheFront(int[] array) {
-        return null;
+        if (array.length != 2) {
+            return array;
+        }
+        int[] largeArr = new int[10];
+        largeArr[8] = array[0];
+        largeArr[9] = array[1];
+        return largeArr;
     }
 }

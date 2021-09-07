@@ -22,7 +22,15 @@ public class ArraysCodelab08 {
     }
 
     public static void printOutTenantStatus(int apartmentNumber, String[] tenantNames, boolean[] hasPaidRent) {
-
+        if (apartmentNumber < 1 || apartmentNumber > tenantNames.length) {
+            System.out.println("Apartment " + apartmentNumber + " does not exist.");
+        } else {
+            if (hasPaidRent[apartmentNumber - 1]) {
+                System.out.println(tenantNames[apartmentNumber - 1] + " has paid his/her rent.");
+            } else {
+                System.out.println(tenantNames[apartmentNumber -1] + " has not paid his/her rent.");
+            }
+        }
     }
 
 
