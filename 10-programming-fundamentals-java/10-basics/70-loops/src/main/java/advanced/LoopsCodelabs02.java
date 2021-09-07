@@ -10,7 +10,22 @@ public class LoopsCodelabs02 {
      * Tip: "cat" and "dog" both have length 3...
      */
     public static boolean catDog(String textToAnalyze) {
-        throw new UnsupportedOperationException("Implement me");
-    }
+        if (textToAnalyze.isEmpty()) {
+            return false;
+        }
 
+        char[] characters = textToAnalyze.toCharArray();
+        int nrOfCats = 0;
+        int nrOfDogs = 0;
+
+        for (int i = 0; i < textToAnalyze.length(); i++) {
+            if (characters[i] == 'c' && characters[i + 1] == 'a' && characters[i + 2] == 't') {
+                nrOfCats++;
+            }
+            if (characters[i] == 'd' && characters[i + 1] == 'o' && characters[i + 2] == 'g') {
+                nrOfDogs++;
+            }
+        }
+        return nrOfCats == nrOfDogs;
+    }
 }
