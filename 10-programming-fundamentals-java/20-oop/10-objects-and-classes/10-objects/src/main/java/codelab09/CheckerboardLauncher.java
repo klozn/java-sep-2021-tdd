@@ -41,12 +41,12 @@ public class CheckerboardLauncher {
         int nrOfSquaresH = width / SQUARE_SIZE;
         int nrOfSquaresV = height / SQUARE_SIZE;
 
-        BigSquare[][] squares = new BigSquare[nrOfSquaresV][nrOfSquaresH];
+        BigSquare[][] squares = new BigSquare[nrOfSquaresH][nrOfSquaresV];
 
-        for (int i = 0; i < nrOfSquaresV; i++) {
-            for (int j = 0; j < nrOfSquaresH; j++) {
-                int yPos = i * SQUARE_SIZE;
-                int xPos = j * SQUARE_SIZE;
+        for (int i = 0; i < nrOfSquaresH; i++) {
+            for (int j = 0; j < nrOfSquaresV; j++) {
+                int xPos = i * SQUARE_SIZE;
+                int yPos = j * SQUARE_SIZE;
 
                 squares[i][j] = new BigSquare(xPos, yPos,
                         (i + j) % 2 == 0 ? Color.RED: Color.BLACK);
