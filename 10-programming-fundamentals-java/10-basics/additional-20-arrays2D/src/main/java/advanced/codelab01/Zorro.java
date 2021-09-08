@@ -27,7 +27,7 @@ public class Zorro {
             for (char c: line) {
                 System.out.print(c);
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
