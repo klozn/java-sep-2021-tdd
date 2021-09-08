@@ -24,14 +24,13 @@ public class DecisionMakingCodelab04 {
         if (difference1 >= 0) {
             if (difference2 < 0) {
                 return cardValue1;
-            } else if (difference1 <= difference2) {
-                return cardValue1;
-            } else {
-                return cardValue2;
             }
-        } else {
+            if (difference1 <= difference2) {
+                return cardValue1;
+            }
             return cardValue2;
         }
+        return cardValue2;
 
     }
 
