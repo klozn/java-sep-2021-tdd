@@ -22,10 +22,10 @@ public class LoopsCodelabs08 {
         }
 
         int nrOfElementsOfInnerInOuter = 0;
-        for (int i: inner) {
+        for (int element: inner) {
             boolean found = false;
             for (int j = 0; j < outer.length && !found; j++) {
-                if (outer[j] == i) {
+                if (outer[j] == element) {
                     found = true;
                     nrOfElementsOfInnerInOuter++;
                 }

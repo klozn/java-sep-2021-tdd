@@ -16,6 +16,10 @@ public class RecursiveFunctionsCodelab01 {
      * You can not use anything from the loops chapter (so no for, while, do-while, streams, ...)
      */
     public static String repeatWord(String input, int repetitions) {
-        return null;
+        if (repetitions == 0) {
+            return "";
+        }
+
+        return repeatWord(input, --repetitions) + input;
     }
 }
