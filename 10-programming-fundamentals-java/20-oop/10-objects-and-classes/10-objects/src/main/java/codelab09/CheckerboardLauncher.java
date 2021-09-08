@@ -18,9 +18,11 @@ public class CheckerboardLauncher {
      * cleaner / better / simpler code.
      *
      */
+    final static int SQUARE_SIZE = 50;
+
     public static void main(String[] args) {
-        int width = 1000;
-        int height = 700;
+        int width = 1920;
+        int height = 1080;
 
         BigWindow window = new BigWindow(width, height);
         BigCanvas canvas = new BigCanvas();
@@ -30,28 +32,25 @@ public class CheckerboardLauncher {
                 canvas.addShape(shape);
             }
         }
-
         window.addComponent(canvas);
         window.launch();
-
     }
 
     private static BigSquare[][] generateSquares(int width, int height) {
 
-        int nrOfSquaresH = width / 50;
-        int nrOfSquaresV = height / 50;
+        int nrOfSquaresH = width / SQUARE_SIZE;
+        int nrOfSquaresV = height / SQUARE_SIZE;
 
         BigSquare[][] squares = new BigSquare[nrOfSquaresV][nrOfSquaresH];
 
         for (int i = 0; i < nrOfSquaresV; i++) {
             for (int j = 0; j < nrOfSquaresH; j++) {
-                int yPos = i * 50;
-                int xPos = j * 50;
+                int yPos = i * SQUARE_SIZE;
+                int xPos = j * SQUARE_SIZE;
 
                 squares[i][j] = new BigSquare(xPos, yPos,
                         (i + j) % 2 == 0 ? Color.RED: Color.BLACK);
             }
-
         }
         return squares;
     }
