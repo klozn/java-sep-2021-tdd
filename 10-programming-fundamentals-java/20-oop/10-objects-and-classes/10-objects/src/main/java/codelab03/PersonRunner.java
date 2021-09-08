@@ -16,4 +16,15 @@ package codelab03;
  *      Finally, repeat step 4 for this object.
  */
 public class PersonRunner {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Robert");
+        person.setHeightInCm(178);
+        System.out.println(person.askPersonAboutHimself());
+
+        Person person2 = new Person();
+        person2.setName("Emma");
+        person2.setHeightInCm(180);
+        System.out.println(person2.askPersonAboutHimself());
+    }
 }

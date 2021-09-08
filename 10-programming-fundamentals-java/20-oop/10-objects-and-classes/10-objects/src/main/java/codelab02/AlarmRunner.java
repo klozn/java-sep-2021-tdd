@@ -14,4 +14,12 @@ package codelab02;
  * Tip: Inspect the methods, see what they do. Do they have a return value? Do they return a String object?
  */
 public class AlarmRunner {
+    public static void main(String[] args) {
+        Alarm alarm = new Alarm();
+
+        alarm.makeTringSound();
+        alarm.makeBleepSound();
+        alarm.makeInappropriateSound();
+        alarm.makePiepSound();
+    }
 }

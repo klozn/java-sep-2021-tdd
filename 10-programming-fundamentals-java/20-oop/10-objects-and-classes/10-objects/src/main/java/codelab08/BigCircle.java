@@ -12,6 +12,7 @@ public class BigCircle extends BigShape {
     public BigCircle(int xCoordinate, int yCoordinate, int size, Color color) {
         super(xCoordinate, yCoordinate, color);
         this.size = size;
+
     }
 
     @Override

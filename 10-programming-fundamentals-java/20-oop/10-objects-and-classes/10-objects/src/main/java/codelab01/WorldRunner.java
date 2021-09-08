@@ -10,7 +10,9 @@ package codelab01;
 public class WorldRunner {
 
     public static void main(String[] args) {
-
+        World world = new World();
+        String message = world.getMessage();
+        System.out.println(message);
     }
 
 }

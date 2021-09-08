@@ -1,5 +1,7 @@
 package codelab07;
 
+import java.awt.*;
+
 public class ApplicationRunner {
 
     /**
@@ -18,7 +20,10 @@ public class ApplicationRunner {
      */
     public static void main(String[] args) {
 
-        // Start programming here!
+        LittleRectangle littleRectangle = new LittleRectangle(10, 35, Color.RED);
+        LittleWindow littleWindow = new LittleWindow();
+        littleWindow.addComponent(littleRectangle);
+        littleWindow.launch();
 
     }
 

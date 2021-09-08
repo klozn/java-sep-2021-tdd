@@ -1,5 +1,7 @@
 package codelab08;
 
+import java.awt.*;
+
 public class HouseApplication {
 
     /**
@@ -37,7 +39,24 @@ public class HouseApplication {
      *
      */
     public static void main(String[] args) {
-        // Start programming here!
+        BigWindow window = new BigWindow(1000, 450);
+        BigCanvas canvas = new BigCanvas();
+
+        BigCircle sun = new BigCircle(800, 30, 150, Color.YELLOW);
+        BigSquare redHouse = new BigSquare(0, 360, Color.RED);
+        BigTriangle redRoof = new BigTriangle(0,360, Color.RED);
+        BigSquare yellowHouse = new BigSquare(500, 360, Color.YELLOW);
+        BigTriangle blackRoof = new BigTriangle(500,360, Color.BLACK);
+        BigSquare blueHouse = new BigSquare(940, 360, Color.BLUE);
+        BigTriangle blueRoof = new BigTriangle(940,360, Color.BLUE);
+        BigShape[] shapes = new BigShape[] {sun, redHouse, redRoof, yellowHouse, blackRoof, blueHouse, blueRoof};
+
+        for (BigShape shape: shapes) {
+            canvas.addShape(shape);
+        }
+        window.addComponent(canvas);
+        window.launch();
+
     }
 
 }

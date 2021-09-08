@@ -25,7 +25,11 @@ public class Cat {
         } return false;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", lifesLeft=" + lifesLeft +
+                '}';
+    }
 }

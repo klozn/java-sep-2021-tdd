@@ -1,5 +1,7 @@
 package codelab05;
 
+import java.awt.*;
+
 public class CatRunner {
 
     /**
@@ -32,7 +34,21 @@ public class CatRunner {
      */
     public static void main(String[] args) {
 
-        // Start creating cats here!
+        Cat genericCat = new Cat();
+        Cat garfield = new Cat("Garfield", 27, Color.ORANGE);
+        Cat felix = new Cat("Felix", 10, Color.BLACK);
+        Cat dobby = new Cat("Dobby", 3, Color.RED);
+        Cat[] cats = new Cat[] {genericCat, garfield, felix, dobby};
+
+        for (Cat c: cats) {
+            System.out.println(c);
+        }
+
+        System.out.println(Cat.fight(garfield, felix));
+        dobby.miauw();
+        System.out.println(garfield.getColor());
+        System.out.println(garfield.getName());
+        System.out.println(garfield.getAgeInYears());
 
     }
 

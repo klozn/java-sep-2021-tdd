@@ -17,6 +17,15 @@ package codelab04;
  * over that array, each time calling the toString() method and printing the result
  */
 public class ComputerRunner {
+    public static void main(String[] args) {
+        Computer genericComputer = new Computer();
+        Computer sonyComputer = new Computer("Sony");
+        Computer cheapComputer = new Computer(88800);
+        Computer appleComputer = new Computer("Apple", 159500);
 
-
+        Computer[] computers = new Computer[] {genericComputer, sonyComputer, cheapComputer, appleComputer};
+        for (Computer c: computers) {
+            System.out.println(c); //system.out.println automatically calls toString() method. Who you kiddin', huh?
+        }
+    }
 }

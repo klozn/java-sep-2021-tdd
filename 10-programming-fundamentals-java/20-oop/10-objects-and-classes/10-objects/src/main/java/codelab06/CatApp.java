@@ -17,4 +17,28 @@ package codelab06;
  *
  */
 public class CatApp {
+    public static void main(String[] args) {
+        Cat[] cats = new Cat[10];
+
+        for (int i = 0; i < cats.length; i++) {
+            cats[i] = new Cat("Cat Index" + i);
+        }
+        printCats(cats);
+        for (int i = 0; i < cats.length; i++) {
+            if (i % 2 == 1) {
+                cats[i].kill();
+            }
+        }
+        printCats(cats);
+
+        Cat cat9 = cats[9];
+        while (cat9.kill());
+        System.out.println(cat9.getName() + " has died... Luckily it's not a real cat.");
+    }
+
+    private static void printCats(Cat[] cats) {
+        for (Cat cat: cats) {
+            System.out.println(cat);
+        }
+    }
 }
