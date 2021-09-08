@@ -40,13 +40,10 @@ public class ArraysCodelab06 {
      *
      */
     public static int[] enlarge(int[] array) {
-        if (array.length != 2) {
+        if (!isArrayWithLength2(array)) {
             return array;
         }
-        int[] largeArr = new int[10];
-        largeArr[0] = array[0];
-        largeArr[1] = array[1];
-        return largeArr;
+        return initializeArrayOfSize10(0, 1, array);
     }
 
     /**
@@ -82,12 +79,20 @@ public class ArraysCodelab06 {
      *
      */
     public static int[] enlargeFromTheFront(int[] array) {
-        if (array.length != 2) {
+        if (!isArrayWithLength2(array)) {
             return array;
         }
+        return initializeArrayOfSize10(8, 9, array);
+    }
+
+    private static boolean isArrayWithLength2(int[] array) {
+        return array.length == 2;
+    }
+
+    private static int[] initializeArrayOfSize10(int index1, int index2, int[] arrayOfSize2) {
         int[] largeArr = new int[10];
-        largeArr[8] = array[0];
-        largeArr[9] = array[1];
+        largeArr[index1] = arrayOfSize2[0];
+        largeArr[index2] = arrayOfSize2[1];
         return largeArr;
     }
 }

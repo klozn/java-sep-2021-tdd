@@ -25,9 +25,8 @@ public class DecisionMakingCodelab01 {
         }
         if (dependentChildren) {
             return 0.34;
-        } else {
-            return 0.4;
         }
+        return 0.4;
 
     }
 }

@@ -30,16 +30,20 @@ public class ArraysCodelab06 {
     }
 
     public static String getWinner(String[] standings) {
-        if (standings.length < 1) {
+        if (isEmptyArray(standings)) {
             return null;
         }
         return standings[0];
     }
 
     public static String getLoser(String[] standings) {
-        if (standings.length < 1) {
+        if (isEmptyArray(standings)) {
             return null;
         }
         return standings[standings.length -1];
+    }
+
+    private static boolean isEmptyArray(String[] stringArr) {
+        return stringArr.length < 1;
     }
 }
