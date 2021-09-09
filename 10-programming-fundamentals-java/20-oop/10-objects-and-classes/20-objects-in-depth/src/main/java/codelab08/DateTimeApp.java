@@ -52,6 +52,16 @@ public class DateTimeApp {
         ZoneOffset offset = ZoneOffset.of("+02:00");
         OffsetDateTime offSetByTwo = OffsetDateTime.of(localDateTime, offset);
 
+        LocalDate initialDate = LocalDate.parse("2007-05-10");
+        LocalDate finalDate = initialDate.plus(Period.ofDays(5));
 
+        int five = Period.between(initialDate, finalDate).getDays();
+        long jive = ChronoUnit.DAYS.between(initialDate, finalDate);
+
+        LocalTime initialTime = LocalTime.of(6, 30, 0);
+        LocalTime finalTime = initialTime.plus(Duration.ofSeconds(30));
+
+        long thirty = Duration.between(initialTime, finalTime).getSeconds();
+        long thirsty = ChronoUnit.SECONDS.between(initialTime, finalTime);
     }
 }
