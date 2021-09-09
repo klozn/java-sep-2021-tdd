@@ -33,7 +33,10 @@ public class Client {
 
         TaxiCompany blueTaxiCompany = new TaxiCompany();
         Taxi anotherTaxi = blueTaxiCompany.sendTaxi();
-        anotherTaxi.driveToLocation("Central Station, Brussels");
+        if (anotherTaxi == null) {
+            System.out.println("Looks like there's no taxi available");
+        } else {
+            anotherTaxi.driveToLocation("Central Station, Brussels");
+        }
     }
-
 }

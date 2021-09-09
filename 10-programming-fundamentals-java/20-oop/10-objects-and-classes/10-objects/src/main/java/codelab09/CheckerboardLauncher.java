@@ -21,8 +21,8 @@ public class CheckerboardLauncher {
     final static int SQUARE_SIZE = 50;
 
     public static void main(String[] args) {
-        int width = 1920;
-        int height = 1080;
+        int width = 1000;
+        int height = 500;
 
         BigWindow window = new BigWindow(width, height);
         BigCanvas canvas = new BigCanvas();

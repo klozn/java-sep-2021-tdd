@@ -1,5 +1,7 @@
 package codelab05;
 
+import java.util.Objects;
+
 /**
  * Override and implement the equals method so that the output - provided by the main method - matches the following:
  *      Should be TRUE: true
@@ -42,5 +44,16 @@ public class MoneyCoin {
         System.out.println("Should be FALSE: " + moneyCoinA.equals(moneyCoinE));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MoneyCoin moneyCoin = (MoneyCoin) o;
+        return value == moneyCoin.value && Objects.equals(currency.toLowerCase(), moneyCoin.currency.toLowerCase());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, currency);
+    }
 }

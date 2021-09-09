@@ -12,5 +12,11 @@ package codelab03;
  */
 public class DogEqualityApp {
 
+    public static void main(String[] args) {
+        Dog hubert = new Dog("Hubert", (short) 1999);
+        Dog carlo = new Dog("Hubert", (short) 1999);
 
+        System.out.println(hubert == carlo); // -> false
+        System.out.println(hubert.equals(carlo));   // -> true
+    }
 }

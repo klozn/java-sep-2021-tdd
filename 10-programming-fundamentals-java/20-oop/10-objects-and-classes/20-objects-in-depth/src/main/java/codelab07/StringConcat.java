@@ -1,5 +1,7 @@
 package codelab07;
 
+import java.util.StringJoiner;
+
 public class StringConcat {
 
     public static void main(String[] args) {
@@ -13,7 +15,11 @@ public class StringConcat {
      * Hints: Look up information on StringJoiner, then create an object and use it.
      */
     static String joinLorem(String[] wordsToJoin) {
-        return null;
+        StringJoiner stringJoiner = new StringJoiner(" ", "", ".");
+        for (String s: wordsToJoin) {
+            stringJoiner.add(s);
+        }
+        return stringJoiner.toString();
     }
 
     /**
@@ -21,7 +27,13 @@ public class StringConcat {
      * Hints: Look up information on StringBuilder, then create an object and use it.
      */
     static String buildLorem(String[] wordsToBuild) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < wordsToBuild.length - 1; i++) {
+            stringBuilder.append(wordsToBuild[i]).append(" ");
+        }
+        stringBuilder.append(wordsToBuild[wordsToBuild.length - 1])
+                .append(".");
+        return stringBuilder.toString();
     }
 
 }

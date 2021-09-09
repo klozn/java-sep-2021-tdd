@@ -14,7 +14,6 @@ public class PointRunner {
      *          - To execute the code, turn the code on line 17 into a comment (or simply remove it)
      */
     public static void main(String[] args) {
-        thinkBeforeYouRunThisExercise();
 
         Point pointAlpha = new Point(99,45);
         Point pointBeta = pointAlpha;
@@ -22,21 +21,30 @@ public class PointRunner {
 
         pointCharlie.move(45,205);
         System.out.println(pointAlpha.toString()); // what is the output and why?
+        //  pointAlpha will be at (45, 205) because all variables are referring to the same object in memory
         System.out.println("----------------------");
 
         pointBeta = new Point(85,99);
         System.out.println(pointAlpha.toString()); // what is the output and why?
+        //  (45, 205) : nothing happened to the pointAlpha variable since previous print statement
         System.out.println(pointBeta.toString()); // what is the output and why?
+        //  (85, 99) : pointBeta is now referring to its own object in memory
         System.out.println("----------------------");
 
         Point pointDelta = Add50(pointAlpha);
         System.out.println(pointDelta); // what is the output and why?
+        //  (95, 255) : add50 creates a new Point object, only using the x and y of the parameter object
+
         System.out.println(pointAlpha); // what is the output and why?
+        //  (45, 205) : pointAlpha was not altered by the add50 method.
         System.out.println("----------------------");
 
         Point pointEcho = moveTo100(pointAlpha);
         System.out.println(pointCharlie.toString()); // what is the output and why?
+        //  (100, 100) : pointEcho is now referring to the same object as pointAlpha, as is pointCharlie,
+        //  which has been moved by the method
         System.out.println(pointEcho.toString()); // what is the output and why?
+        //  (100, 100) : see above
         System.out.println("----------------------");
     }
 

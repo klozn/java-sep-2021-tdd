@@ -17,16 +17,19 @@ import java.awt.*;
  *    --------------------
  *
  * How many Rectangle objects exist? How many Point objects?
+ * 1 rectangle, two points
  * What is the output of the program?
  *
  * At the end of the main method, are the p1 and p2 references equal?
  *      - So really the question is: do they point to the same object in the heap?
  *      - Yes or no? Why?
+ *      no: findCenter method returns new Point
  * If you think you know the answer, write a line of code to make sure!
  *
  * At the end of the main method, are the p1 and p2 objects equal?
  *      - So really the question is: are the objects themselves equal (based on (a part of) their state)
  *      - Yes or no? Why?
+ *      yes: they will be equal, as defined by the Point class's isEqual method
  * If you think you know the answer, write a line of code to make sure!
  */
 public class BoxRunner {
@@ -38,15 +41,17 @@ public class BoxRunner {
     }
 
     public static void main(String[] args) {
-        thinkBeforeYouRunThisExercise();
 
         Rectangle box1 = new Rectangle(2, 4, 8, 10);
         Point p1 = findCenter(box1);
-        System.out.println(p1);
+        System.out.println(p1); //  (6, 9)
 
         box1.grow(1, 1);
         Point p2 = findCenter(box1);
-        System.out.println(p2);
+        System.out.println(p2); //  (6, 9)
+
+        System.out.println(p1 == p2);
+        System.out.println(p1.equals(p2));
     }
 
     private static void thinkBeforeYouRunThisExercise() {

@@ -11,7 +11,6 @@ package codelab04;
 public class UniqueCitizenService {
 
     public static void main(String[] args) {
-        thinkBeforeYouRunThisExercise();
 
         Citizen citizenA = new Citizen("XZ-123-587", "Jimmy", "Jimmens");
         Citizen citizenB = new Citizen("XZ-123-587", "Jimmy", "Jimmens");
@@ -23,8 +22,11 @@ public class UniqueCitizenService {
         boolean isEqualCD = citizenC.equals(citizenD);
 
         System.out.println(isEqualAB); // will the output be true or false? Why?
+        // true : equals method only checks socialSecurityNumber, and these are the same
         System.out.println(isEqualBC); // will the output be true or false? Why?
+        // false : socialSecurityNumbers are different
         System.out.println(isEqualCD); // will the output be true or false? Why?
+        // true : socialSecurityNumbers are the same
     }
 
     private static void thinkBeforeYouRunThisExercise() {
