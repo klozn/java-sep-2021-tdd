@@ -4,7 +4,7 @@ public class GridArea {
     private final int xPos;
     private final int yPos;
     private boolean hasShipPart;
-    private String shipName;
+    private Ship ship;
     private boolean isFiredAt;
 
     public GridArea() {
@@ -15,7 +15,6 @@ public class GridArea {
         this.xPos = xPos;
         this.yPos = yPos;
         hasShipPart = false;
-        shipName = "No ship";
         isFiredAt = false;
     }
 
@@ -33,22 +32,41 @@ public class GridArea {
 
     public void addShipPart(Ship ship) {
         hasShipPart = true;
-        shipName = ship.getName();
+        this.ship = ship;
+        ship.addGridArea(this);
     }
 
     public boolean isFiredAt() {
         return isFiredAt;
     }
 
-    public void bomb() {
-        isFiredAt = true;
+    public String bomb() {
+        if (!isFiredAt) {
+            isFiredAt = true;
+            if (hasShipPart) {
+                if (ship.isSunk()) {
+                    return "Ship on " + getxPos() + ", " + getyPos() + " (" + ship.getName() + ") was hit and destroyed";
+                }
+                return "Ship on " + getxPos() + ", " + getyPos() +" (" + ship.getName() + ") was hit.";
+            }
+            return "Big miss";
+        }
+        return "There's no point in bombing " + getxPos() + ", " + getyPos() + " twice...";
     }
 
-    @Override
-    public String toString() {
+    public String printValue() {
         if (!isFiredAt) {
             return "O";
         }
         return hasShipPart ? "H": "X";
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("GridArea{");
+        sb.append("xPos=").append(getxPos());
+        sb.append(", yPos=").append(getyPos());
+        sb.append('}');
+        return sb.toString();
     }
 }

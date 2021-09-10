@@ -37,25 +37,31 @@ public class Grid {
         }
     }
 
+    public Ship[] getShips() {
+        return ships;
+    }
+
     private void placeShip(Ship ship) {
         Random random = new Random();
         int startingPositionX;
         int startingPositionY;
         boolean horizontalPlacement;
 
+        boolean available;
         do {
             startingPositionX = random.nextInt(NUMBER_OF_ROWS);
             startingPositionY = random.nextInt(NUMBER_0F_COLUMNS);
             horizontalPlacement = random.nextBoolean();
-        } while (checkAvailability(startingPositionX, startingPositionY, horizontalPlacement, ship));
+            available = checkAvailability(startingPositionX, startingPositionY, horizontalPlacement, ship);
+        } while (!available);
 
         if (horizontalPlacement) {
-            for (int i = startingPositionX; i < ship.getSize(); i++) {
+            for (int i = startingPositionX, j = 0; j < ship.getSize(); i++, j++) {
                 grid[i][startingPositionY].addShipPart(ship);
             }
         } else {
-            for (int j = startingPositionY; j < ship.getSize(); j++) {
-                grid[startingPositionX][j].addShipPart(ship);
+            for (int i = startingPositionY, j = 0; j < ship.getSize(); i++, j++) {
+                grid[startingPositionX][i].addShipPart(ship);
             }
         }
     }
@@ -73,7 +79,19 @@ public class Grid {
                 if (grid[i][yPos].hasShipPart()) {
                     return false;
                 }
-                // TODO: if it is surrounded by ship parts: return false
+                // If it is surrounded by ship parts: return false
+                try {
+                    if (i == xPos && grid[i-1][yPos].hasShipPart()){
+                        return false;
+                    }
+                    if (i == xPos + ship.getSize() && grid[i+1][yPos].hasShipPart()) {
+                        return false;
+                    }
+                    if (grid[i][yPos - 1].hasShipPart() || grid[i][yPos + 1].hasShipPart()) {
+                        return false;
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                }
             }
         } else {
             if (yPos + ship.getSize() > NUMBER_0F_COLUMNS - 1) {
@@ -83,25 +101,46 @@ public class Grid {
                 if (grid[xPos][j].hasShipPart()) {
                     return false;
                 }
-                // TODO: if it is surrounded by ship parts: return false
+                // If it is surrounded by ship parts: return false
+                try {
+                    if (j == yPos && grid[xPos][j-1].hasShipPart()){
+                        return false;
+                    }
+                    if (j == yPos + ship.getSize() && grid[xPos][j+1].hasShipPart()) {
+                        return false;
+                    }
+                    if (grid[xPos - 1][j].hasShipPart() || grid[xPos + 1][j].hasShipPart()) {
+                        return false;
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                }
             }
         }
         return true;
     }
 
     public void updateGameStatus() {
-        boolean shipPartsFound = false;
-        for (int i = 0; i < NUMBER_OF_ROWS && !shipPartsFound; i++) {
-            for (int j = 0; j < NUMBER_0F_COLUMNS && !shipPartsFound; j++) {
-                if (grid[i][j].hasShipPart() && !grid[i][j].isFiredAt()) {
-                    shipPartsFound = true;
-                }
-            }
-        }
-        gameOver = !shipPartsFound;
+        gameOver = Arrays.stream(getShips()).allMatch(Ship::isSunk);
     }
 
+    public boolean isGameOver() {
+        return gameOver;
+    }
 
+    public String bomb(int x, int y) {
+        return grid[x][y].bomb();
+    }
 
-
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        for (GridArea[] row: grid) {
+            for (GridArea gridArea: row) {
+                sb.append(gridArea.printValue());
+                sb.append(" ");
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
 }
