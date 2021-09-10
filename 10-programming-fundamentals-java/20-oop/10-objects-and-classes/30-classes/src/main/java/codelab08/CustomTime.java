@@ -1,5 +1,7 @@
 package codelab08;
 
+import java.util.Objects;
+
 public class CustomTime {
 
     public static final CustomTime MIDNIGHT = new CustomTime(0, 0, 0);
@@ -28,16 +30,17 @@ public class CustomTime {
                 this.hour, this.minute, this.second);
     }
 
-    /**
-     * This is not the real equals method. It does not take in a parameter of type Object...
-     * It is not correctly overriding the equals method of Object.
-     * @param that the CustomTime object to check equality with.
-     * @return boolean to indicate whether that is equal to this.
-     */
-    public boolean equals(CustomTime that) {
-        return this.hour == that.hour
-                && this.minute == that.minute
-                && this.second == that.second;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomTime that = (CustomTime) o;
+        return hour == that.hour && minute == that.minute && Double.compare(that.second, second) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, minute, second);
     }
 
     public void add(CustomTime other) {
