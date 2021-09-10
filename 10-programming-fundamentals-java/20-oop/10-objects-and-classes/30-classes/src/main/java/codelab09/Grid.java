@@ -8,8 +8,8 @@ public class Grid {
     public final static int NUMBER_OF_ROWS = 10;
     public final static int NUMBER_0F_COLUMNS = 10;
 
-    private GridArea[][] grid = new GridArea[NUMBER_OF_ROWS][NUMBER_0F_COLUMNS];
-    private Ship[] ships = new Ship[5];
+    private final GridArea[][] grid = new GridArea[NUMBER_OF_ROWS][NUMBER_0F_COLUMNS];
+    private final Ship[] ships = new Ship[5];
     private boolean gameOver;
 
     public Grid() {
