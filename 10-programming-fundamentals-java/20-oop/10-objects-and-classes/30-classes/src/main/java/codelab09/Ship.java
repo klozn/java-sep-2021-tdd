@@ -1,6 +1,7 @@
 package codelab09;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Ship {
     private int size;
@@ -23,7 +24,7 @@ public class Ship {
     }
 
     public boolean isSunk() {
-        return Arrays.stream(gridAreas).allMatch(GridArea::isFiredAt);
+        return Arrays.stream(gridAreas).allMatch(GridArea::isBombed);
     }
 
     public void addGridArea(GridArea gridArea) {
@@ -45,5 +46,18 @@ public class Ship {
         sb.append(", sunk=").append(sunk);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ship ship = (Ship) o;
+        return size == ship.size && Objects.equals(name, ship.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(size, name);
     }
 }

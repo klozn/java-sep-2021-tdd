@@ -4,7 +4,6 @@ public class Product {
     private String name;
     private double price;
     private int amount;
-    private double subtotal;
 
     public Product(String name, double price, int amount) {
         this.name = name;

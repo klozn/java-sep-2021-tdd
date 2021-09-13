@@ -3,7 +3,7 @@ package codelab09;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Grid {
+public class BattleShipGameService {
 
     public final static int NUMBER_OF_ROWS = 10;
     public final static int NUMBER_0F_COLUMNS = 10;
@@ -12,7 +12,7 @@ public class Grid {
     private final Ship[] ships = new Ship[5];
     private boolean gameOver;
 
-    public Grid() {
+    public BattleShipGameService() {
         gameOver = false;
         initializeShips();
         initializeGrid();
@@ -52,7 +52,7 @@ public class Grid {
             startingPositionX = random.nextInt(NUMBER_OF_ROWS);
             startingPositionY = random.nextInt(NUMBER_0F_COLUMNS);
             horizontalPlacement = random.nextBoolean();
-            available = checkAvailability(startingPositionX, startingPositionY, horizontalPlacement, ship);
+            available = checkAvailability(startingPositionX, startingPositionY, horizontalPlacement, ship.getSize());
         } while (!available);
 
         if (horizontalPlacement) {
@@ -66,75 +66,84 @@ public class Grid {
         }
     }
 
-    private boolean checkAvailability(int xPos, int yPos, boolean horizontalPlacement, Ship ship) {
-        for (int i = 0; i < ship.getSize(); i++){
+    private boolean checkAvailability(int xPos, int yPos, boolean horizontalPlacement, int shipSize) {
+        if (outsideOfGrid(xPos, yPos, horizontalPlacement, shipSize)) return false;
+        if (gridAreasTaken(xPos, yPos, horizontalPlacement, shipSize)) return false;
+        if (surroundingGridAreasTaken(xPos, yPos, horizontalPlacement, shipSize)) return false;
+        return true;
+    }
 
-        }
-
-
-        if (grid[xPos][yPos].hasShipPart()) {
-            return false;
-        }
+    private boolean outsideOfGrid(int xPos, int yPos, boolean horizontalPlacement, int shipSize) {
         if (horizontalPlacement) {
-            if (xPos + ship.getSize() > NUMBER_OF_ROWS - 1) {
-                return false;
+            if (xPos + shipSize > NUMBER_OF_ROWS - 1) {
+                return true;
             }
-            for (int i = xPos; i < ship.getSize(); i++) {
+        } else {
+            if (yPos + shipSize > NUMBER_0F_COLUMNS - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean gridAreasTaken(int xPos, int yPos, boolean horizontalPlacement, int shipSize) {
+        if (horizontalPlacement) {
+            for (int i = xPos; i < xPos + shipSize; i++) {
                 if (grid[i][yPos].hasShipPart()) {
-                    return false;
-                }
-                // If it is surrounded by ship parts: return false
-                try {
-                    if (i == xPos && grid[i - 1][yPos].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
-                }
-                try {
-                    if (i == xPos + ship.getSize() && grid[i + 1][yPos].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
-                }
-                try {
-                    if (grid[i][yPos - 1].hasShipPart() || grid[i][yPos + 1].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
+                    return true;
                 }
             }
         } else {
-            if (yPos + ship.getSize() > NUMBER_0F_COLUMNS - 1) {
-                return false;
-            }
-            for (int j = yPos; j < ship.getSize(); j++) {
+            for (int j = yPos; j < yPos + shipSize; j++) {
                 if (grid[xPos][j].hasShipPart()) {
-                    return false;
-                }
-                // If it is surrounded by ship parts: return false
-                try {
-                    if (j == yPos && grid[xPos][j - 1].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    continue;
-                }
-                try {
-                    if (j == yPos + ship.getSize() && grid[xPos][j + 1].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    continue;
-                }
-                try {
-                    if (grid[xPos - 1][j].hasShipPart() || grid[xPos + 1][j].hasShipPart()) {
-                        return false;
-                    }
-                } catch (ArrayIndexOutOfBoundsException e) {
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
+    }
+
+    private boolean surroundingGridAreasTaken(int xPos, int yPos, boolean horizontalPlacement, int shipSize) {
+        if (horizontalPlacement) {
+            for (int i = xPos; i < xPos + shipSize; i++) {
+                if (i == xPos) {
+                    if (i > 0 && grid[i - 1][yPos].hasShipPart()) {
+                        return true;
+                    }
+                }
+                if (yPos > 0 && grid[i][yPos - 1].hasShipPart()) {
+                    return true;
+                }
+                if (yPos < NUMBER_0F_COLUMNS - 1 && grid[i][yPos + 1].hasShipPart()) {
+                    return true;
+                }
+                if (i == xPos + shipSize) {
+                    if (i < NUMBER_OF_ROWS - 1 && grid[i + 1][yPos].hasShipPart()) {
+                        return true;
+                    }
+                }
+            }
+        } else {
+            for (int i = yPos; i < yPos + shipSize; i++) {
+                if (i == yPos) {
+                    if (i > 0 && grid[xPos][i - 1].hasShipPart()) {
+                        return true;
+                    }
+                }
+                if (xPos > 0 && grid[xPos - 1][i].hasShipPart()) {
+                    return true;
+                }
+                if (xPos < NUMBER_OF_ROWS - 1 && grid[xPos + 1][i].hasShipPart()) {
+                    return true;
+                }
+                if (i == yPos + shipSize) {
+                    if (i < NUMBER_OF_ROWS - 1 && grid[xPos][i + 1].hasShipPart()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public void updateGameStatus() {

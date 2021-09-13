@@ -5,7 +5,7 @@ public class GridArea {
     private final int yPos;
     private boolean hasShipPart;
     private Ship ship;
-    private boolean isFiredAt;
+    private boolean bombed;
 
     public GridArea() {
         this(0, 0);
@@ -15,7 +15,7 @@ public class GridArea {
         this.xPos = xPos;
         this.yPos = yPos;
         hasShipPart = false;
-        isFiredAt = false;
+        bombed = false;
     }
 
     public int getxPos() {
@@ -36,13 +36,17 @@ public class GridArea {
         ship.addGridArea(this);
     }
 
-    public boolean isFiredAt() {
-        return isFiredAt;
+    public Ship getShip() {
+        return ship;
+    }
+
+    public boolean isBombed() {
+        return bombed;
     }
 
     public String bomb() {
-        if (!isFiredAt) {
-            isFiredAt = true;
+        if (!bombed) {
+            bombed = true;
             if (hasShipPart) {
                 if (ship.isSunk()) {
                     return "Ship on " + getxPos() + ", " + getyPos() + " (" + ship.getName() + ") was hit and destroyed";
@@ -55,7 +59,7 @@ public class GridArea {
     }
 
     public String printValue() {
-        if (!isFiredAt) {
+        if (!bombed) {
             return "O";
         }
         return hasShipPart ? "H": "X";

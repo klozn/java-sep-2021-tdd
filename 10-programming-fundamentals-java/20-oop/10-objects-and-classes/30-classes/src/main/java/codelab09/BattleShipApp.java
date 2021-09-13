@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BattleShipApp {
     public static void main(String[] args) {
-        Grid grid = new Grid();
+        BattleShipGameService grid = new BattleShipGameService();
         Scanner scanner = new Scanner(System.in);
 
         do {
