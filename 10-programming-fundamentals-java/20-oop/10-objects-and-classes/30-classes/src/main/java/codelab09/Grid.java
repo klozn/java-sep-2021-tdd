@@ -67,6 +67,10 @@ public class Grid {
     }
 
     private boolean checkAvailability(int xPos, int yPos, boolean horizontalPlacement, Ship ship) {
+        for (int i = 0; i < ship.getSize(); i++){
+
+        }
+
 
         if (grid[xPos][yPos].hasShipPart()) {
             return false;
@@ -81,12 +85,18 @@ public class Grid {
                 }
                 // If it is surrounded by ship parts: return false
                 try {
-                    if (i == xPos && grid[i-1][yPos].hasShipPart()){
+                    if (i == xPos && grid[i - 1][yPos].hasShipPart()) {
                         return false;
                     }
-                    if (i == xPos + ship.getSize() && grid[i+1][yPos].hasShipPart()) {
+                } catch (ArrayIndexOutOfBoundsException e) {
+                }
+                try {
+                    if (i == xPos + ship.getSize() && grid[i + 1][yPos].hasShipPart()) {
                         return false;
                     }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                }
+                try {
                     if (grid[i][yPos - 1].hasShipPart() || grid[i][yPos + 1].hasShipPart()) {
                         return false;
                     }
@@ -103,12 +113,20 @@ public class Grid {
                 }
                 // If it is surrounded by ship parts: return false
                 try {
-                    if (j == yPos && grid[xPos][j-1].hasShipPart()){
+                    if (j == yPos && grid[xPos][j - 1].hasShipPart()) {
                         return false;
                     }
-                    if (j == yPos + ship.getSize() && grid[xPos][j+1].hasShipPart()) {
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    continue;
+                }
+                try {
+                    if (j == yPos + ship.getSize() && grid[xPos][j + 1].hasShipPart()) {
                         return false;
                     }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    continue;
+                }
+                try {
                     if (grid[xPos - 1][j].hasShipPart() || grid[xPos + 1][j].hasShipPart()) {
                         return false;
                     }
