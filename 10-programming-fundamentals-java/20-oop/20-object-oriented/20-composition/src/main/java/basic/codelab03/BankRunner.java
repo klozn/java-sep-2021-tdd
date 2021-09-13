@@ -17,9 +17,19 @@ public class BankRunner {
         System.out.println("Enter account's initial balance");
         double balance = scan.nextDouble();
 
-        // continue here
+        AccountOwner owner = new AccountOwner(firstName, lastName);
+        Account account = new Account(balance, owner);
+        System.out.println(account);
 
+        System.out.println("Enter amount to withdraw");
+        double withdrawal = scan.nextDouble();
+        account.withdraw(withdrawal);
+        System.out.println(account);
 
+        System.out.println("Enter amount to deposit");
+        double deposit = scan.nextDouble();
+        account.deposit(deposit);
+        System.out.println(account);
     }
 
 }
