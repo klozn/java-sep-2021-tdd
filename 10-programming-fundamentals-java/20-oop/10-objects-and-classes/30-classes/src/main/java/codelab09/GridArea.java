@@ -62,7 +62,7 @@ public class GridArea {
         if (!bombed) {
             return "O";
         }
-        return hasShipPart ? "H": "X";
+        return hasShipPart ? "H": "x";
     }
 
     @Override

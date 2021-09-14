@@ -100,7 +100,7 @@ public class BattleShipGameService {
 
     private boolean surroundingGridAreasTaken(int xPos, int yPos, boolean horizontalPlacement, int shipSize) {
         if (horizontalPlacement) {
-            for (int i = yPos; i < yPos + shipSize; i++) {
+            for (int i = yPos; i <= yPos + shipSize; i++) {
                 if (i == yPos) {
                     if (i > 0 && grid[xPos][i - 1].hasShipPart()) {
                         return true;
@@ -113,13 +113,13 @@ public class BattleShipGameService {
                     return true;
                 }
                 if (i == yPos + shipSize) {
-                    if (i < NUMBER_OF_ROWS - 1 && grid[xPos][i + 1].hasShipPart()) {
+                    if (i < NUMBER_0F_COLUMNS - 1 && grid[xPos][i + 1].hasShipPart()) {
                         return true;
                     }
                 }
             }
         } else {
-            for (int i = xPos; i < xPos + shipSize; i++) {
+            for (int i = xPos; i <= xPos + shipSize; i++) {
                 if (i == xPos) {
                     if (i > 0 && grid[i - 1][yPos].hasShipPart()) {
                         return true;
