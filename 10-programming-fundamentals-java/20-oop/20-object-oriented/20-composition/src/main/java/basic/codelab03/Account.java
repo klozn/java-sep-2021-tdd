@@ -11,6 +11,7 @@ public class Account {
     private double balance;
     private AccountOwner owner;
     private long accountNumber;
+    private int maxWithdraw;
 
     public Account(double balance, AccountOwner owner) {
         this.balance = balance;
@@ -18,6 +19,7 @@ public class Account {
         Random random = new Random();
         accountNumber = random.nextInt(50_000_000);
         accountCounter++;
+        setMaxWithdraw(5000);
     }
 
     public static int getNumberOfAccounts() {
@@ -28,18 +30,30 @@ public class Account {
         return balance;
     }
 
+    protected void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    protected void setMaxWithdraw(int maxWithdraw) {
+        this.maxWithdraw = maxWithdraw;
+    }
+
+    public int getMaxWithdraw() {
+        return maxWithdraw;
+    }
+
     public long getAccountNumber() {
         return accountNumber;
     }
 
     public void withdraw(double amount) {
-        if (amount > 5000) {
-            System.out.println("The amount exceeds the withdrawal limit of €5,000.");
+        if (amount > maxWithdraw) {
+            System.out.println("The amount exceeds the withdrawal limit of €" + maxWithdraw +".");
         } else if (balance - amount < 0) {
             System.out.println("The amount exceeds your balance.");
         } else {
             balance -= amount;
-            System.out.println("We have withdrawn " + amount + " from your balance.");
+            System.out.println("We have withdrawn €" + amount + " from your balance.");
         }
     }
 
@@ -48,7 +62,7 @@ public class Account {
             System.out.println("The amount exceeds the depositing limit of €80,000.");
         } else {
             balance += amount;
-            System.out.println("We have deposited " + amount + " to you balance.");
+            System.out.println("We have deposited €" + amount + " to you balance.");
         }
     }
 
