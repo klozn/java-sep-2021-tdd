@@ -1,4 +1,4 @@
-package advanced.codelab01;
+package advanced.codelab01.weapons;
 
 public class Weapon {
     private String name;

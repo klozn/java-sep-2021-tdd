@@ -1,7 +1,5 @@
 package advanced.codelab01.weapons;
 
-import advanced.codelab01.Weapon;
-
 public class Dagger extends Weapon {
 
     public Dagger(String name) {
