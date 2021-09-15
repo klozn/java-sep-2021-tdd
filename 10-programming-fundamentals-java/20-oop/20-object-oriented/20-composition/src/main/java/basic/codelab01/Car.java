@@ -1,7 +1,5 @@
 package basic.codelab01;
 
-import java.util.Arrays;
-
 public class Car {
     private Engine engine;
     private Driver driver;
