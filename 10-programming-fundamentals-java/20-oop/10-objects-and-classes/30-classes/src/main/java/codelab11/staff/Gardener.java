@@ -1,4 +1,6 @@
-package codelab11;
+package codelab11.staff;
+
+import codelab11.house.Garden;
 
 public class Gardener {
 

@@ -1,4 +1,7 @@
-package codelab11;
+package codelab11.staff;
+
+import codelab11.Food;
+import codelab11.house.Kitchen;
 
 public class Cook {
 

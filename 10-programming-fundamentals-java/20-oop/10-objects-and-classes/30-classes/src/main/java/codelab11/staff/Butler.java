@@ -1,4 +1,7 @@
-package codelab11;
+package codelab11.staff;
+
+import codelab11.house.Diningroom;
+import codelab11.Food;
 
 public class Butler {
 
@@ -9,7 +12,7 @@ public class Butler {
     }
 
     public void serveFood(Food food, Diningroom diningroom) {
-        System.out.println("Butler " + name + " is serving " + food.name + " in the dining room");
+        System.out.println("Butler " + name + " is serving " + food.getName() + " in the dining room");
         diningroom.serveFood(food);
     }
 }

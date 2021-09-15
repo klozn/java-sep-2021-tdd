@@ -2,9 +2,13 @@ package codelab11;
 
 public class Food {
 
-    public String name;
+    private String name;
 
     public Food(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

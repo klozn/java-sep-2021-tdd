@@ -1,5 +1,8 @@
 package codelab11;
 
+import codelab11.house.*;
+import codelab11.staff.*;
+
 public class Main {
 
     /**
@@ -16,21 +19,25 @@ public class Main {
      *      https://refactoring.guru/refactoring/smells/couplers
      */
     public static void main(String[] args) {
-        House house = new House();
-        house.bathroom = new Bathroom();
-        house.kitchen = new Kitchen();
-        house.diningroom = new Diningroom();
-        house.garden = new Garden();
-        house.staff = new Staff();
-        house.staff.gardener = new Gardener("Patrick");
-        house.staff.butler = new Butler("Sofia");
-        house.staff.cook = new Cook("Hendrick");
-        house.staff.plumber = new Plumber("Alexia");
+        Staff.Builder staffBuilder = new Staff.Builder();
+        Staff staff = staffBuilder.withGardener(new Gardener("Patrick"))
+                .withButler(new Butler("Sofia"))
+                .withCook(new Cook("Hendrick"))
+                .withPlumber(new Plumber("Alexia"))
+                .build();
 
-        house.staff.gardener.tendTo(house.garden);
+        House.Builder houseBuilder = new House.Builder();
+        House house = houseBuilder.withBathroom(new Bathroom())
+                .withKitchen(new Kitchen())
+                .withDiningroom(new Diningroom())
+                .withGarden(new Garden())
+                .withStaff(staff)
+                .build();
+
+        house.tendToGarden();
         System.out.println("********************");
-        house.staff.butler.serveFood(house.staff.cook.prepareFood(house.kitchen), house.diningroom);
+        house.serveFood(house.prepareFood());
         System.out.println("********************");
-        house.staff.plumber.fixBathroom(house.bathroom);
+        house.fixBathroom();
     }
 }

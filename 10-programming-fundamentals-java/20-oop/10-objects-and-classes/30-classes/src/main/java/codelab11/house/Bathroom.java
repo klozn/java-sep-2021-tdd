@@ -1,4 +1,4 @@
-package codelab11;
+package codelab11.house;
 
 public class Bathroom {
     public void fixLeak() {
