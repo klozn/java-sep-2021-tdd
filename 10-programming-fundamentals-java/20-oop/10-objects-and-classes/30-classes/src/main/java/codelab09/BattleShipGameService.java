@@ -1,7 +1,6 @@
 package codelab09;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class BattleShipGameService {
     private GridArea[][] grid;

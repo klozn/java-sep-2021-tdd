@@ -7,7 +7,6 @@ public class Ship {
     private int size;
     private String name;
     private GridArea[] gridAreas;
-    private boolean sunk;
 
     public Ship(int size, String name) {
         this.size = size;
@@ -43,7 +42,6 @@ public class Ship {
         sb.append("size=").append(size);
         sb.append(", name='").append(name).append('\'');
         sb.append(", gridAreas=").append(Arrays.toString(gridAreas));
-        sb.append(", sunk=").append(sunk);
         sb.append('}');
         return sb.toString();
     }

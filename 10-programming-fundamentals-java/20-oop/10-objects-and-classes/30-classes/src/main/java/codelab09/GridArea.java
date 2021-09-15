@@ -7,10 +7,6 @@ public class GridArea {
     private Ship ship;
     private boolean bombed;
 
-    public GridArea() {
-        this(0, 0);
-    }
-
     public GridArea(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -34,10 +30,6 @@ public class GridArea {
         hasShipPart = true;
         this.ship = ship;
         ship.addGridArea(this);
-    }
-
-    public Ship getShip() {
-        return ship;
     }
 
     public boolean isBombed() {
