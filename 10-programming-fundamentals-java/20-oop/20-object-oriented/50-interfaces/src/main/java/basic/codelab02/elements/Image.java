@@ -1,6 +1,9 @@
 package basic.codelab02.elements;
 
-public class Image {
+import basic.codelab02.Clickable;
+import basic.codelab02.Downloadable;
+
+public class Image implements Clickable, Downloadable {
 
     private final String url;
     private final int heightInPixel;
@@ -18,5 +21,20 @@ public class Image {
 
     public String getDimensions() {
         return widthInPixel + "x" + heightInPixel;
+    }
+
+    @Override
+    public String click() {
+        return "Clicked on Image";
+    }
+
+    @Override
+    public String doubleClick() {
+        return "Double clicked on image";
+    }
+
+    @Override
+    public String download() {
+        return getUrl();
     }
 }

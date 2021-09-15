@@ -1,8 +1,10 @@
 package basic.codelab02.elements;
 
+import basic.codelab02.Downloadable;
+
 import java.util.Arrays;
 
-public class Table {
+public class Table implements Downloadable {
 
     private final int rows;
     private final int columns;
@@ -19,11 +21,19 @@ public class Table {
     }
 
     @Override
+    public String download() {
+        return this.toString();
+    }
+
+    @Override
     public String toString() {
-        return "Table{" +
-                "rows=" + rows +
-                ", columns=" + columns +
-                ", cells=" + Arrays.toString(cells) +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        for (String[] row: cells) {
+            for (String cell: row) {
+                sb.append(cell);
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
     }
 }

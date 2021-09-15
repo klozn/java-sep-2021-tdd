@@ -1,6 +1,8 @@
 package basic.codelab02.elements;
 
-public class Button {
+import basic.codelab02.Clickable;
+
+public class Button implements Clickable {
 
     private final String label;
 
@@ -16,4 +18,13 @@ public class Button {
         return new Button(label);
     }
 
+    @Override
+    public String click() {
+        return "Clicked on button";
+    }
+
+    @Override
+    public String doubleClick() {
+        return "Double clicked on button";
+    }
 }
