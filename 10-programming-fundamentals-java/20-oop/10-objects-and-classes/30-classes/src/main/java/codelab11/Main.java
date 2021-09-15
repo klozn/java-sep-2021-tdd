@@ -13,6 +13,7 @@ public class Main {
      *
      * Bonus (advanced) exercise:
      *      Avoid using getters as much as possible. It's a sign of feature envy/message chain (code smells).
+     *      https://refactoring.guru/refactoring/smells/couplers
      */
     public static void main(String[] args) {
         House house = new House();
