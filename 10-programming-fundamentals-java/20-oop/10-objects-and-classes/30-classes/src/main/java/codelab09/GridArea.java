@@ -59,10 +59,10 @@ public class GridArea {
     }
 
     public String printValue() {
-        if (!bombed) {
+        /*if (!bombed) {
             return "O";
-        }
-        return hasShipPart ? "H": "x";
+        }*/
+        return hasShipPart ? "H": ".";
     }
 
     @Override
