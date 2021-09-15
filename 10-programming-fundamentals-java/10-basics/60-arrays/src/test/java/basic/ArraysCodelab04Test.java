@@ -70,6 +70,7 @@ class ArraysCodelab04Test {
         @Test
         void sumOfElementAtIndexAndNextElementGivenIndexEqualOrLargerThanTheLengthOfTheArrayMinusOneThenReturnZero() {
             Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(4, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
+            Assertions.assertThat(ArraysCodelab04.sumOfElementAtIndexAndNextElement(5, new int[]{5, 78, 56, 3165, 45})).isEqualTo(0);
         }
     }
 }

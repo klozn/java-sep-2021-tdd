@@ -18,19 +18,19 @@ class CustomTimeTest {
     void create_defaultConstructorReturnsMidnight() {
         CustomTime expectedCustomTime = new CustomTime(0, 0, 0);
         CustomTime defaultCustomTime = new CustomTime();
-        assertThat(defaultCustomTime.equals(expectedCustomTime)).isTrue();
+        assertThat(defaultCustomTime).isEqualTo(expectedCustomTime);
     }
 
     @Test
     void midnight_hasCustomTimeOfMidnight() {
         CustomTime expectedCustomTime = new CustomTime(0, 0, 0);
-        assertThat(CustomTime.MIDNIGHT.equals(expectedCustomTime)).isTrue();
+        assertThat(CustomTime.MIDNIGHT).isEqualTo(expectedCustomTime);
     }
 
     @Test
     void noon_hasCustomTimeOfNoon() {
         CustomTime expectedCustomTime = new CustomTime(12, 0, 0);
-        assertThat(CustomTime.NOON.equals(expectedCustomTime)).isTrue();
+        assertThat(CustomTime.NOON).isEqualTo(expectedCustomTime);
     }
 
     @Test
