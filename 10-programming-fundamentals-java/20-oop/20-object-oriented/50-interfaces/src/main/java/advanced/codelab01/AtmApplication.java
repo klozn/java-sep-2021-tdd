@@ -1,6 +1,7 @@
 package advanced.codelab01;
 
 import advanced.codelab01.banking.SimpleBanking;
+import advanced.codelab01.banking.SmartBanking;
 
 /**
  * Instead of passing AtmMachine an instance of SimpleBanking,
@@ -11,7 +12,7 @@ public class AtmApplication {
 
     public static void main(String[] args) {
         double startingBalance = 250;
-        new AtmMachine(new SimpleBanking(startingBalance));
+        new AtmMachine(new SmartBanking(startingBalance));
     }
 
 }
