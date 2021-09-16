@@ -20,6 +20,22 @@ public class Staff {
         this.plumber = plumber;
     }
 
+    public void setGardener(Gardener gardener) {
+        this.gardener = gardener;
+    }
+
+    public void setButler(Butler butler) {
+        this.butler = butler;
+    }
+
+    public void setCook(Cook cook) {
+        this.cook = cook;
+    }
+
+    public void setPlumber(Plumber plumber) {
+        this.plumber = plumber;
+    }
+
     public void tendTo(Garden garden) {
         gardener.tendTo(garden);
     }

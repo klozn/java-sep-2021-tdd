@@ -19,15 +19,15 @@ public class Main {
      *      https://refactoring.guru/refactoring/smells/couplers
      */
     public static void main(String[] args) {
-        Staff.Builder staffBuilder = new Staff.Builder();
-        Staff staff = staffBuilder.withGardener(new Gardener("Patrick"))
+
+        Staff staff = new Staff.Builder().withGardener(new Gardener("Patrick"))
                 .withButler(new Butler("Sofia"))
                 .withCook(new Cook("Hendrick"))
                 .withPlumber(new Plumber("Alexia"))
                 .build();
 
-        House.Builder houseBuilder = new House.Builder();
-        House house = houseBuilder.withBathroom(new Bathroom())
+        House house = new House.Builder()
+                .withBathroom(new Bathroom())
                 .withKitchen(new Kitchen())
                 .withDiningroom(new Diningroom())
                 .withGarden(new Garden())

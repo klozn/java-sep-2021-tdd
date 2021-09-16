@@ -5,11 +5,11 @@ import codelab11.staff.*;
 
 public class House {
 
-    private Bathroom bathroom;
-    private Kitchen kitchen;
-    private Diningroom diningroom;
-    private Garden garden;
-    private Staff staff;
+    private final Bathroom bathroom;
+    private final Kitchen kitchen;
+    private final Diningroom diningroom;
+    private final Garden garden;
+    private final Staff staff;
 
     private House(Bathroom bathroom, Kitchen kitchen, Diningroom diningroom, Garden garden, Staff staff) {
         this.bathroom = bathroom;
