@@ -38,6 +38,7 @@ public class Application {
             BonusCalculator bonusCalculator = askForBonusCalculatorType(scanner);
             employee.setBonusCalculator(bonusCalculator);
             double bonus = employee.getBonus();
+            System.out.printf("Dear %s,\n", employee);
             System.out.println("The results are in! Your bonus is €" + bonus + ".");
         }
     }
@@ -46,7 +47,7 @@ public class Application {
         System.out.println("Please enter your firstname. Or enter 'QUIT' to quit the application.");
         String input = scanner.nextLine();
         if (isInValidName(input)) {
-            askForFirstname(scanner.reset());
+            return askForFirstname(scanner);
         }
         return input.strip();
     }
@@ -55,7 +56,7 @@ public class Application {
         System.out.println("Please enter your lastname.");
         String input = scanner.nextLine();
         if (isInValidName(input)) {
-            askForLastname(scanner.reset());
+            return askForLastname(scanner.reset());
         }
         return input.strip();
     }
@@ -81,11 +82,11 @@ public class Application {
             salary = Double.parseDouble(input);
         } catch (NumberFormatException nfe) {
             System.out.println("What you entered was not a number.");
-            askForYearlySalary(scanner.reset());
+            return askForYearlySalary(scanner);
         }
         if (salary <= 0) {
             System.out.println("We pay our employees around here.");
-            askForYearlySalary(scanner.reset());
+            return askForYearlySalary(scanner);
         }
         return salary;
     }
@@ -102,7 +103,7 @@ public class Application {
             optionIndex = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             System.out.println("We could not interpret your input.");
-            askForBonusCalculatorType(scanner.reset());
+            return askForBonusCalculatorType(scanner);
         }
 
         switch (optionIndex) {
@@ -111,8 +112,7 @@ public class Application {
             case 3: return BonusService.CALC_FOR_EXCEPTIONAL_EMPL;
             default:
                 System.out.println("That was never an option...");
-                askForBonusCalculatorType(scanner.reset());
+                return askForBonusCalculatorType(scanner);
         }
-        return null;
     }
 }

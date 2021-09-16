@@ -29,4 +29,9 @@ public class Employee {
             throw new IllegalStateException("Impossible to calculate a bonus when no bonusCalculator is set");
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s with yearly salary %f", name, yearlySalary);
+    }
 }
