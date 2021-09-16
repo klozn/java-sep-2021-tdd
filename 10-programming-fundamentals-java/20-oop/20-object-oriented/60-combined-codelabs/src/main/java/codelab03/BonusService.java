@@ -1,5 +1,9 @@
 package codelab03;
 
+import codelab03.calculators.BonusCalculatorForBadYear;
+import codelab03.calculators.BonusCalculatorForExceptionalEmployees;
+import codelab03.calculators.BonusCalculatorForGoodYear;
+
 import java.util.StringJoiner;
 
 /**
@@ -7,8 +11,20 @@ import java.util.StringJoiner;
  */
 class BonusService {
 
+    public final static BonusCalculator CALC_FOR_BAD_YEAR = new BonusCalculatorForBadYear();
+    public final static BonusCalculator CALC_FOR_GOOD_YEAR = new BonusCalculatorForGoodYear();
+    public final static BonusCalculator CALC_FOR_EXCEPTIONAL_EMPL = new BonusCalculatorForExceptionalEmployees();
+
     static void setBonusCalculatorsBasedOnYear(Employee[] employees, int bonusYear) {
-        // complete me!
+        if (isABadYear(bonusYear)) {
+            for (Employee employee : employees) {
+                employee.setBonusCalculator(CALC_FOR_BAD_YEAR);
+            }
+        } else {
+            for (Employee employee : employees) {
+                employee.setBonusCalculator(CALC_FOR_GOOD_YEAR);
+            }
+        }
     }
 
     static String calculateBonuses(Employee[] employees) {
