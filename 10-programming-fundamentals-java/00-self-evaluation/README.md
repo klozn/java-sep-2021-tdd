@@ -265,10 +265,10 @@ Some examples (size = 5), printed to the console
 ```
 
 ### Codelab 04
-1. [:x:] Create a method that returns the month in English by its number.
+1. [:heavy_check_mark:] Create a method that returns the month in English by its number.
     - Run the tests (before and after having implemented your solution.
         - The tests will also show what the exact requirements are!
-2. [:x:] Create a method that takes in a number of elements and calculates a price based on the following rules:
+2. [:heavy_check_mark:] Create a method that takes in a number of elements and calculates a price based on the following rules:
     - The first 10 elements costs 5 euro each.
     - The following 5 elements costs 4 euro each.
     - Every next element costs 3 euro each.
@@ -284,7 +284,7 @@ Some examples (size = 5), printed to the console
                 - amountOfItems == 16, then price == 73
                 - amountOfItems == 20, then price == 85
                 - amountOfItems == -1, then price == 0
-3. [:x:] Create a method that returns the following:
+3. [:heavy_check_mark:] Create a method that returns the following:
     - When the input is 1: "It's something"
     - When the input is 2: "That's more like it"
     - When the input is 3: "Way to go"
