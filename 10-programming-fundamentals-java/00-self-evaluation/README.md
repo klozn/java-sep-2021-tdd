@@ -229,10 +229,10 @@ Sometimes, tests have been written to validate your solution. Use (run) them.
 
 
 ### Codelab 03
-1. [:x:] Create a method that generates a 2D pattern (as a 2D array) based on a provided size (parameter).
-2. [:x:] Call the method and loop over the 2D array to print its contents to the console.
-3. [:x:] Based on the examples below, the pattern should be clear.
-4. [:x:] Run the tests (before and after having implemented your solution)
+1. [:heavy_check_mark:] Create a method that generates a 2D pattern (as a 2D array) based on a provided size (parameter).
+2. [:heavy_check_mark:] Call the method and loop over the 2D array to print its contents to the console.
+3. [:heavy_check_mark:] Based on the examples below, the pattern should be clear.
+4. [:heavy_check_mark:] Run the tests (before and after having implemented your solution)
 
 Some examples (size = 2), printed to the console
 ```
