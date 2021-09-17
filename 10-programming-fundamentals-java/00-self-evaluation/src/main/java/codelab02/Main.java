@@ -6,10 +6,15 @@ package codelab02;
 public class Main {
 
     public static char[] getAlphabet() {
-        return null;
+        char[] alphabet = new char[26];
+        for (int i = 0, j = 97; i < alphabet.length; i++, j++) {
+            alphabet[i] = (char) j;
+        }
+        return alphabet;
     }
 
     public static String[] replace3thElement(String[] strings) {
-        return null;
+        strings[2] = "do";
+        return strings;
     }
 }

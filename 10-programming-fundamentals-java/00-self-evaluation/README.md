@@ -216,11 +216,11 @@ Sometimes, tests have been written to validate your solution. Use (run) them.
     - E.g. 4 is provided as an argument, then value 5 is returned
 
 ### Codelab 02
-1. [:x:] Create a method that returns an array with all the letters of the alphabet.
+1. [:heavy_check_mark:] Create a method that returns an array with all the letters of the alphabet.
     - Check the test to see what is required exactly.
         - E.g. is it required to include both lower and upper-casing characters?
     - Run the tests (before and after having implemented your solution) 
-2. [:x:] Create a method that replaces the 3th element of a String[] array by "do".
+2. [:heavy_check_mark:] Create a method that replaces the 3th element of a String[] array by "do".
     - Run the tests (before and after having implemented your solution) 
     - Think about edge cases: empty array, null,... 
         - Test scenario's:
