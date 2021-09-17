@@ -293,10 +293,10 @@ Some examples (size = 5), printed to the console
 
 ### Codelab 05
 
-1. [:x:] Create an `Alarm`.
-2. [:x:] Make sure we can use a no-arg constructor and an single argument (the sound to make) constructor. By default, 
+1. [:heavy_check_mark:] Create an `Alarm`.
+2. [:heavy_check_mark:] Make sure we can use a no-arg constructor and an single argument (the sound to make) constructor. By default, 
 the sound to make is "BEEP". 
-3. [:x:] The `makeSound` method(s) should return an array containing x-times the sound to make.
+3. [:heavy_check_mark:] The `makeSound` method(s) should return an array containing x-times the sound to make.
     - We should be able to provide x, although it should not be required.
     - If x is not provided, the returned value should contain the 'sound to make' 3 times.
         - 3 is the default amount of times to make a sound.
