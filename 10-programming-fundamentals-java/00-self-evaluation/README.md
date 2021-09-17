@@ -60,7 +60,7 @@ Please do this after each finished codelab. It will help us in keeping track of 
    - for primitive types, the value of the argument is passed as a copy to a methods parameter. All operations done 
    on the parameter within the method have no consequences outside of the method. For reference types, the reference to
    the object in memory is copied to the parameter, so operations on that reference variable will have consequences for 
-   the object, i.e. changing its state.
+   the object, e.g. changing its state.
 9. [:heavy_check_mark:] **Of what types can we create an array?**
    - All of 'em.
 10. [:heavy_check_mark:] **Can the size of an array change after instantiation?**
@@ -103,37 +103,97 @@ System.out.println("It is false");
 ```
 
 ### Questions OOP
-1. [:x:] **The term "instance variable" is another name for ___ ? And, what is it exactly?**
-2. [:x:] **The term "class variable" is another name for ___ ?**
-3. [:x:] **What are parameters?**
-4. [:x:] **What are arguments?**
-5. [:x:] **What is the return type void?**
-6. [:x:] **What's an object? What's a class?**
-7. [:x:] **What's state? What's behavior?**
-8. [:x:] **What is an instance?**
-9. [:x:] **How do we create an object from a class?**
-10. [:x:] **What is the value `null`? What types can hold `null`?**
-11. [:x:] **What is an object reference?**
-12. [:x:] **What is data encapsulation? What role do the access modifiers play in it? Provide all access modifiers.**
-13. [:x:] **What is a constructor?**
-14. [:x:] **What is the default constructor?**
-15. [:x:] **What is a package? Why do we use them?**
-16. [:x:] **What is an enum and when should you use one?**
-17. [:x:] **What's the difference between a static method and an instance method?**
-18. [:x:] **What is a constant?**
-19. [:x:] **What is inheritance? Why is it useful? Give an example.**
-20. [:x:] **What is composition? Why is it useful? Give an example.**
-21. [:x:] **What is polymorphism? Why is it useful? Give an example.**
-22. [:x:] **What is meant with the sentence 'Class A extends / inherits from Class B'?**
-23. [:x:] **What is the difference between a (parent) class and an (abstract) parent class?**
-24. [:x:] **What's the difference between an abstract class and an interface?**
-25. [:x:] **What is meant with the sentence 'Class A implements (interface) A'?**
-26. [:x:] **How does an object gets 'destroyed' and thrown out of the memory?**
-27. [:x:] **What is the `Object` class?**
-28. [:x:] **To invert the value of a boolean, which operator would you use?**
-29. [:x:] **What is casting? explain widening/upcast and narrowing/downcast.**
-30. [:x:] **What does the `final` keyword do?**
-31. [:x:] **What is the difference between `==` and `equals`?**
+1. [:heavy_check_mark:] **The term "instance variable" is another name for ___ ? And, what is it exactly?**
+   - object variable. It's part of the state of an object.
+2. [:heavy_check_mark:] **The term "class variable" is another name for ___ ?**
+   - static variable. It's part of the state of a class of objects.
+3. [:heavy_check_mark:] **What are parameters?**
+   - input variables for a method.
+4. [:heavy_check_mark:] **What are arguments?**
+   - values or variables given to the method call.
+5. [:heavy_check_mark:] **What is the return type void?**
+   - void indicates a method will not return any value or object.
+6. [:heavy_check_mark:] **What's an object? What's a class?**
+   - An object is an instantiation of a class. A class is a blueprint for the creation of an object of that class.
+7. [:heavy_check_mark:] **What's state? What's behavior?**
+   - The state of an object are the combined values of its instance variables => the state of an object.
+   An object's behavior are the methods/functions the object provides.
+8. [:heavy_check_mark:] **What is an instance?**
+   - An instance of a class is a single object in memory of that class. Every call on the constructor of a class returns
+   a new instance of that class.
+9. [:heavy_check_mark:] **How do we create an object from a class?**
+   - calling the constructor of that class.
+10. [:heavy_check_mark:] **What is the value `null`? What types can hold `null`?**
+    - the absence of an object. Only reference types can hold null. A variable of a reference type can point to nothing 
+    at all. Then its value will be null. 
+11. [:heavy_check_mark:] **What is an object reference?**
+    - a description of the location of an object in memory.
+12. [:heavy_check_mark:] **What is data encapsulation? What role do the access modifiers play in it? Provide all access modifiers.**
+    - ensuring that outside classes can't reach the state of an object directly. Access modifiers describe which classes
+    in your project structure can reach this state directly. From more to less restrictive: private, protected, package 
+    and public.
+13. [:heavy_check_mark:] **What is a constructor?**
+    - a method in a class that returns an instance of that class via the 'new' keyword.
+14. [:heavy_check_mark:] **What is the default constructor?**
+    - In absence of an explicit constructor, Java will provide a default constructor without parameters.
+15. [:heavy_check_mark:] **What is a package? Why do we use them?**
+    - a folder containing classes, other packages. We use them to structure our code base.
+16. [:heavy_check_mark:] **What is an enum and when should you use one?**
+    - an enum is a class which holds a set of constants. We use them to represent naturally finite data set, e.g. days in a week.
+17. [:heavy_check_mark:] **What's the difference between a static method and an instance method?**
+    - you can call a static method directly on the class name; you don't need an object of that class. Instance methods 
+    can only be called on an instance/ object of a class.
+18. [:heavy_check_mark:] **What is a constant?**
+    - a variable inside a class that is static and final. It's value can never be altered after initialization.
+19. [:heavy_check_mark:] **What is inheritance? Why is it useful? Give an example.**
+    - A parent-child (super-sub) relationship between classes. The subclass inherits all state and behavior of its super 
+    class. It's useful when they are essentially related: the subclass 'is a' superclass. Through the inheritance we avoid 
+    a lot of code duplication and because of polymorphism we can have a reference type of the superclass point to an 
+    object type of the subclass. This allows us to collect different subtypes into a collection of the common super type.
+    Example: a XC-40 is a Volvo, a Volvo is a Car, a Car is a Vehicle.
+20. [:heavy_check_mark:] **What is composition? Why is it useful? Give an example.**
+    - having an object as part of the state of another class. This is useful when there is an ownership relationship
+    between two classes. Example: a car has an engine, a car has seats,...
+21. [:heavy_check_mark:] **What is polymorphism? Why is it useful? Give an example.**
+    - You can approach any object as if it's an object of its superclass or implemented interface. It has many uses
+      (loose coupling of objects is one). The main idea is that if a class only cares about certain aspects and behavior
+    of another class to do something with it, you should parameterize the reference type of that common superclass/interface.
+    Thus, you can pass any object type that extends or implements that class. Example: A driver has a car that 
+    it can drive. The car is driveable. The driver does not care which car he has to drive, as long as it's a driveable 
+    car he'll be happy.
+22. [:heavy_check_mark:] **What is meant with the sentence 'Class A extends / inherits from Class B'?**
+    - class B is the super class of class A. A will inherit all state and behavior of class B.
+23. [:heavy_check_mark:] **What is the difference between a (parent) class and an (abstract) parent class?**
+    - abstract classes can't be instantiated. All classes can be inherited from. Abstract classes can have abstract 
+    methods, which have no implementation. All subclasses must provide an implementation for all abstract methods defined
+    in the abstract parent class.
+24. [:heavy_check_mark:] **What's the difference between an abstract class and an interface?**
+    - while both can define abstract methods and can't be instantiated, an interface is more of a contract. Assuring the 
+    implementing class provides certain functionality. A class can implement multiple interfaces and can extend only one 
+    other (abstract) class. Classes implementing the same interface are not naturally related to one another. They just 
+    provide the same methods/behavior (though implementations can vary infinitely).
+25. [:heavy_check_mark:] **What is meant with the sentence 'Class A implements (interface) A'?**
+    - Class A provides an implementation for all behavior described by interface A. Class A can do anything that is
+    expected through the contract provided as interface A.
+26. [:heavy_check_mark:] **How does an object gets 'destroyed' and thrown out of the memory?**
+    - The garbage collector of the JRE is in charge of collecting all data objects that will not be used again. At the 
+    end of a code block all local variables will be ready for garbage collection. Objects are ready for garbage collection 
+    once the program will not reference them again. The JRE will garbage collect whenever it sees fit.
+27. [:heavy_check_mark:] **What is the `Object` class?**
+    - the super class all other classes inherit from.
+28. [:heavy_check_mark:] **To invert the value of a boolean, which operator would you use?**
+    - '!boolean'
+29. [:heavy_check_mark:] **What is casting? explain widening/upcast and narrowing/downcast.**
+    - changing the reference type of an object. upcast is going from a more specific (sub) type to a less specific (super)
+    type. Downcasting is the opposite, which is dangerous because you could try to jam an object into the wrong sub type,
+    resulting in typeCast exceptions. 
+30. [:heavy_check_mark:] **What does the `final` keyword do?**
+    - declaring a variable or class to be immutable/unchangable after instatiation/ initialization.
+31. [:heavy_check_mark:] **What is the difference between `==` and `equals`?**
+    - for reference types, '==' will check if both variables point to the same object in memory, while 'a.equals(b)' 
+    will call the equals method (provided by the Object class, preferably overridden because otherwise it will do the 
+    same as '==' and as a programmer you want to define in which case two objects, though they are separate instances, 
+    are equal to one another).
 
 ## Hands-on
 
