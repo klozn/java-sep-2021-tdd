@@ -312,8 +312,8 @@ Each suit includes an ace, a king, queen, and jack, and numbers two through ten.
 Commercial packs often include between one and six jokers, most often two. 
 But we will not include them in our solution!
 
-1. [:x:] Create a class that represents a single playing card.
-2. [:x:] Create a class that represents a deck of (52) cards.
+1. [:heavy_check_mark:] Create a class that represents a single playing card.
+2. [:heavy_check_mark:] Create a class that represents a deck of (52) cards.
     - After creating a deck of cards object, it should hold 52 cards.
     - However, it should also be possible to create a deck of cards object for which 
     we provided (as an argument) the cards (possible not 52 cards).
