@@ -345,14 +345,14 @@ But we will not include them in our solution!
 
 ### Codelab 08
 
-- [:x:] All birds have a beak size, it can be small, medium or large. Furthermore, it should be possible to **get** this beak size.
+- [:heavy_check_mark:] All birds have a beak size, it can be small, medium or large. Furthermore, it should be possible to **get** this beak size.
     - Eagle is a specific type of bird, an eagle has a large beak size.
     - Pigeon is a specific type of bird, a pigeon has a medium beak size.
     - Dodo is a specific type of bird, a dodo has a large beak size.
     - (any future new specific types of bird will also have a beak size)
     - (creating an instance of a (non-specific) bird should not be possible)
 
-- [:x:] Most birds can **fly**, but not all! Eagle and Pigeon can fly, a Dodo can not.
+- [:heavy_check_mark:] Most birds can **fly**, but not all! Eagle and Pigeon can fly, a Dodo can not.
     - When we let an eagle fly, it should return textual value "I'm soaring through the sky!"
     - When we let a pigeon fly, it should return textual value "Flap flap... oeh, look, breadcrumbs!"
     - It should be impossible to let a dodo fly (they're fly-less birds!)
