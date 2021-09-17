@@ -34,26 +34,66 @@ In **this file**, please replace every :x: with a check mark :heavy_check_mark: 
 Please do this after each finished codelab. It will help us in keeping track of your progress.
 
 ### Questions Basic
-1. [:x:] **What kind of types are there in Java?**
-2. [:x:] **What does 'declaring and initializing a variable' mean?**
-3. [:x:] **What is a statement? What is an expression? What is an operator?**
-4. [:x:] **What is `casting`? E.g. "I'm casting the value to an `int`"**
-5. [:x:] **What is the signature of a method?**
-6. [:x:] **What is method overloading?**
-7. [:x:] **What is method overriding (OOP)?**
-8. [:x:] **What is meant with "arguments are passed-by-value"?**
-9. [:x:] **Of what types can we create an array?**
-10. [:x:] **Can the size of an array change after instantiation?**
-11. [:x:] **What is the main difference (in use-case, not structure) of an If/Else statement and a Switch statement?**
-12. [:x:] **What is the main difference between primitive data types and reference types in Java?**
-13. [:x:] **What is the main difference between a While and Do-While loop (in execution, not structure)?**
-14. [:x:] **What is the main difference between a For and Foreach loop (in use-case, not structure)?**
-15. [:x:] **A variable declared within the opening and closing parenthesis of a method is called a ____ variable?**
-16. [:x:] **Why would you choose `long` over `int`?**
-17. [:x:] **What's the difference between `long` and `float`?**
-18. [:x:] **What value (`1/2` or `0.5` or `0`) will be printed for the following code? `System.out.println(1/2);`? Explain why?**
-19. [:x:] **What is the difference between `.java` and `.class` files?**
-20. [:x:] **What is the output of following code?**
+1. [:heavy_check_mark:] **What kind of types are there in Java?**
+   - primitive (numerical, char, boolean) and reference types
+2. [:heavy_check_mark:] **What does 'declaring and initializing a variable' mean?**
+   - creating a new variable and assigning a value to it. You declare the type of the variable, then give a name for it,
+   and you assign the value which could be whatever as long as the type fits.
+3. [:heavy_check_mark:] **What is a statement? What is an expression? What is an operator?**
+   - a statement is (a) line(s) of code ending in a semi-colon. 
+   - an expression is ... a smaller part of a statement that returns a value.
+   - an operator is a character or combination of characters that have meaning to the compiler and that allow you to
+   'perform operations' on variables and primitive values. Assigning a value, conditional statements, calculations, ... 
+   all rely on operands/operators.
+4. [:heavy_check_mark:] **What is `casting`? E.g. "I'm casting the value to an `int`"**
+   - changing the type of a value / variable. This is safe when upcasting (going from a type that holds less information
+   to one that holds more information), but the opposite, downcasting can be dangerous for losing data and unpredictable.
+5. [:heavy_check_mark:] **What is the signature of a method?**
+   - The name of the method paired with the parameters' types and exact amount.
+6. [:heavy_check_mark:] **What is method overloading?**
+   - creating a method with the same name, but different parameters. The JRE will know what method to use based on the
+   arguments given.
+7. [:heavy_check_mark:] **What is method overriding (OOP)?**
+   - creating a method in a subclass with the same signature as a method in its parent class. When called on an object
+   of the subclass, the parent method will be 'hidden' for the JRE.
+8. [:heavy_check_mark:] **What is meant with "arguments are passed-by-value"?**
+   - for primitive types, the value of the argument is passed as a copy to a methods parameter. All operations done 
+   on the parameter within the method have no consequences outside of the method. For reference types, the reference to
+   the object in memory is copied to the parameter, so operations on that reference variable will have consequences for 
+   the object, i.e. changing its state.
+9. [:heavy_check_mark:] **Of what types can we create an array?**
+   - All of 'em.
+10. [:heavy_check_mark:] **Can the size of an array change after instantiation?**
+    - No.
+11. [:heavy_check_mark:] **What is the main difference (in use-case, not structure) of an If/Else statement and a Switch statement?**
+    - If/else needs a boolean expression for its logic while switch looks at possible values (cases) of a variable. You
+    can't switch on a boolean expression.
+12. [:heavy_check_mark:] **What is the main difference between primitive data types and reference types in Java?**
+    - primitive data types hold their values within, while reference types only hold the reference to an object in
+    memory.
+13. [:heavy_check_mark:] **What is the main difference between a While and Do-While loop (in execution, not structure)?**
+    - if the boolean expression of a while loop is not met then the code within will not be executed, while the code in 
+    a do-while loop is always executed once.
+14. [:heavy_check_mark:] **What is the main difference between a For and Foreach loop (in use-case, not structure)?**
+    - A regular for-loop lets you take advantage of the index variable. Especially when working with Arrays this comes
+    in handy. The for-each is better when you want to do the same thing to/with every object or value in a collection or 
+    Array.
+15. [:heavy_check_mark:] **A variable declared within the opening and closing parenthesis of a method is called a ____ variable?**
+    - Parameter
+16. [:heavy_check_mark:] **Why would you choose `long` over `int`?**
+    - when 32 bits won't be enough to hold the possible value range, you'll want to use long (64 bits) so you don't lose
+    data/ have bugs. Because once it goes over the max value an int can hold (or any numerical type), it will restart at
+    its lowest possible value and keep counting up from there.
+17. [:heavy_check_mark:] **What's the difference between `long` and `float`?**
+    - long is 64 bit, I believe float is 32. But the bigger difference is that float can have floating point numerical
+    values, while long can only hold whole numbers (very big ones though).
+18. [:heavy_check_mark:] **What value (`1/2` or `0.5` or `0`) will be printed for the following code? `System.out.println(1/2);`? Explain why?**
+    - 0.5 : the integers are automatically cast to a double.
+19. [:heavy_check_mark:] **What is the difference between `.java` and `.class` files?**
+    - .java files are the files written and read by programmers. The compiler turns these into .class files, which can 
+    the JVM can understand. Compiling is translating high level code to machine level code.
+20. [:heavy_check_mark:] **What is the output of following code?**
+    - "It is true""It is false" (second part on a new line)
 ```java
 boolean isTrue = true;
 if(isTrue != false){
