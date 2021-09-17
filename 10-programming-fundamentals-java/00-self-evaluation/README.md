@@ -205,14 +205,14 @@ The assignments themselves are written down in this file, in the following secti
 Sometimes, tests have been written to validate your solution. Use (run) them.  
 
 ### Codelab 01
-1. [:x:] Create a method that prints the string "Hello World!"
-2. [:x:] Create a method (`printAny`) that prints any string you give it.
-3. [:x:] Using method overloading, create two methods with the same name (`printNumber`).
+1. [:heavy_check_mark:] Create a method that prints the string "Hello World!"
+2. [:heavy_check_mark:] Create a method (`printAny`) that prints any string you give it.
+3. [:heavy_check_mark:] Using method overloading, create two methods with the same name (`printNumber`).
     - Both have one parameter.
     - Both should print a message, although the message differs based on the type (int or double):  
         - `I'm an int: {parameter}` in case of the actual argument being of type `int`.
         - `I'm a double: {parameter}` in case of the actual argument being of type `double`.
-4. [:x:] Create a method that returns the number it receives plus 1
+4. [:heavy_check_mark::x:] Create a method that returns the number it receives plus 1
     - E.g. 4 is provided as an argument, then value 5 is returned
 
 ### Codelab 02
