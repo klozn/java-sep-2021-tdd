@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Ship {
-    private int size;
-    private String name;
-    private GridArea[] gridAreas;
+    private final int size;
+    private final String name;
+    private final GridArea[] gridAreas;
 
     public Ship(int size, String name) {
         this.size = size;

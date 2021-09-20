@@ -3,8 +3,8 @@ package codelab09;
 import java.util.Arrays;
 
 public class BattleShipGameService {
-    private GridArea[][] grid;
-    private Ship[] ships;
+    private final GridArea[][] grid;
+    private final Ship[] ships;
     private boolean gameOver;
 
     public BattleShipGameService() {
