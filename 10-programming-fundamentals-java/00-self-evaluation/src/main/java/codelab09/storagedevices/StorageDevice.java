@@ -2,8 +2,6 @@ package codelab09.storagedevices;
 
 import codelab09.EnergyConsumer;
 
-import java.util.Arrays;
-
 public abstract class StorageDevice implements EnergyConsumer {
     private final String manufacturer;
     private final String modelNr;

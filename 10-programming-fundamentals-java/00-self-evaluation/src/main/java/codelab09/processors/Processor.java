@@ -46,7 +46,7 @@ public abstract class Processor implements EnergyConsumer {
     }
 
     public void processInstructions() {
-        while (instructions.peek() != null) {
+        while (instructions.size() > 0) {
             processInstruction(instructions.pop());
         }
     }

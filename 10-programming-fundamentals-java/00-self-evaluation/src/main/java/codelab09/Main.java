@@ -5,6 +5,8 @@ import codelab09.peripherals.KeyboardLayout;
 import codelab09.peripherals.Mouse;
 import codelab09.processors.IntelProcessor;
 import codelab09.processors.Processor;
+import codelab09.processors.ProcessorInstruction;
+import codelab09.processors.ProcessorMode;
 import codelab09.screens.LEDScreen;
 import codelab09.screens.Screen;
 import codelab09.storagedevices.SSD;
@@ -29,5 +31,22 @@ public class Main {
                 .build();
 
         System.out.println(laptop);
+
+        intelProcessor.setMode(ProcessorMode.OVERCLOCKED);
+        intelProcessor.addInstruction(new ProcessorInstruction("say hello"));
+        intelProcessor.addInstruction(new ProcessorInstruction("say goodbye"));
+        intelProcessor.processInstructions();
+        System.out.println(intelProcessor.getActiveEnergyConsumptionInKWH());
+        System.out.println(intelProcessor.getIdleEnergyConsumptionInKWH());
+
+        ledScreen.brighten();
+        ledScreen.dim();
+        ledScreen.dim();
+        ledScreen.brighten();
+        System.out.println(ledScreen);
+
+        ssdStorage.storeData(new byte[]{1,5,36,7,5,0,14});
+        System.out.println(ssdStorage.getData()[2]);
+        System.out.println(ssdStorage.getUnusedSpace());
     }
 }

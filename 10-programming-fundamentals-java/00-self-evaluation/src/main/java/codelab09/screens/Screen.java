@@ -30,11 +30,11 @@ public abstract class Screen implements EnergyConsumer {
         }
     }
 
-    private void dim() {
+    public void dim() {
         setBrightness(brightness - 1);
     }
 
-    private void brighten() {
+    public void brighten() {
         setBrightness(brightness + 1);
     }
 
