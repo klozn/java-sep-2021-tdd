@@ -12,7 +12,14 @@ public class RecursiveFunctionsCodelab03 {
      * e.g. pairStar("xxyy") → "x*xy*y"
      * e.g. pairStar("aaaa") → "a*a*a*a"
      */
-    public static String pairStar(String input){
-        return null;
+    public static String pairStar(String input) {
+        char[] chars = input.toCharArray();
+
+        for (int i = 0; i < chars.length - 1; i++) {
+            if (chars[i] == chars[i + 1]) {
+                return pairStar(input.substring(0, i + 1) + "*" + input.substring(i+1));
+            }
+        }
+        return input;
     }
 }
