@@ -1,10 +1,14 @@
 package codelab05;
 
+import java.util.Arrays;
+
 public class Alarm {
+    private final static String DEFAULT_SOUND = "BEEP";
+    private final static int DEFAULT_ALARM_REPEATS = 3;
     private String soundToMake;
 
     public Alarm() {
-        this("BEEP");
+        this(DEFAULT_SOUND);
     }
 
     public Alarm(String soundToMake) {
@@ -12,7 +16,7 @@ public class Alarm {
     }
 
     public String[] makeSound() {
-        return new String[]{soundToMake, soundToMake, soundToMake};
+        return makeSound(DEFAULT_ALARM_REPEATS);
     }
 
     public String[] makeSound(int nrOfTimes) {
@@ -20,9 +24,7 @@ public class Alarm {
             throw new IllegalArgumentException("Argument can't be negative.");
         }
         String[] sounds = new String[nrOfTimes];
-        for (int i = 0; i < nrOfTimes; i++) {
-            sounds[i] = soundToMake;
-        }
+        Arrays.fill(sounds, soundToMake);
         return sounds;
     }
 }
