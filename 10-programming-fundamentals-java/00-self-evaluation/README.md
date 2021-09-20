@@ -373,26 +373,26 @@ that accepts (as an argument) an array of birds that can fly (only!).
 
 Let's design - in code - a Laptop.
 
-- [:x:] Our `Laptop` class consists of a screen, a storage device, RAM, a processor and peripheral devices (keyboard, mouse,...)
+- [:heavy_check_mark:] Our `Laptop` class consists of a screen, a storage device, RAM, a processor and peripheral devices (keyboard, mouse,...)
     - Make sure that each of these components are represented by some obvious state and have some useful behavior.
 
-- [:x:] A screen can be either an LCD screen or LED screen (and in the future, who knows what else...)
+- [:heavy_check_mark:] A screen can be either an LCD screen or LED screen (and in the future, who knows what else...)
     - Possible state: resolution, color, brightness,...
     - Possible behavior: dim (brightness),...
 
-- [:x:] A storage device can be either HDD or SSD (and in the future, who knows what else...)
+- [:heavy_check_mark:] A storage device can be either HDD or SSD (and in the future, who knows what else...)
     - Possible state: speed, size,...
     - Possible behavior: storeData,...
 
-- [:x:] A processor can have 3 different modes: energy-saving, normal and overclocked. 
+- [:heavy_check_mark:] A processor can have 3 different modes: energy-saving, normal and overclocked. 
     - It should be possible to let a processor switch from its mode (during runtime)
         - E.g. from energy-saving to normal
     - Possible behavior: processInstructions,...
 
-- [:x:] It should be possible to **get** both the active and idle energy consumption of all screens, storage devices and processors.
+- [:heavy_check_mark:] It should be possible to **get** both the active and idle energy consumption of all screens, storage devices and processors.
     - Energy consumption can be written in kilowatt hour (kWh).
 
-- [:x:] keyboard and mouse are both peripheral devices. A laptop can have up to 5 peripheral devices.
+- [:heavy_check_mark:] keyboard and mouse are both peripheral devices. A laptop can have up to 5 peripheral devices.
     - All peripheral devices should have a method to use them. But based on the specific peripheral, using it means something else.
 
 - [:x:] Finally, create an instance from `Laptop` and interact with it (maybe also print it to the console?).
