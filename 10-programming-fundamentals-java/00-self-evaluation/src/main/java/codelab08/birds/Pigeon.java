@@ -1,9 +1,21 @@
 package codelab08.birds;
 
+import java.util.Random;
+
 public class Pigeon extends Bird implements Flyable {
+    private int maxAltitude;
 
     public Pigeon() {
         super(BeakSize.MEDIUM);
+        setMaxAltitude(new Random().nextInt(251) + 500);
+    }
+
+    public void setMaxAltitude(int maxAltitude) {
+        if (maxAltitude >= 500 && maxAltitude <= 750) {
+            this.maxAltitude = maxAltitude;
+        } else {
+            throw new IllegalArgumentException("Pigeon should have max altitude between 500 and 750 meters.");
+        }
     }
 
     @Override
@@ -13,6 +25,6 @@ public class Pigeon extends Bird implements Flyable {
 
     @Override
     public int getMaxAltitude() {
-        return 0;
+        return maxAltitude;
     }
 }
