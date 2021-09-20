@@ -5,8 +5,8 @@ package codelab04;
  */
 public class Main {
 
-    public static String month(int i) {
-        return switch (i) {
+    public static String month(int numberOfMonth) {
+        return switch (numberOfMonth) {
             default -> throw new IllegalArgumentException("The argument provided does not correspond to a month.");
             case 1 -> "January";
             case 2 -> "February";
@@ -21,6 +21,8 @@ public class Main {
             case 11 -> "November";
             case 12 -> "December";
         };
+
+        // return Month.of(numberOfMonth).name();
     }
 
     public static double calculatePrice(int amountOfElements) {
@@ -36,8 +38,8 @@ public class Main {
         return 70 + (amountOfElements - 15) * 3;
     }
 
-    public static String returnText(int i) {
-        return switch (i) {
+    public static String returnText(int input) {
+        return switch (input) {
             default -> "That's a fail whale";
             case 1 -> "It's something";
             case 2 -> "That's more like it";
