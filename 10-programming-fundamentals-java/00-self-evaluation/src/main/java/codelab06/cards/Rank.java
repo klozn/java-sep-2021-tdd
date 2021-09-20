@@ -1,6 +1,6 @@
-package codelab06;
+package codelab06.cards;
 
-public enum CardValue {
+public enum Rank {
     ACE,
     KING,
     QUEEN,

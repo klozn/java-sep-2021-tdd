@@ -1,14 +1,14 @@
-package codelab06;
+package codelab06.cards;
 
 import java.util.Objects;
 
 public class Card {
     private final Suit suit;
-    private final CardValue value;
+    private final Rank rank;
 
-    public Card(Suit suit, CardValue value) {
+    public Card(Suit suit, Rank rank) {
         this.suit = suit;
-        this.value = value;
+        this.rank = rank;
     }
 
     @Override
@@ -16,16 +16,16 @@ public class Card {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Card card = (Card) o;
-        return suit == card.suit && value == card.value;
+        return suit == card.suit && rank == card.rank;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(suit, value);
+        return Objects.hash(suit, rank);
     }
 
     @Override
     public String toString() {
-        return String.format("[%s of %s]", value.toString().toLowerCase(), suit.toString().toLowerCase());
+        return String.format("[%s of %s]", rank.toString().toLowerCase(), suit.toString().toLowerCase());
     }
 }

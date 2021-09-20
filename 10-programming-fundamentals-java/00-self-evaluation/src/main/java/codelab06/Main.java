@@ -1,14 +1,19 @@
 package codelab06;
 
+import codelab06.cards.Card;
+import codelab06.cards.Deck;
+import codelab06.cards.Rank;
+import codelab06.cards.Suit;
+
 public class Main {
     public static void main(String[] args) {
-        DeckOfCards deck = new DeckOfCards();
+        Deck deck = new Deck();
 
         Card[] cards = deck.getCards();;
 
-        DeckOfCards deck2 = new DeckOfCards(cards);
+        Deck deck2 = new Deck(cards);
 
-        System.out.println(deck.containsCard(new Card(Suit.SPADES, CardValue.ACE)));
+        System.out.println(deck.containsCard(new Card(Suit.SPADES, Rank.ACE)));
         System.out.println(deck2);
         System.out.println(deck.containsCard(null));
     }

@@ -6,8 +6,12 @@ public class Eagle extends Bird implements Flyable {
     private int maxAltitude;
 
     public Eagle() {
+        this(new Random().nextInt(1001) + 4000);
+    }
+
+    public Eagle(int maxAltitude) {
         super(BeakSize.LARGE);
-        setMaxAltitude(new Random().nextInt(1001) + 4000);
+        this.maxAltitude = maxAltitude;
     }
 
     public void setMaxAltitude(int maxAltitude) {

@@ -6,8 +6,12 @@ public class Pigeon extends Bird implements Flyable {
     private int maxAltitude;
 
     public Pigeon() {
+        this(new Random().nextInt(251) + 500);
+    }
+
+    public Pigeon(int maxAltitude) {
         super(BeakSize.MEDIUM);
-        setMaxAltitude(new Random().nextInt(251) + 500);
+        this.maxAltitude = maxAltitude;
     }
 
     public void setMaxAltitude(int maxAltitude) {

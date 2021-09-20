@@ -1,17 +1,17 @@
-package codelab06;
+package codelab06.cards;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
 
-public class DeckOfCards {
+public class Deck {
     public static final int DEFAULT_DECK_SIZE = 52;
     private Card[] cards;
 
-    public DeckOfCards() {
+    public Deck() {
         cards = initializeDefaultDeck();
     }
 
-    public DeckOfCards(Card[] cards) {
+    public Deck(Card[] cards) {
         this.cards = cards;
     }
 
@@ -24,24 +24,24 @@ public class DeckOfCards {
 
         for (int i = 0; i < DEFAULT_DECK_SIZE; ) {
             if (i < DEFAULT_DECK_SIZE / 4) {
-                for (CardValue value : CardValue.values()) {
+                for (Rank value : Rank.values()) {
                     deck[i] = new Card(Suit.HEARTS, value);
                     i++;
                 }
             }
             if (i < DEFAULT_DECK_SIZE / 2) {
-                for (CardValue value : CardValue.values()) {
+                for (Rank value : Rank.values()) {
                     deck[i] = new Card(Suit.CLUBS, value);
                     i++;
                 }
             }
             if (i < (DEFAULT_DECK_SIZE * 3) / 4) {
-                for (CardValue value : CardValue.values()) {
+                for (Rank value : Rank.values()) {
                     deck[i] = new Card(Suit.DIAMONDS, value);
                     i++;
                 }
             } else {
-                for (CardValue value : CardValue.values()) {
+                for (Rank value : Rank.values()) {
                     deck[i] = new Card(Suit.SPADES, value);
                     i++;
                 }
