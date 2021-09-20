@@ -34,7 +34,7 @@ public class BattleShipApp {
             coordinatesAsInts[1] = Integer.parseInt(coordinates[1]);
         } catch (Exception e) {
             System.out.println("Could not interpret input.");
-            askForUserInput(scanner);
+            return askForUserInput(scanner);
         }
         return coordinatesAsInts;
     }
