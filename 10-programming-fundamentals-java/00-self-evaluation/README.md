@@ -395,7 +395,7 @@ Let's design - in code - a Laptop.
 - [:heavy_check_mark:] keyboard and mouse are both peripheral devices. A laptop can have up to 5 peripheral devices.
     - All peripheral devices should have a method to use them. But based on the specific peripheral, using it means something else.
 
-- [:x:] Finally, create an instance from `Laptop` and interact with it (maybe also print it to the console?).
+- [:heavy_check_mark:] Finally, create an instance from `Laptop` and interact with it (maybe also print it to the console?).
 
 Think about your design (simply think about these questions):
 - When and where do we need (or can use) inheritance?
