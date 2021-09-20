@@ -2,6 +2,7 @@ package codelab09.processors;
 
 import codelab09.EnergyConsumer;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public abstract class Processor implements EnergyConsumer {
@@ -60,5 +61,21 @@ public abstract class Processor implements EnergyConsumer {
     @Override
     public int getIdleEnergyConsumptionInKWH() {
         return idleEnergyConsumption;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Processor{");
+        sb.append("make='").append(make).append('\'');
+        sb.append(", modelNr='").append(modelNr).append('\'');
+        sb.append(", socketType='").append(socketType).append('\'');
+        sb.append(", systemType='").append(systemType).append('\'');
+        sb.append(", nrOfCores=").append(nrOfCores);
+        sb.append(", maxClockSpeed=").append(maxClockSpeed);
+        sb.append(", threads=").append(Arrays.toString(threads));
+        sb.append(", ram=").append(ram);
+        sb.append(", mode=").append(mode);
+        sb.append('}');
+        return sb.toString();
     }
 }

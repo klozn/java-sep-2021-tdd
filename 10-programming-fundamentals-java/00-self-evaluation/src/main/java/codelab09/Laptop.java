@@ -23,18 +23,20 @@ public class Laptop {
         this.nrOfUSBPorts = nrOfUSBPorts;
         this.peripherals = peripherals;
         for (PeripheralDevice peripheral : peripherals) {
-            peripheral.use();
+            if (peripheral != null) {
+                peripheral.use();
+            }
         }
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Laptop{");
-        sb.append("screen=").append(screen);
-        sb.append(", storageDevice=").append(storageDevice);
-        sb.append(", ram=").append(ram);
-        sb.append(", processor=").append(processor);
-        sb.append(", nrOfUSBPorts=").append(nrOfUSBPorts);
+        sb.append("screen=").append(screen).append('\n');
+        sb.append(", storageDevice=").append(storageDevice).append('\n');
+        sb.append(", ram=").append(ram).append('\n');
+        sb.append(", processor=").append(processor).append('\n');
+        sb.append(", nrOfUSBPorts=").append(nrOfUSBPorts).append('\n');
         sb.append(", peripherals=").append(Arrays.toString(peripherals));
         sb.append('}');
         return sb.toString();

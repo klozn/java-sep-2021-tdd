@@ -47,4 +47,16 @@ public abstract class Screen implements EnergyConsumer {
     public int getIdleEnergyConsumptionInKWH() {
         return idleEnergyConsumption;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Screen{");
+        sb.append("sizeInInch=").append(sizeInInch);
+        sb.append(", resolution='").append(resolution).append('\'');
+        sb.append(", brightness=").append(brightness);
+        sb.append(", colorDepth=").append(colorDepth);
+        sb.append(", pixelDepth=").append(pixelDepth);
+        sb.append('}');
+        return sb.toString();
+    }
 }

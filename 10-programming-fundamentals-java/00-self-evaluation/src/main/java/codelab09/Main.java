@@ -28,6 +28,6 @@ public class Main {
                 .withPeripheralDevice(mouse, 1)
                 .build();
 
-
+        System.out.println(laptop);
     }
 }

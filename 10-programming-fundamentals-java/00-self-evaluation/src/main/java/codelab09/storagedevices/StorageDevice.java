@@ -2,6 +2,8 @@ package codelab09.storagedevices;
 
 import codelab09.EnergyConsumer;
 
+import java.util.Arrays;
+
 public abstract class StorageDevice implements EnergyConsumer {
     private final String manufacturer;
     private final String modelNr;
@@ -51,5 +53,18 @@ public abstract class StorageDevice implements EnergyConsumer {
     @Override
     public int getIdleEnergyConsumptionInKWH() {
         return idleEnergyConsumption;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("StorageDevice{");
+        sb.append("manufacturer='").append(manufacturer).append('\'');
+        sb.append(", modelNr='").append(modelNr).append('\'');
+        sb.append(", speed=").append(speed);
+        sb.append(", capacity=").append(capacity);
+        sb.append(", external=").append(external);
+        sb.append(", usedSpace=").append(usedSpace);
+        sb.append('}');
+        return sb.toString();
     }
 }
