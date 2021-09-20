@@ -3,7 +3,7 @@ package codelab07;
 import java.util.Objects;
 
 public abstract class Dog {
-    private String name;
+    private final String name;
 
     public Dog(String name) {
         this.name = name;

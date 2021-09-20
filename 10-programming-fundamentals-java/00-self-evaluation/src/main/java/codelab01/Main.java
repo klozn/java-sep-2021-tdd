@@ -5,7 +5,6 @@ package codelab01;
  */
 public class Main {
 
-    // Create your methods here
     public static void printHelloWorld() {
         System.out.println("Hello World");
     }

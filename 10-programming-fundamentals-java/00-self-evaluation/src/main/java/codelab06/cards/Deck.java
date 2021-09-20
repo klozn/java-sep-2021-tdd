@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 
 public class Deck {
     public static final int DEFAULT_DECK_SIZE = 52;
-    private Card[] cards;
+    private final Card[] cards;
 
     public Deck() {
         cards = initializeDefaultDeck();

@@ -15,11 +15,10 @@ public class Pigeon extends Bird implements Flyable {
     }
 
     public void setMaxAltitude(int maxAltitude) {
-        if (maxAltitude >= 500 && maxAltitude <= 750) {
-            this.maxAltitude = maxAltitude;
-        } else {
+        if (maxAltitude < 500 || maxAltitude > 750) {
             throw new IllegalArgumentException("Pigeon should have max altitude between 500 and 750 meters.");
         }
+        this.maxAltitude = maxAltitude;
     }
 
     @Override

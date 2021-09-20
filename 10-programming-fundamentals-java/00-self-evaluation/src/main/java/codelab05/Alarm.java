@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Alarm {
     private final static String DEFAULT_SOUND = "BEEP";
     private final static int DEFAULT_ALARM_REPEATS = 3;
-    private String soundToMake;
+    private final String soundToMake;
 
     public Alarm() {
         this(DEFAULT_SOUND);

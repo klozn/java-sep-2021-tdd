@@ -15,11 +15,10 @@ public class Eagle extends Bird implements Flyable {
     }
 
     public void setMaxAltitude(int maxAltitude) {
-        if (maxAltitude >= 4000 && maxAltitude <= 5000) {
-            this.maxAltitude = maxAltitude;
-        } else {
+        if (maxAltitude < 4000 || maxAltitude > 5000) {
             throw new IllegalArgumentException("Eagle should have max altitude between 4 and 5 thousand meters.");
         }
+        this.maxAltitude = maxAltitude;
     }
 
     @Override

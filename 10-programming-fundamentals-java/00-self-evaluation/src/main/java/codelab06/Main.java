@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Deck deck = new Deck();
 
-        Card[] cards = deck.getCards();;
+        Card[] cards = deck.getCards();
 
         Deck deck2 = new Deck(cards);
 
