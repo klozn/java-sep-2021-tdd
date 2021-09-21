@@ -23,27 +23,9 @@ public class Deck {
         Card[] deck = new Card[DEFAULT_DECK_SIZE];
 
         for (int i = 0; i < DEFAULT_DECK_SIZE; ) {
-            if (i < DEFAULT_DECK_SIZE / 4) {
-                for (Rank value : Rank.values()) {
-                    deck[i] = new Card(Suit.HEARTS, value);
-                    i++;
-                }
-            }
-            if (i < DEFAULT_DECK_SIZE / 2) {
-                for (Rank value : Rank.values()) {
-                    deck[i] = new Card(Suit.CLUBS, value);
-                    i++;
-                }
-            }
-            if (i < (DEFAULT_DECK_SIZE * 3) / 4) {
-                for (Rank value : Rank.values()) {
-                    deck[i] = new Card(Suit.DIAMONDS, value);
-                    i++;
-                }
-            } else {
-                for (Rank value : Rank.values()) {
-                    deck[i] = new Card(Suit.SPADES, value);
-                    i++;
+            for (Suit suit : Suit.values()) {
+                for (Rank rank : Rank.values()) {
+                    deck[i++] = new Card(suit, rank);
                 }
             }
         }
