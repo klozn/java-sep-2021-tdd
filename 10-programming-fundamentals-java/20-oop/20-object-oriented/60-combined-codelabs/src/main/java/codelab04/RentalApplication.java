@@ -2,6 +2,7 @@ package codelab04;
 
 import codelab04.domain.Customer;
 import codelab04.domain.Movie;
+import codelab04.domain.Rental;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,7 +20,8 @@ public class RentalApplication {
             System.out.println("1: Register as a customer");
             System.out.println("2: Give us a movie");
             System.out.println("3: Rent a movie");
-            System.out.println("4: Exit");
+            System.out.println("4: Downgrade a movie");
+            System.out.println("5: Exit");
             int input = scanner.nextInt();
 
             switch (input) {
@@ -27,7 +29,8 @@ public class RentalApplication {
                 case 1 -> customerRegistrationMenu(service);
                 case 2 -> movieRegistrationMenu(service);
                 case 3 -> rentMovieMenu(service);
-                case 4 -> quit = true;
+                case 4 -> downGradeMovieMenu(service);
+                case 5 -> quit = true;
             }
         } while (!quit);
     }
@@ -75,12 +78,24 @@ public class RentalApplication {
             service.printMovies();
             int input = scanner.nextInt();
             Movie movie = service.getMovieByIndex(input - 1);
-            service.rent(movie, customer);
+            Rental rental = service.rent(movie, customer);
             System.out.println("That will be €" + movie.getRentPrice());
+            System.out.println("Please return before " + rental.returnDate());
             System.out.printf("Rental history of %s:\n", customer.getName());
             customer.printRentalHistory();
         } else {
             System.out.println("No customer found with that email address. Please register first.");
         }
+    }
+
+    public static void downGradeMovieMenu(RentalStoreService service) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n***** Movie Downgrade *****\n");
+        System.out.println("Which movie do you want to downgrade?");
+        service.printMovies();
+        int input = scanner.nextInt();
+        Movie movie = service.getMovieByIndex(input - 1);
+        movie.downGrade();
+        System.out.printf("Movie %s has been downgraded to %s\n", movie.getTitle(), movie.getStatus());
     }
 }

@@ -3,12 +3,10 @@ package codelab04;
 import codelab04.domain.*;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class RentalStoreService {
-    private static final Period RETURN_BEFORE = Period.ofDays(3);
     private final Customer[] customers;
     private final Movie[] movies;
     private final Rental[] rentals;
@@ -48,20 +46,24 @@ public class RentalStoreService {
         }
     }
 
-    public void rent(Movie movie, Customer customer) {
+    public Rental rent(Movie movie, Customer customer) {
         if (movie == null || customer == null) {
             System.out.println("Failed to rent the movie.");
-        }
-        if (movie.getGenre().equals(Genre.XXX) && customer.getAge() < 18) {
-            System.out.println("You are not old enough for this type of movie.");
         } else {
-            if (rentalCount == 20) {
-                System.out.println("Rental database full.");
+            if (movie.getGenre().equals(Genre.XXX) && customer.getAge() < 18) {
+                System.out.println("You are not old enough for this type of movie.");
             } else {
-                rentals[rentalCount++] = new Rental(movie, customer, LocalDate.now().plus(RETURN_BEFORE));
-                customer.addRentalToHistory(rentals[rentalCount - 1]);
+                if (rentalCount == 20) {
+                    System.out.println("Rental database full.");
+                } else {
+                    Rental rental = new Rental(movie, customer, LocalDate.now().plus(movie.getReturnBefore()));
+                    rentals[rentalCount++] = rental;
+                    customer.addRentalToHistory(rental);
+                    return rental;
+                }
             }
         }
+        return null;
     }
 
     public void printMovies() {
