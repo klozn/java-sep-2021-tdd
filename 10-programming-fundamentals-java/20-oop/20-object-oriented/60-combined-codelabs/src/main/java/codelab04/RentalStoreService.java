@@ -5,6 +5,7 @@ import codelab04.domain.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class RentalStoreService {
     private static final Period RETURN_BEFORE = Period.ofDays(3);
@@ -19,6 +20,10 @@ public class RentalStoreService {
         customers = new Customer[5];
         movies = new Movie[10];
         rentals = new Rental[20];
+        DatabaseInitializer.populate(movies);
+        movieCount = 4;
+        DatabaseInitializer.populate(customers);
+        customerCount = 1;
     }
 
     public void addNewCustomer(Customer customer) {
@@ -46,6 +51,9 @@ public class RentalStoreService {
     public void rent(Movie movie, Customer customer) {
         if (movie == null || customer == null) {
             System.out.println("Failed to rent the movie.");
+        }
+        if (movie.getGenre().equals(Genre.XXX) && customer.getAge() < 18) {
+            System.out.println("You are not old enough for this type of movie.");
         } else {
             if (rentalCount == 20) {
                 System.out.println("Rental database full.");
@@ -59,8 +67,10 @@ public class RentalStoreService {
     public void printMovies() {
         for (int i = 0; i < movies.length; i++) {
             Movie movie = movies[i];
-            System.out.printf("[%20d] %s %s %s %.2f", i, movie.getTitle(), movie.getDirector(),
-                                                            movie.getGenre(), movie.getRentPrice());
+            if (movie != null) {
+                System.out.printf("[%02d] %s, %s %s price: %.2f\n", i + 1, movie.getTitle(), movie.getDirector(),
+                        movie.getGenre(), movie.getRentPrice());
+            }
         }
     }
 
@@ -74,6 +84,7 @@ public class RentalStoreService {
 
     public Customer getCustomerByEmail(String email) {
         return Arrays.stream(customers)
+                .filter(Objects::nonNull)
                 .filter(customer -> email.equals(customer.getEmail()))
                 .findAny().orElse(null);
     }
