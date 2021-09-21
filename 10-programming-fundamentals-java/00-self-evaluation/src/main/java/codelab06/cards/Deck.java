@@ -22,11 +22,10 @@ public class Deck {
     private static Card[] initializeDefaultDeck() {
         Card[] deck = new Card[DEFAULT_DECK_SIZE];
 
-        for (int i = 0; i < DEFAULT_DECK_SIZE; ) {
-            for (Suit suit : Suit.values()) {
-                for (Rank rank : Rank.values()) {
-                    deck[i++] = new Card(suit, rank);
-                }
+        int index = 0;
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                deck[index++] = new Card(suit, rank);
             }
         }
         return deck;
