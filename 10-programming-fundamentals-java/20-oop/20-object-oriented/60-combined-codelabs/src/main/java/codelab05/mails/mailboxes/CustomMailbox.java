@@ -2,9 +2,9 @@ package codelab05.mails.mailboxes;
 
 import codelab05.mails.MailAddress;
 
-public class CustomMailBox extends Mailbox {
+public class CustomMailbox extends Mailbox {
 
-    public CustomMailBox(MailAddress owner, String name) {
+    public CustomMailbox(MailAddress owner, String name) {
         super(owner, name);
     }
 }

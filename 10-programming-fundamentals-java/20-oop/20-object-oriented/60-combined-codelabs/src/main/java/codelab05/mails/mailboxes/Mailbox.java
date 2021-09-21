@@ -17,6 +17,10 @@ public abstract class Mailbox {
         this.name = name;
     }
 
+    public int getSize() {
+        return mails.size();
+    }
+
     public List<Mail> getMails() {
         return mails;
     }

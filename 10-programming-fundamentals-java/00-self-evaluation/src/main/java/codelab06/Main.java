@@ -1,9 +1,6 @@
 package codelab06;
 
-import codelab06.cards.Card;
-import codelab06.cards.Deck;
-import codelab06.cards.Rank;
-import codelab06.cards.Suit;
+import codelab06.cards.*;
 
 public class Main {
     public static void main(String[] args) {

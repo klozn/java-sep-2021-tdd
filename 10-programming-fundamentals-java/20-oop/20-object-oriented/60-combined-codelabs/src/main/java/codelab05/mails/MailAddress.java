@@ -20,7 +20,22 @@ public class MailAddress {
         return address;
     }
 
+    public Mailbox getInBox() {
+        return mailboxes.stream()
+                .filter(mailbox -> mailbox instanceof InBox)
+                .findAny().orElse(null);
+    }
+
+    public Mailbox getMailboxByName(String name) {
+        return mailboxes.stream()
+                .filter(mailbox -> name.equals(mailbox.getName()))
+                .findAny().orElse(null);
+    }
+
     public boolean addMailBox(Mailbox mailbox) {
+        if (mailbox == null || mailboxes.contains(mailbox)) {
+            return false;
+        }
         return mailboxes.add(mailbox);
     }
 
