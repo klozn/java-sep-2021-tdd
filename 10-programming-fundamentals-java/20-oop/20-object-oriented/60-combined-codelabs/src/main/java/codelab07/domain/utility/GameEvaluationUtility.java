@@ -23,29 +23,41 @@ public class GameEvaluationUtility {
         return anyRowOrColHasFourDisksAdjacent(gridAreas, true);
     }
 
-    private static boolean anyRowOrColHasFourDisksAdjacent(GridArea[][] gridAreas, boolean row) {
-        boolean foundFourInRow = false;
-        for (int rowIndex = Grid.NR_OF_ROWS - 1; !foundFourInRow && rowIndex >= 0; rowIndex--) {
-            int adjacentCount = 1;
-            GridArea[] gridRow = gridAreas[rowIndex];
-            Disk[] disksInRow = getDisksFrom(gridRow);
+    private static boolean anyColHasFourDisksAdjacent(GridArea[][] gridAreas) {
+        return anyRowOrColHasFourDisksAdjacent(gridAreas, false);
+    }
 
-            for (int i = 0; i < disksInRow.length - 1; i++) {
-                if (disksInRow[i].equals(disksInRow[i + 1])) {
+    private static boolean anyRowOrColHasFourDisksAdjacent(GridArea[][] gridAreas, boolean forRow) {
+        boolean foundFour = false;
+        int maxIndex = forRow ? Grid.NR_OF_ROWS - 1 : Grid.NR_OF_COLS - 1;
+
+        for (int index = maxIndex; !foundFour && index >= 0; index--) {
+            int adjacentCount = 1;
+            GridArea[] areas = getGridAreas(index, gridAreas, forRow);
+            Disk[] disks = getDisksFrom(areas);
+
+            for (int i = 0; i < disks.length - 1; i++) {
+                if (disks[i].equals(disks[i + 1])) {
                     adjacentCount++;
                 } else {
                     adjacentCount = 1;
                 }
             }
-            foundFourInRow = adjacentCount >= 4;
+            foundFour = adjacentCount >= 4;
         }
-        return foundFourInRow;
+        return foundFour;
     }
 
-    private static int countDisks(GridArea[] gridAreas) {
-        return (int) Arrays.stream(gridAreas)
-                .filter(GridArea::hasDisk)
-                .count();
+    private static GridArea[] getGridAreas(int index, GridArea[][] gridAreas, boolean forRow) {
+        if (forRow) {
+            return gridAreas[index];
+        } else {
+            GridArea[] areas = new GridArea[Grid.NR_OF_ROWS];
+            for (int i = 0; i < Grid.NR_OF_ROWS; i++) {
+                areas[i] = gridAreas[i][index];
+            }
+            return areas;
+        }
     }
 
     private static Disk[] getDisksFrom(GridArea[] gridAreas) {
@@ -59,8 +71,10 @@ public class GameEvaluationUtility {
         return disks;
     }
 
-    private static boolean anyColHasFourDisksAdjacent(GridArea[][] gridAreas) {
-        return false;
+    private static int countDisks(GridArea[] gridAreas) {
+        return (int) Arrays.stream(gridAreas)
+                .filter(GridArea::hasDisk)
+                .count();
     }
 
     private static boolean anyDiagonalLineHasFourDisksAdjacent(GridArea[][] gridAreas) {
