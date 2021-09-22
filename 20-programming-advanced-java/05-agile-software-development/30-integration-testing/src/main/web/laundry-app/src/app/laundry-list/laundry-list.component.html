@@ -1,0 +1,25 @@
+<main class="row">
+  <section class="col-8 offset-2">
+    <h4>List of laundries</h4>
+    <table class="table" id="laundry-list-table">
+      <thead>
+      <tr>
+        <th>Owner</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Minutes Until Completion</th>
+        <th>Done</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let laundry of laundryList | async">
+        <th>{{laundry.owner}}</th>
+        <th>{{laundry.type}}</th>
+        <th>{{laundry.description}}</th>
+        <th>{{laundry.minutesUntilCompletion}}</th>
+        <th>{{laundry.done}}</th>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
