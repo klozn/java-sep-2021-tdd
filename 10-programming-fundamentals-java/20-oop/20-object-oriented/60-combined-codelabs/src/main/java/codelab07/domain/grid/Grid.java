@@ -19,6 +19,10 @@ public class Grid {
         return grid;
     }
 
+    public GridArea[][] getGridAreas() {
+        return gridAreas;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();

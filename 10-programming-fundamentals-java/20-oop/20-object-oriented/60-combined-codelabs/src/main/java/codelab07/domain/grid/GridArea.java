@@ -10,15 +10,23 @@ public class GridArea {
         this.gridPosition = gridPosition;
     }
 
+    public GridPosition getGridPosition() {
+        return gridPosition;
+    }
+
+    public Disk getDisk() {
+        return disk;
+    }
+
     public void setDisk(Disk disk) {
         this.disk = disk;
     }
 
     public boolean hasDisk() {
-        return this.disk != null;
+        return disk != null;
     }
 
-    public String getDiskValue() {
+    public char getDiskDisplayValue() {
         return disk.getDisplayValue();
     }
 
@@ -26,7 +34,7 @@ public class GridArea {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append('[');
-        sb.append(hasDisk() ? getDiskValue() : ' ');
+        sb.append(hasDisk() ? getDiskDisplayValue() : ' ');
         sb.append(']');
         return sb.toString();
     }
