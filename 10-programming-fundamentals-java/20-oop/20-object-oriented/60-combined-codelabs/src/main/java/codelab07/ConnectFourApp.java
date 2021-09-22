@@ -24,8 +24,8 @@ public class ConnectFourApp {
         do {
             System.out.println("Please specify player name " + playerNr);
             name = scanner.nextLine();
-        } while (!isValidName(name));
-        return name;
+        } while (!isValidName(name.strip()));
+        return name.strip();
     }
 
     private static boolean isValidName(String name) {
