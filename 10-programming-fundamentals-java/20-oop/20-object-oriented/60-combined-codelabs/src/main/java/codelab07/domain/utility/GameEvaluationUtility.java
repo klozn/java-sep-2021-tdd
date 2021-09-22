@@ -20,6 +20,10 @@ public class GameEvaluationUtility {
     }
 
     private static boolean anyRowHasFourDisksAdjacent(GridArea[][] gridAreas) {
+        return anyRowOrColHasFourDisksAdjacent(gridAreas, true);
+    }
+
+    private static boolean anyRowOrColHasFourDisksAdjacent(GridArea[][] gridAreas, boolean row) {
         boolean foundFourInRow = false;
         for (int rowIndex = Grid.NR_OF_ROWS - 1; !foundFourInRow && rowIndex >= 0; rowIndex--) {
             int adjacentCount = 1;
