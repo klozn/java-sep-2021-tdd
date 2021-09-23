@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+main:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .1;
+  z-index: -1;
+  background-image: url("assets/laundry.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: initial;
+}

@@ -1,0 +1,24 @@
+<main class="row">
+  <section class="col-4 offset-4">
+    <h4>Add your laundry here</h4>
+    <form [formGroup]="laundryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="owner">Owner</label>
+        <input id="owner" class="form-control" formControlName="owner"/>
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select id="type" class="form-control" formControlName="type">
+          <option>Wool</option>
+          <option>Color</option>
+          <option>White</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" class="form-control" formControlName="description"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </section>
+</main>
