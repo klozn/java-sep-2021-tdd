@@ -30,12 +30,20 @@ public class GridArea {
         return disk.getDisplayValue();
     }
 
-    @Override
-    public String toString() {
+    public String display() {
         final StringBuilder sb = new StringBuilder();
         sb.append('[');
         sb.append(hasDisk() ? getDiskDisplayValue() : ' ');
         sb.append(']');
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("GridArea{");
+        sb.append("gridPosition=").append(gridPosition);
+        sb.append(", disk=").append(disk);
+        sb.append('}');
         return sb.toString();
     }
 }

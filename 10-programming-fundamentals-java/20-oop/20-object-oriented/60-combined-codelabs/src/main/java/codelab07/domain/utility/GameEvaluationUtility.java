@@ -9,9 +9,8 @@ import java.util.Arrays;
 import static codelab07.domain.grid.Grid.*;
 
 public class GameEvaluationUtility {
-
     private static final int DIAGONAL = (int) Math.sqrt(Math.pow(NR_OF_ROWS, 2) + Math.pow(NR_OF_COLS, 2));
-    private static final int EXTRACTION_ARRAY_SIZE = NR_OF_COLS + NR_OF_ROWS - 1;
+    private static final int NR_OF_DIAGONAL_LINES = (NR_OF_COLS + NR_OF_ROWS - 1) * 2;
 
     public static boolean isGameWon(Grid grid) {
         GridArea[][] gridAreas = grid.getGridAreas();
@@ -89,35 +88,99 @@ public class GameEvaluationUtility {
         return false;
     }
 
-    private static GridArea[][] getDiagonalLines(GridArea[][] gridAreas) {
+    public static GridArea[][] getAllDiagonalLines(GridArea[][] gridAreas) {
+        GridArea[][] allDiagonals = new GridArea[NR_OF_DIAGONAL_LINES][DIAGONAL];
+        int diagonalIndex = 0;
 
-        GridArea[][] extractionArray = new GridArea[EXTRACTION_ARRAY_SIZE * 2][DIAGONAL];
-        for (int diagonalIndex = 0; diagonalIndex < EXTRACTION_ARRAY_SIZE; diagonalIndex++) {
+        for (; diagonalIndex < NR_OF_DIAGONAL_LINES / 2; diagonalIndex++) {
             GridArea[][] extracted = extractDiagonalsTopLeftToBottomRight(gridAreas);
+            addExtractionsTo(allDiagonals, extracted, diagonalIndex);
         }
-        for (int diagonalIndex = 0; diagonalIndex < EXTRACTION_ARRAY_SIZE; diagonalIndex++) {
-            GridArea[][] extracted1 = extractDiagonalsBottomLeftToTopRight(gridAreas);
+        for (; diagonalIndex < NR_OF_DIAGONAL_LINES; diagonalIndex++) {
+            GridArea[][] extracted = extractDiagonalsBottomLeftToTopRight(gridAreas);
+            addExtractionsTo(allDiagonals, extracted, diagonalIndex);
         }
-        return null;
+        return allDiagonals;
     }
 
-    private static GridArea[][] extractDiagonalsTopLeftToBottomRight(GridArea[][] gridAreas) {
-        GridArea[][] extractionArray = new GridArea[NR_OF_COLS + NR_OF_ROWS - 1][DIAGONAL];
-        int extRowIndex = 0;
-        for (int colIndex = 0; colIndex < NR_OF_COLS; colIndex++, extRowIndex++) {
-            for (int rowIndex = 0, counter = colIndex; counter >= 0; rowIndex++, counter--) {
-                extractionArray[extRowIndex][colIndex] = gridAreas[rowIndex][counter];
+    private static void addExtractionsTo(GridArea[][] allDiagonals, GridArea[][] extracted, int diagonalIndex) {
+        int colIndex = 0;
+
+        for (GridArea[] diagonalLine : extracted) {
+            for (GridArea gridArea : diagonalLine) {
+
             }
         }
-        for (int rowIndex = 1; rowIndex < NR_OF_ROWS - 1; rowIndex++, extRowIndex++) {
-            for (int counter = NR_OF_ROWS; counter >= 0; counter--) {
-                //extractionArray[rowIndex][colIndex] = gridAreas[rowIndex][counter];
-            }
+    }
+
+
+    private static GridArea[][] extractDiagonalsTopLeftToBottomRight(GridArea[][] gridAreas) {
+        GridArea[][] extractionArray = new GridArea[NR_OF_DIAGONAL_LINES / 2][DIAGONAL];
+        int extRowIndex = 0;
+
+        for (int colIndex = 0; colIndex < NR_OF_COLS; colIndex++, extRowIndex++) {
+            GridArea[] diagonal = extractDiagonalTLToBRRowZero(colIndex, gridAreas);
+            extractionArray[extRowIndex] = diagonal;
+        }
+        for (int rowIndex = 1; rowIndex < NR_OF_ROWS; rowIndex++, extRowIndex++) {
+            GridArea[] diagonal = extractDiagonalTLToBRLastCol(rowIndex, gridAreas);
+            extractionArray[extRowIndex] = diagonal;
         }
         return extractionArray;
     }
 
+    private static GridArea[] extractDiagonalTLToBRRowZero(int colIndex, GridArea[][] gridAreas) {
+        GridArea[] diagonal = new GridArea[DIAGONAL];
+        int diagonalIndex = 0;
+
+        for (int rowIndex = 0, counter = colIndex; rowIndex < NR_OF_ROWS && counter >= 0; rowIndex++, counter--, diagonalIndex++) {
+            diagonal[diagonalIndex] = gridAreas[rowIndex][counter];
+        }
+        return diagonal;
+    }
+
+    private static GridArea[] extractDiagonalTLToBRLastCol(int rowIndex, GridArea[][] gridAreas) {
+        GridArea[] diagonal = new GridArea[DIAGONAL];
+        int diagonalIndex = 0;
+
+        for (int colIndex = NR_OF_COLS - 1; rowIndex < NR_OF_ROWS; rowIndex++, colIndex--, diagonalIndex++) {
+            diagonal[diagonalIndex] = gridAreas[rowIndex][colIndex];
+        }
+        return diagonal;
+    }
+
     private static GridArea[][] extractDiagonalsBottomLeftToTopRight(GridArea[][] gridAreas) {
-        return null;
+        GridArea[][] extractionArray = new GridArea[NR_OF_DIAGONAL_LINES / 2][DIAGONAL];
+        int extRowIndex = 0;
+
+        for (int colIndex = 0; colIndex < NR_OF_COLS; colIndex++, extRowIndex++) {
+            GridArea[] diagonal = extractDiagonalBLToTRBottomRow(colIndex, gridAreas);
+            extractionArray[extRowIndex] = diagonal;
+        }
+        for (int rowIndex = NR_OF_ROWS - 2; rowIndex >= 0; rowIndex--, extRowIndex++) {
+            GridArea[] diagonal = extractDiagonalBLToTRLastCol(rowIndex, gridAreas);
+            extractionArray[extRowIndex] = diagonal;
+        }
+        return extractionArray;
+    }
+
+    private static GridArea[] extractDiagonalBLToTRBottomRow(int colIndex, GridArea[][] gridAreas) {
+        GridArea[] diagonal = new GridArea[DIAGONAL];
+        int diagonalIndex = 0;
+
+        for (int rowIndex = NR_OF_ROWS - 1, counter = colIndex; rowIndex >= 0 && counter >= 0; rowIndex--, counter--, diagonalIndex++) {
+            diagonal[diagonalIndex] = gridAreas[rowIndex][counter];
+        }
+        return diagonal;
+    }
+
+    private static GridArea[] extractDiagonalBLToTRLastCol(int rowIndex, GridArea[][] gridAreas) {
+        GridArea[] diagonal = new GridArea[DIAGONAL];
+        int diagonalIndex = 0;
+
+        for (int colIndex = NR_OF_COLS - 2; rowIndex >= 0 && colIndex >= 0; rowIndex--, colIndex--, diagonalIndex++) {
+            diagonal[diagonalIndex] = gridAreas[rowIndex][colIndex];
+        }
+        return diagonal;
     }
 }

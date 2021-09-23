@@ -23,4 +23,13 @@ public class GridPosition {
     public int hashCode() {
         return Objects.hash(rowIndex, colIndex);
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("GridPosition{");
+        sb.append("rowIndex=").append(rowIndex);
+        sb.append(", colIndex=").append(colIndex);
+        sb.append('}');
+        return sb.toString();
+    }
 }

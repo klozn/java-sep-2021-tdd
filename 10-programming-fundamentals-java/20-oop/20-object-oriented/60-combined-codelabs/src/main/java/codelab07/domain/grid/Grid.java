@@ -29,7 +29,7 @@ public class Grid {
         sb.append("---------------------------\n");
         for (int rowIndex = 0; rowIndex < NR_OF_ROWS; rowIndex++) {
             for (int colIndex = 0; colIndex < NR_OF_COLS; colIndex++) {
-                sb.append(gridAreas[rowIndex][colIndex].toString());
+                sb.append(gridAreas[rowIndex][colIndex].display());
                 sb.append(" ");
             }
             sb.append("\n");
