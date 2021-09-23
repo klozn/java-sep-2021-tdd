@@ -24,7 +24,7 @@ class TrainTest {
     void givenZeroHoursDelay_whenCustomerSatisfactionCalled_returnRightString() {
         Train train = new Train();
         train.setHoursDelayed(0);
-        assertEquals("Nice 'n rolling", train.customerSatisfaction());
+        assertEquals("Nice 'n rolling!", train.customerSatisfaction());
     }
 
 }

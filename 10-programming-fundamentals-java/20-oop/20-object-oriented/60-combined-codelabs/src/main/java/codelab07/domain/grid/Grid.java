@@ -34,6 +34,7 @@ public class Grid {
             }
             sb.append("\n");
         }
+        sb.append(" 0   1   2   3   4   5   6\n");
         sb.append("---------------------------");
         return sb.toString();
     }
