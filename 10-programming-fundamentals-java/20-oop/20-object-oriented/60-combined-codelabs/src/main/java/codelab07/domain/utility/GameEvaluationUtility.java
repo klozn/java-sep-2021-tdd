@@ -4,7 +4,11 @@ import codelab07.domain.Disk;
 import codelab07.domain.grid.Grid;
 import codelab07.domain.grid.GridArea;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static codelab07.domain.grid.Grid.*;
 
@@ -80,37 +84,60 @@ public class GameEvaluationUtility {
 
     private static int countDisks(GridArea[] gridAreas) {
         return (int) Arrays.stream(gridAreas)
+                .filter(Objects::nonNull)
                 .filter(GridArea::hasDisk)
                 .count();
     }
 
     private static boolean anyDiagonalLineHasFourDisksAdjacent(GridArea[][] gridAreas) {
-        return false;
+        GridArea[][] allDiagonalLines = getAllDiagonalLines(gridAreas);
+        GridArea[][] filteredDiagonalLines = filterDiagonalLines(allDiagonalLines);
+
+        boolean foundFour = false;
+        for (int index = 0; !foundFour && index < filteredDiagonalLines.length; index++) {
+            Disk[] disks = getDisksFrom(filteredDiagonalLines[index]);
+            foundFour = countAdjacent(disks) >= 4;
+        }
+        return foundFour;
+    }
+
+    public static GridArea[][] filterDiagonalLines(GridArea[][] diagonalLines) {
+        List<GridArea[]> filtered = new ArrayList<>();
+
+        for (GridArea[] diagonalLine : diagonalLines) {
+            GridArea[] diagonalLineWithoutNullElements = retrieveNonNulArrayElements(diagonalLine);
+            if (countDisks(diagonalLineWithoutNullElements) >= 4) {
+                filtered.add(diagonalLineWithoutNullElements);
+            }
+        }
+        return filtered.toArray(GridArea[][]::new);
+    }
+
+    private static GridArea[] retrieveNonNulArrayElements(GridArea[] gridAreas) {
+        return Arrays.stream(gridAreas)
+                .filter(Objects::nonNull)
+                .toArray(GridArea[]::new);
     }
 
     public static GridArea[][] getAllDiagonalLines(GridArea[][] gridAreas) {
         GridArea[][] allDiagonals = new GridArea[NR_OF_DIAGONAL_LINES][DIAGONAL];
         int diagonalIndex = 0;
 
-        for (; diagonalIndex < NR_OF_DIAGONAL_LINES / 2; diagonalIndex++) {
-            GridArea[][] extracted = extractDiagonalsTopLeftToBottomRight(gridAreas);
-            addExtractionsTo(allDiagonals, extracted, diagonalIndex);
-        }
-        for (; diagonalIndex < NR_OF_DIAGONAL_LINES; diagonalIndex++) {
-            GridArea[][] extracted = extractDiagonalsBottomLeftToTopRight(gridAreas);
-            addExtractionsTo(allDiagonals, extracted, diagonalIndex);
-        }
+        GridArea[][] extractionArray = extractDiagonalsTopLeftToBottomRight(gridAreas);
+        diagonalIndex = addExtractionsTo(allDiagonals, extractionArray, diagonalIndex);
+
+        extractionArray = extractDiagonalsBottomLeftToTopRight(gridAreas);
+        addExtractionsTo(allDiagonals, extractionArray, diagonalIndex);
+
         return allDiagonals;
     }
 
-    private static void addExtractionsTo(GridArea[][] allDiagonals, GridArea[][] extracted, int diagonalIndex) {
-        int colIndex = 0;
-
+    private static int addExtractionsTo(GridArea[][] allDiagonals, GridArea[][] extracted, int diagonalIndex) {
+        int newDiagonalIndex = diagonalIndex;
         for (GridArea[] diagonalLine : extracted) {
-            for (GridArea gridArea : diagonalLine) {
-
-            }
+            allDiagonals[newDiagonalIndex++] = diagonalLine;
         }
+        return newDiagonalIndex;
     }
 
 

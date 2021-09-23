@@ -12,6 +12,5 @@ public class Test {
         for (GridArea[] gridAreas : GameEvaluationUtility.getAllDiagonalLines(grid.getGridAreas())) {
             System.out.println(Arrays.toString(gridAreas));
         }
-
     }
 }
