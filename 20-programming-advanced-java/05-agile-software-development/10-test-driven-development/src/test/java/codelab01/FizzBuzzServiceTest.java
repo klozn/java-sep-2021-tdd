@@ -15,7 +15,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 6;
         //when
-        String[] resultArray = service.fizzBuzz(testArgument);
+        String[] resultArray = fizzBuzz(testArgument);
         //then
         assertEquals(testArgument, resultArray.length);
     }
@@ -26,7 +26,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 0;
         //then
-        assertThrows(IllegalArgumentException.class, () -> service.fizzBuzz(testArgument));
+        assertThrows(IllegalArgumentException.class, () -> fizzBuzz(testArgument));
     }
 
     @Test
@@ -35,7 +35,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 1;
         //then
-        assertThrows(IllegalArgumentException.class, () -> service.fizzBuzz(testArgument));
+        assertThrows(IllegalArgumentException.class, () -> fizzBuzz(testArgument));
     }
 
     @Test
@@ -57,15 +57,11 @@ class FizzBuzzServiceTest {
     @DisplayName("All numbers divisible by 3 are returned as 'Fizz'")
     void fizzBuzz_whenNumberIsDivisibleByThree_thenReturnFizz() {
         //given
-        int testArgument = 8;
-        int index = 2;
+        int testArgument = 4;
         //when
-        String[] resultArray = service.fizzBuzz(testArgument);
+        String[] resultArray = fizzBuzz(testArgument);
         //then
-        while (index < testArgument) {
-            assertEquals("Fizz", resultArray[index]);
-            index += 3;
-        }
+        assertEquals("Fizz", resultArray[2]);
     }
 
     @Test
@@ -73,29 +69,26 @@ class FizzBuzzServiceTest {
     void fizzBuzz_whenNumberIsDivisibleByFive_thenReturnBuzz() {
         //given
         int testArgument = 11;
-        int index = 4;
         //when
-        String[] resultArray = service.fizzBuzz(testArgument);
+        String[] resultArray = fizzBuzz(testArgument);
         //then
-        while (index < testArgument) {
-            assertEquals("Buzz", resultArray[index]);
-            index += 5;
-        }
+        assertEquals("Buzz", resultArray[4]);
     }
 
     @Test
     @DisplayName("All numbers divisible by both 5 and 3 are returned as 'FizzBuzz'")
     void fizzBuzz_whenNumberIsDivisibleByThreeAndFive_thenReturnFizzBuzz() {
         //given
-        int testArgument = 31;
+        int testArgument = 16;
         //when
-        String[] resultArray = service.fizzBuzz(testArgument);
+        String[] resultArray = fizzBuzz(testArgument);
         //then
-        for (int i = 0; i < testArgument; i++) {
-            if ((i + 1) % 5 == 0 && (i + 1) % 3 == 0) {
-                assertEquals("FizzBuzz", resultArray[i]);
-            }
-        }
+        assertArrayEquals(new String[] {"1","2","Fizz","4","Buzz", "Fizz", "7", "8",
+        "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz", "16"}, resultArray);
+    }
+
+    private String[] fizzBuzz(int argument) {
+        return service.fizzBuzz(argument);
     }
 
 }
