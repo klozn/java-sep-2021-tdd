@@ -3,6 +3,7 @@ package codelab07.domain.utility;
 import codelab07.domain.Disk;
 import codelab07.domain.grid.Grid;
 import codelab07.domain.grid.GridArea;
+import codelab07.domain.grid.GridPosition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,11 @@ public class GameEvaluationUtility {
             return true;
         }
         return anyDiagonalLineHasFourDisksAdjacent(gridAreas);
+    }
+
+    public static boolean isGridFull(Grid grid) {
+        GridArea[] topRow = grid.getGridAreas()[0];
+        return Arrays.stream(topRow).allMatch(GridArea::hasDisk);
     }
 
     private static boolean anyRowHasFourDisksAdjacent(GridArea[][] gridAreas) {
@@ -49,13 +55,31 @@ public class GameEvaluationUtility {
     private static int countAdjacent(Disk[] disks) {
         int adjacentCount = 1;
         for (int i = 0; i < disks.length - 1; i++) {
-            if (disks[i].equals(disks[i + 1])) {
+            if (disks[i].equals(disks[i + 1]) && gridPositionAdjacent(disks[i], disks[i + 1])) {
                 adjacentCount++;
             } else {
                 adjacentCount = 1;
             }
         }
         return adjacentCount;
+    }
+
+    private static boolean gridPositionAdjacent(Disk disk1, Disk disk2) {
+        int row1 = disk1.getGridPosition().getRowIndex();
+        int col1 = disk1.getGridPosition().getColIndex();
+        int row2 = disk2.getGridPosition().getRowIndex();
+        int col2 = disk2.getGridPosition().getColIndex();
+
+        if (row1 == row2) {
+            return col1 == col2 + 1 || col1 == col2 - 1;
+        }
+        if (col1 == col2) {
+            return row1 == row2 + 1 || row1 == row2 - 1;
+        }
+        return row1 == row2 + 1 && col1 == col2 + 1 ||
+                row1 == row2 - 1 && col1 == col2 - 1 ||
+                row1 == row2 - 1 && col1 == col2 + 1 ||
+                row1 == row2 + 1 && col1 == col2 - 1;
     }
 
     private static GridArea[] getGridAreasFromRowOrCol(int index, GridArea[][] gridAreas, boolean forRow) {

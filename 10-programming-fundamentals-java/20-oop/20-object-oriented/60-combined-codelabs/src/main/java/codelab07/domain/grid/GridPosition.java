@@ -11,6 +11,14 @@ public class GridPosition {
         this.colIndex = colIndex;
     }
 
+    public int getRowIndex() {
+        return rowIndex;
+    }
+
+    public int getColIndex() {
+        return colIndex;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -14,6 +14,7 @@ public class DiskDropper {
         } else {
             gridArea.setDisk(disk);
             disk.setDropped(true);
+            disk.setGridPosition(gridArea.getGridPosition());
             return true;
         }
     }

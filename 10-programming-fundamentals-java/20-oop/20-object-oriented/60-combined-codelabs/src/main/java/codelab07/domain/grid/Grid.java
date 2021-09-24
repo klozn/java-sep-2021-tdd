@@ -1,5 +1,7 @@
 package codelab07.domain.grid;
 
+import java.util.Arrays;
+
 public class Grid {
     public final static int NR_OF_ROWS = 5;
     public final static int NR_OF_COLS = 7;
@@ -23,10 +25,10 @@ public class Grid {
         return gridAreas;
     }
 
-    @Override
-    public String toString() {
+    public void display() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("---------------------------\n");
+        sb.append("----".repeat(NR_OF_COLS));
+        sb.append('\n');
         for (int rowIndex = 0; rowIndex < NR_OF_ROWS; rowIndex++) {
             for (int colIndex = 0; colIndex < NR_OF_COLS; colIndex++) {
                 sb.append(gridAreas[rowIndex][colIndex].display());
@@ -34,8 +36,23 @@ public class Grid {
             }
             sb.append("\n");
         }
-        sb.append(" 0   1   2   3   4   5   6\n");
-        sb.append("---------------------------");
+        for (int i = 0; i < NR_OF_COLS; i++) {
+            if (i < 10) {
+                sb.append(' ').append(i).append("  ");
+            } else {
+                sb.append(' ').append(i).append(' ');
+            }
+        }
+        sb.append('\n');
+        sb.append("----".repeat(NR_OF_COLS));
+        System.out.println(sb);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Grid{");
+        sb.append("gridAreas=").append(Arrays.toString(gridAreas));
+        sb.append('}');
         return sb.toString();
     }
 }

@@ -1,14 +1,26 @@
 package codelab07.domain;
 
+import codelab07.domain.grid.GridPosition;
+
 import java.util.Objects;
 
 public class Disk {
     private final char displayValue;
     private boolean dropped;
+    private GridPosition gridPosition;
 
     public Disk(char displayValue) {
         this.displayValue = displayValue;
         dropped = false;
+        gridPosition = new GridPosition(-1, -1);
+    }
+
+    public GridPosition getGridPosition() {
+        return gridPosition;
+    }
+
+    public void setGridPosition(GridPosition gridPosition) {
+        this.gridPosition = gridPosition;
     }
 
     public char getDisplayValue() {

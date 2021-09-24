@@ -17,7 +17,8 @@ public class ConnectFourService {
     public void launchGame() {
         Scanner scanner = new Scanner(System.in);
         setActivePlayer(players[0]);
-        boolean gameOver;
+        boolean gameWon;
+        boolean gridFull;
 
         do {
             UIUtility.askColIndexFrom(activePlayer);
@@ -40,13 +41,15 @@ public class ConnectFourService {
                     }
                 }
             }
-            gameOver = GameEvaluationUtility.isGameWon(grid);
-            if (!gameOver) {
+            gameWon = GameEvaluationUtility.isGameWon(grid);
+            if (!gameWon) {
                 System.out.println("No winner yet!");
                 switchActivePlayer();
             }
-        } while (!gameOver);
-        UIUtility.printEndGameMessage(activePlayer);
+            gridFull = GameEvaluationUtility.isGridFull(grid);
+        } while (!gameWon && !gridFull);
+
+        UIUtility.printEndGameMessage(gameWon, activePlayer);
         displayGrid();
     }
 
@@ -65,7 +68,7 @@ public class ConnectFourService {
     }
 
     public void displayGrid() {
-        System.out.println(grid);
+        grid.display();
     }
 
     public void setPlayerOne(String name) {
