@@ -24,7 +24,7 @@ class BookServiceTest {
         ArrayList<HarryPotterBook> selectedBooks = newArrayList(
                 new HarryPotterBook(HarryPotterBookTitle.THE_CHAMBER_OF_SECRETS));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(8);
     }
@@ -35,7 +35,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_CHAMBER_OF_SECRETS),
                 new HarryPotterBook(HarryPotterBookTitle.THE_PRISONER_OF_AZKABAN));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(15.2);
     }
@@ -47,7 +47,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_PRISONER_OF_AZKABAN),
                 new HarryPotterBook(HarryPotterBookTitle.THE_GOBLET_OF_FIRE));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(21.6);
     }
@@ -60,7 +60,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_GOBLET_OF_FIRE),
                 new HarryPotterBook(HarryPotterBookTitle.THE_ORDER_OF_THE_PHOENIX));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(25.6);
     }
@@ -74,7 +74,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_ORDER_OF_THE_PHOENIX),
                 new HarryPotterBook(HarryPotterBookTitle.THE_PHILOSOPHERS_STONE));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(30);
     }
@@ -85,7 +85,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_CHAMBER_OF_SECRETS),
                 new HarryPotterBook(HarryPotterBookTitle.THE_CHAMBER_OF_SECRETS));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(16);
     }
@@ -98,7 +98,7 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_PRISONER_OF_AZKABAN),
                 new HarryPotterBook(HarryPotterBookTitle.THE_PRISONER_OF_AZKABAN));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(formatDecimalTwoDigits(priceOfBooks)).isEqualTo("31.2");
     }
@@ -115,13 +115,21 @@ class BookServiceTest {
                 new HarryPotterBook(HarryPotterBookTitle.THE_ORDER_OF_THE_PHOENIX),
                 new HarryPotterBook(HarryPotterBookTitle.THE_GOBLET_OF_FIRE));
 
-        double priceOfBooks = bookService.shop(selectedBooks);
+        double priceOfBooks = bookService.calculateTotalPrice(selectedBooks);
 
         assertThat(priceOfBooks).isEqualTo(54);
     }
 
     private String formatDecimalTwoDigits(double priceOfBooks) {
         return String.format("%s", priceOfBooks).substring(0, 4);
+    }
+
+    private ArrayList<HarryPotterBook> getDifferentHarryPotterBooks(int amount) {
+        ArrayList<HarryPotterBook> books = new ArrayList<>();
+        for (int i = 0; i < HarryPotterBookTitle.values().length && i < amount; i++) {
+            books.add(new HarryPotterBook(HarryPotterBookTitle.values()[i]));
+        }
+        return books;
     }
 
 }

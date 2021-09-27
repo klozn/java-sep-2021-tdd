@@ -10,30 +10,42 @@ import java.util.HashMap;
  * Read the README.md.
  */
 public class BookService {
+    public static final double[] PERCENTAGES = {0, 5, 10, 20, 25};
 
-    public double shop(ArrayList<HarryPotterBook> b) {
-        double[] percentages = {0, 5, 10, 20, 25};
-        if(b.size() == 1) return 8;
-        HashMap<HarryPotterBookTitle, Integer> bMap = new HashMap<>();
-        // loop over books, make map of amount of books per type
-        for(HarryPotterBook b1 : b) {
-            bMap.put(b1.getTitleOfBook(),
-                    bMap.get(b1.getTitleOfBook()) == null ? 1 : bMap.get(b1.getTitleOfBook()) + 1);
+    public double calculateTotalPrice(ArrayList<HarryPotterBook> books) {
+        if (books.size() == 1) {
+            return HarryPotterBook.BASE_PRICE;
         }
-        // based on how big the set of books is,
-        // calculate the discount price!
-        double percentage = percentages[bMap.size() - 1];
-        double discountPrice = bMap.size() * 8 * ((100 - percentage) / 100);
-        double otherPrice = 0;
-        // caculate the total normal price without any discounts
-        for(int amount : bMap.values()) {
-            otherPrice += amount * 8;
+        HashMap<HarryPotterBookTitle, Integer> bookTitleOccurrenceMap = getBookTitleOccurrenceMap(books);
+        int amountOfUniqueBooks = bookTitleOccurrenceMap.size();
+        double discountPrice = calculateDiscountPrice(amountOfUniqueBooks);
+        double totalPrice = 0;
+
+        for (int amount : bookTitleOccurrenceMap.values()) {
+            totalPrice += amount * HarryPotterBook.BASE_PRICE;
         }
-        // if there is a set of books (minimum 2 books), take the discountPrice
-        // in account, ignore otherwise
-        if(bMap.size() > 1) {
-            return otherPrice + discountPrice - (bMap.size() * 8); // pretty weird calculation, but hey it works correctly...
-        } return otherPrice;
+
+        if (amountOfUniqueBooks > 1) {
+            return totalPrice + discountPrice - (amountOfUniqueBooks * HarryPotterBook.BASE_PRICE);
+        }
+        return totalPrice;
     }
 
+    private HashMap<HarryPotterBookTitle, Integer> getBookTitleOccurrenceMap(ArrayList<HarryPotterBook> books) {
+        HashMap<HarryPotterBookTitle, Integer> bookTitleOccurrenceMap = new HashMap<>();
+        for (HarryPotterBook book : books) {
+            HarryPotterBookTitle title = book.getTitleOfBook();
+            if (bookTitleOccurrenceMap.containsKey(title)) {
+                bookTitleOccurrenceMap.put(title, bookTitleOccurrenceMap.get(title) + 1);
+            } else {
+                bookTitleOccurrenceMap.put(title, 1);
+            }
+        }
+        return bookTitleOccurrenceMap;
+    }
+
+    private double calculateDiscountPrice(int amountOfUniqueBooks) {
+        double percentage = PERCENTAGES[amountOfUniqueBooks - 1];
+        return amountOfUniqueBooks * HarryPotterBook.BASE_PRICE * ((100 - percentage) / 100);
+    }
 }

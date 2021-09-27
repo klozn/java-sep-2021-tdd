@@ -24,7 +24,7 @@ class BookServiceTestUsingParameterizedTests {
     @ParameterizedTest(name = "({index}) Expected price = {0} for selected books {1}")
     @MethodSource("boughtBooksAndExpectedPriceProvider")
     void givenSelectedBooks_whenCalculatingPrice_thenReturnCorrectlyCalculatedPrice(String expectedPrice, ArrayList<HarryPotterBook> selectedBooks) {
-        double actualPrice = new BookService().shop(selectedBooks);
+        double actualPrice = new BookService().calculateTotalPrice(selectedBooks);
         assertThat(formatDecimalTwoDigits(actualPrice)).isEqualTo(expectedPrice);
     }
 

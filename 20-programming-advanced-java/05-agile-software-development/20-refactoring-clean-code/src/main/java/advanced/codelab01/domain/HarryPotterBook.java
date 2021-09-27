@@ -5,6 +5,7 @@ package advanced.codelab01.domain;
  * (the current code of this class is OK)
  */
 public class HarryPotterBook {
+    public final static double BASE_PRICE = 8;
 
     private final HarryPotterBookTitle titleOfBook;
 
