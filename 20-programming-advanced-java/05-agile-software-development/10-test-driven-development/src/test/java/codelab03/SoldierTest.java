@@ -70,5 +70,29 @@ class SoldierTest {
             //then
             assertEquals(attacker, winner);
         }
+
+        @Test
+        @DisplayName("bonusWeaponDamage axe vs spear returns 2")
+        void getBonusWeaponDamage_whenAxeVsSpear_Returns2() {
+            //given
+            attacker.setWeapon(new Axe());
+            defender.setWeapon(new Spear());
+            //when
+            double bonus = attacker.getBonusWeaponDamage(defender);
+            //then
+            assertEquals(2, bonus);
+        }
+
+        @Test
+        @DisplayName("bonusWeaponDamage spear vs sword returns 1")
+        void getBonusWeaponDamage_whenSpearVsSword_Returns1() {
+            //given
+            attacker.setWeapon(new Spear());
+            defender.setWeapon(new Sword());
+            //when
+            double bonus = attacker.getBonusWeaponDamage(defender);
+            //then
+            assertEquals(1, bonus);
+        }
     }
 }
