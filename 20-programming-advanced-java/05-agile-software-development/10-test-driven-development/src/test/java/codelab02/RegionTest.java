@@ -9,10 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegionTest {
     class GrowableStub implements Growable {
+        GrowthStatus growthStatus;
+
         @Override
         public void plant(Region region) {
         }
+
+        @Override
+        public void grow() {
+            growthStatus = growthStatus.next();
+        }
     }
+
     private Region region;
 
     @BeforeEach
@@ -21,7 +29,7 @@ class RegionTest {
     }
 
     @Nested
-    @DisplayName("Method plant():")
+    @DisplayName("Method plant:")
     class Planting {
         @Test
         @DisplayName("adds growable to growables array")
@@ -35,7 +43,7 @@ class RegionTest {
         }
 
         @Test
-        @DisplayName("when growable Array is full plant() does nothing")
+        @DisplayName("when growable Array is full does nothing")
         void plant_whenGrowableArrayIsFull_thenDoesNothing() {
             //given
             fillRegion();
@@ -45,6 +53,23 @@ class RegionTest {
             //then
             assertNotEquals(stub, region.getGrowables()[4]);
         }
+    }
+
+    @Test
+    @DisplayName("Advance season method grows all planted growables one level")
+    void advanceSeason_growsAllGrowablesInRegion() {
+        //given
+        GrowableStub stubSeed = new GrowableStub();
+        GrowableStub stubPlant = new GrowableStub();
+        stubSeed.growthStatus = GrowthStatus.SEED;
+        stubPlant.growthStatus = GrowthStatus.PLANT;
+        region.plant(stubPlant);
+        region.plant(stubSeed);
+        //when
+        region.advanceSeason();
+        //then
+        assertEquals(GrowthStatus.SPROUT, stubSeed.growthStatus);
+        assertEquals(GrowthStatus.TREE, stubPlant.growthStatus);
     }
 
     private void fillRegion() {
