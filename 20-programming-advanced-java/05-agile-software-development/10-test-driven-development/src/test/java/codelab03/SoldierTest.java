@@ -1,8 +1,6 @@
 package codelab03;
 
-import codelab03.weapons.Axe;
-import codelab03.weapons.Spear;
-import codelab03.weapons.Sword;
+import codelab03.weapons.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -49,14 +47,14 @@ class SoldierTest {
 
         @Test
         @DisplayName("returns soldier with axe when vs spear")
-        void fight_whenSpearVsAxe_returnsSoldierWithSpear() {
+        void fight_whenSpearVsAxe_returnsSoldierWithAxe() {
             //given
             attacker.setWeapon(new Spear());
             defender.setWeapon(new Axe());
             //when
             Soldier winner = attacker.fight(defender);
             //then
-            assertEquals(attacker, winner);
+            assertEquals(defender, winner);
         }
 
         @Test
@@ -93,6 +91,18 @@ class SoldierTest {
             double bonus = attacker.getBonusWeaponDamage(defender);
             //then
             assertEquals(1, bonus);
+        }
+
+        @Test
+        @DisplayName("flamingSword has 1.5 bonus damage vs obsidianAxe")
+        void getBonusWeaponDamage_whenFlamingSwordVsObsidianAxe_thenReturns1Point5() {
+            //given
+            attacker.setWeapon(new FlamingSword());
+            defender.setWeapon(new ObsidianAxe());
+            //when
+            double bonus = attacker.getBonusWeaponDamage(defender);
+            //then
+            assertEquals(1.5, bonus);
         }
     }
 }

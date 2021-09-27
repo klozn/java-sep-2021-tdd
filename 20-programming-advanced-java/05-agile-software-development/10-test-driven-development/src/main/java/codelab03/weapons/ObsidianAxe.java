@@ -1,6 +1,6 @@
 package codelab03.weapons;
 
-public class ObsidianAxe extends Weapon {
+public class ObsidianAxe extends Axe {
     public final static double DAMAGE = 2 + Axe.DAMAGE;
 
     public ObsidianAxe() {

@@ -6,4 +6,8 @@ public class Axe extends Weapon {
     public Axe() {
         super(DAMAGE);
     }
+
+    public Axe(double damage) {
+        super(damage);
+    }
 }

@@ -6,4 +6,8 @@ public class Spear extends Weapon{
     public Spear() {
         super(DAMAGE);
     }
+
+    public Spear(double damage) {
+        super(damage);
+    }
 }

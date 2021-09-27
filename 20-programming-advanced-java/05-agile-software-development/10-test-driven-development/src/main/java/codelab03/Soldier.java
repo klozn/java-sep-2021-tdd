@@ -25,11 +25,11 @@ public class Soldier {
         this.weapon = weapon;
     }
 
-    public Soldier fight(Soldier soldier) {
-        double totalDamage = getWeaponDamage() + getBonusWeaponDamage(soldier);
-        double opponentTotalDamage = soldier.getWeaponDamage() + soldier.getBonusWeaponDamage(this);
-        if (totalDamage > opponentTotalDamage) {
-            return soldier;
+    public Soldier fight(Soldier opponent) {
+        double totalDamage = getWeaponDamage() + getBonusWeaponDamage(opponent);
+        double opponentTotalDamage = opponent.getWeaponDamage() + opponent.getBonusWeaponDamage(this);
+        if (opponentTotalDamage > totalDamage) {
+            return opponent;
         }
         return this;
     }
