@@ -11,19 +11,13 @@ class Gate {
         this.passengersToBoard = new PriorityQueue<>();
     }
 
-    /**
-     * Add the passenger to the queue
-     */
     void goStandInLineToBoard(Passenger passenger) {
-        // implement me
+        if (passenger != null) {
+            passengersToBoard.offer(passenger);
+        }
     }
 
-    /**
-     * Take the 'next-in-line' passenger and return it (make sure it's no longer part of the queue)
-     * @return the passenger that may board
-     */
     Passenger letNextPassengerBoard() {
-        // implement me
-        return null;
+        return passengersToBoard.poll();
     }
 }

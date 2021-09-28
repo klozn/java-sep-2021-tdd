@@ -22,4 +22,13 @@ public class Passenger implements Comparable<Passenger>{
     public int compareTo(Passenger otherPassenger) {
         return otherPassenger.getBoardingPriority().getPriorityLevel() - boardingPriority.getPriorityLevel();
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Passenger{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", boardingPriority=").append(boardingPriority);
+        sb.append('}');
+        return sb.toString();
+    }
 }
