@@ -1,5 +1,8 @@
 package advanced.codelab02;
 
+import advanced.codelab02.movies.ChildrensMovie;
+import advanced.codelab02.movies.NewRelease;
+import advanced.codelab02.movies.RegularMovie;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +13,7 @@ class CustomerTest {
     void statement_givenCustomerWithOneRentalFor3DaysContainingARegularMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Becky",
                 new Rental[]{
-                        new Rental(new Movie("Minority Report", Movie.REGULAR), 3)
+                        new Rental(new RegularMovie("Minority Report"), 3)
                 });
         String expectedResult = """
                 Rental Record for Becky
@@ -35,7 +38,7 @@ class CustomerTest {
     void statement_givenCustomerWithOneRentalFor3DaysContainingANewReleaseMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Bruce",
                 new Rental[]{
-                        new Rental(new Movie("A Quiet Place", Movie.NEW_RELEASE), 3)
+                        new Rental(new NewRelease("A Quiet Place"), 3)
                 });
         String expectedResult = """
                 Rental Record for Bruce
@@ -52,7 +55,7 @@ class CustomerTest {
     void statement_givenCustomerWithOneRentalFor3DaysContainingAChildrensMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Lil' Timmy",
                 new Rental[]{
-                        new Rental(new Movie("Wall-E", Movie.CHILDRENS), 3)
+                        new Rental(new ChildrensMovie("Wall-E"), 3)
                 });
         String expectedResult = """
                 Rental Record for Lil' Timmy
@@ -69,9 +72,9 @@ class CustomerTest {
     public void statement_givenCustomerWithThreeRentalsContainingMoviesWithDifferentPriceCodes_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Suzzy",
                 new Rental[]{
-                        new Rental(new Movie("Monsters, inc.", Movie.CHILDRENS), 6),
-                        new Rental(new Movie("Game Night", Movie.NEW_RELEASE), 2),
-                        new Rental(new Movie("The theory of everything", Movie.REGULAR), 8),
+                        new Rental(new ChildrensMovie("Monsters, inc."), 6),
+                        new Rental(new NewRelease("Game Night"), 2),
+                        new Rental(new RegularMovie("The theory of everything"), 8),
                 });
         String expectedResult = """
                 Rental Record for Suzzy

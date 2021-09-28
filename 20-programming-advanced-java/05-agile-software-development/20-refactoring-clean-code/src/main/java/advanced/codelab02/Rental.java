@@ -1,5 +1,7 @@
 package advanced.codelab02;
 
+import advanced.codelab02.movies.Movie;
+
 public class Rental {
 
     private final Movie movie;
