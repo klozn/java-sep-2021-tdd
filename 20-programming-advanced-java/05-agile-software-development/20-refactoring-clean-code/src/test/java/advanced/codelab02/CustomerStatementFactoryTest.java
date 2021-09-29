@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CustomerTest {
+class CustomerStatementFactoryTest {
+    private final CustomerStatementFactory factory = new MovieRentalsStatementFactory();
 
     @Test
     void statement_givenCustomerWithOneRentalFor3DaysContainingARegularMovie_thenReturnCorrectResult() {
@@ -21,7 +22,7 @@ class CustomerTest {
                 Amount owed is 3.5
                 You earned 1 frequent renter points""";
 
-        String actualResult = customer.statement();
+        String actualResult = factory.createStatementFor(customer).asString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -46,7 +47,7 @@ class CustomerTest {
                 Amount owed is 9.0
                 You earned 2 frequent renter points""";
 
-        String actualResult = customer.statement();
+        String actualResult = factory.createStatementFor(customer).asString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -63,7 +64,7 @@ class CustomerTest {
                 Amount owed is 1.5
                 You earned 1 frequent renter points""";
 
-        String actualResult = customer.statement();
+        String actualResult = factory.createStatementFor(customer).asString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -84,7 +85,7 @@ class CustomerTest {
                 Amount owed is 23.0
                 You earned 4 frequent renter points""";
 
-        String actualResult = customer.statement();
+        String actualResult = factory.createStatementFor(customer).asString();
 
         assertEquals(expectedResult, actualResult);
     }
