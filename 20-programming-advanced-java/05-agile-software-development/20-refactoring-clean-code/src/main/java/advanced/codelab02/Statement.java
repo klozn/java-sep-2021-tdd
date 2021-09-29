@@ -24,7 +24,8 @@ public class Statement {
         this.footerLines = footerLines;
     }
 
-    public String asString() {
+    @Override
+    public String toString() {
         final StringBuilder sb = new StringBuilder(headerLines);
         statementLines.forEach(sb::append);
         sb.append(footerLines);

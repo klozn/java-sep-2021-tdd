@@ -22,7 +22,7 @@ class CustomerStatementFactoryTest {
                 Amount owed is 3.5
                 You earned 1 frequent renter points""";
 
-        String actualResult = factory.createStatementFor(customer).asString();
+        String actualResult = factory.createStatementFor(customer).toString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -47,7 +47,7 @@ class CustomerStatementFactoryTest {
                 Amount owed is 9.0
                 You earned 2 frequent renter points""";
 
-        String actualResult = factory.createStatementFor(customer).asString();
+        String actualResult = factory.createStatementFor(customer).toString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -64,7 +64,7 @@ class CustomerStatementFactoryTest {
                 Amount owed is 1.5
                 You earned 1 frequent renter points""";
 
-        String actualResult = factory.createStatementFor(customer).asString();
+        String actualResult = factory.createStatementFor(customer).toString();
 
         assertEquals(expectedResult, actualResult);
     }
@@ -85,7 +85,7 @@ class CustomerStatementFactoryTest {
                 Amount owed is 23.0
                 You earned 4 frequent renter points""";
 
-        String actualResult = factory.createStatementFor(customer).asString();
+        String actualResult = factory.createStatementFor(customer).toString();
 
         assertEquals(expectedResult, actualResult);
     }
