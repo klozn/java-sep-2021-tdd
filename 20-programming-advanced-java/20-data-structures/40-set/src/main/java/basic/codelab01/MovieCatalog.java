@@ -1,5 +1,7 @@
 package basic.codelab01;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,24 +24,25 @@ class MovieCatalog {
      * Should return only the movies that exist in both movie catalogs
      */
     Movie[] getIntersectionOf(MovieCatalog otherMovieCatalog) {
-        // Remove exception and implement method
-        throw new UnsupportedOperationException("Implement me");
+        Set<Movie> intersection = new HashSet<>(movies);
+        intersection.retainAll(otherMovieCatalog.movies);
+        return intersection.toArray(new Movie[0]);
     }
 
     /**
      * Should return all the movies, of both movie catalogs combined
      */
     Movie[] getUnionOf(MovieCatalog otherMovieCatalog) {
-        // Remove exception and implement method
-        throw new UnsupportedOperationException("Implement me");
+        Set<Movie> unionMovies = new HashSet<>(movies);
+        unionMovies.addAll(otherMovieCatalog.movies);
+        return unionMovies.toArray(new Movie[0]);
     }
 
     /**
      * If this movie catalog includes all the movies of the other movie catalog, then return true.
      */
     boolean isSubsetOf(MovieCatalog otherMovieCatalog) {
-        // Remove exception and implement method
-        throw new UnsupportedOperationException("Implement me");
+        return movies.containsAll(otherMovieCatalog.movies);
     }
 
 }
