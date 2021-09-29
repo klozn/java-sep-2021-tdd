@@ -4,8 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -83,12 +82,12 @@ class StormTrooperTest {
         s1.getMessages().add(message3);
         s1.getMessages().add(message4);
         //when
-        TreeSet<Message> messages = s1.getMessages();
+        List<Message> messages = s1.getMessages();
         //then
-        assertEquals(message3, messages.pollFirst());
-        assertEquals(message1, messages.pollFirst());
-        assertEquals(message2, messages.pollFirst());
-        assertEquals(message4, messages.pollFirst());
+        assertEquals(message3, messages.get(0));
+        assertEquals(message1, messages.get(1));
+        assertEquals(message2, messages.get(2));
+        assertEquals(message4, messages.get(3));
     }
 
     @Test
@@ -114,14 +113,13 @@ class StormTrooperTest {
         s1.sendMessage(message6, s3);
         //when
         System.out.println(s3.getMessages());
-        TreeSet<Message> messages = s3.getMessagesFrom(s2);
+        List<Message> messages = s3.getMessagesFrom(s2);
         //then
         assertEquals(3, messages.size());
-        assertEquals(s2, messages.first().getSender());
-        assertEquals(s2, messages.last().getSender());
-        assertEquals(message5, messages.pollFirst());
-        assertEquals(message4, messages.pollFirst());
-        assertEquals(message2, messages.pollFirst());
+        assertEquals(s2, messages.get(0).getSender());
+        assertEquals(message5, messages.get(0));
+        assertEquals(message4, messages.get(1));
+        assertEquals(message2, messages.get(2));
     }
 
     @Test
@@ -138,7 +136,7 @@ class StormTrooperTest {
         s3.sendMessage("Test body", s1);
         s3.sendMessage("Test body", s2);
         //when
-        Set<Message> messages = s1.getMessagesFrom(s2);
+        List<Message> messages = s1.getMessagesFrom(s2);
         //then
         assertNull(messages);
     }

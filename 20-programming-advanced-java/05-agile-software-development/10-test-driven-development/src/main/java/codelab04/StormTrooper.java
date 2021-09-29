@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class StormTrooper {
     private final String username;
     private final Set<StormTrooper> friends = new HashSet<>();
-    private final TreeSet<Message> messages = new TreeSet<>();
+    private final List<Message> messages = new ArrayList<>();
 
     public StormTrooper(String username) {
         this.username = username;
@@ -26,19 +26,21 @@ public class StormTrooper {
         return false;
     }
 
-    private boolean receiveMessage(Message message) {
-        return messages.add(message);
+    private void receiveMessage(Message message) {
+        messages.add(message);
+        Collections.sort(messages);
     }
 
-    public TreeSet<Message> getMessages() {
+    public List<Message> getMessages() {
+        Collections.sort(messages);
         return messages;
     }
 
-    public TreeSet<Message> getMessagesFrom(StormTrooper friend) {
+    public List<Message> getMessagesFrom(StormTrooper friend) {
         if (friends.contains(friend)) {
             return messages.stream()
                     .filter(m -> m.getSender().equals(friend))
-                    .collect(Collectors.toCollection(TreeSet<Message>::new));
+                    .collect(Collectors.toList());
         }
         return null;
     }
@@ -49,7 +51,8 @@ public class StormTrooper {
 
     public boolean sendMessage(Message message, StormTrooper friend) {
         if (friends.contains(friend)) {
-            return friend.receiveMessage(message);
+            friend.receiveMessage(message);
+            return true;
         }
         return false;
     }
