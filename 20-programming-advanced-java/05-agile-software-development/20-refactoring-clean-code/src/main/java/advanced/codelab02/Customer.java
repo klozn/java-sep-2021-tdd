@@ -1,9 +1,5 @@
 package advanced.codelab02;
 
-import advanced.codelab02.movies.ChildrensMovie;
-import advanced.codelab02.movies.NewRelease;
-import advanced.codelab02.movies.RegularMovie;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +24,6 @@ public class Customer {
     public String getName() {
         return name;
     }
-
-
 
 
 }

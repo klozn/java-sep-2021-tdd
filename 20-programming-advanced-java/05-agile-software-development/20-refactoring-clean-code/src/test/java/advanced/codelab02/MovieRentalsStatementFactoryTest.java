@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CustomerStatementFactoryTest {
+class MovieRentalsStatementFactoryTest {
     private final CustomerStatementFactory factory = new MovieRentalsStatementFactory();
 
     @Test
-    void statement_givenCustomerWithOneRentalFor3DaysContainingARegularMovie_thenReturnCorrectResult() {
+    void createStatement_givenCustomerWithOneRentalFor3DaysContainingARegularMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Becky",
                 new Rental[]{
                         new Rental(new RegularMovie("Minority Report"), 3)
@@ -36,7 +36,7 @@ class CustomerStatementFactoryTest {
     }
 
     @Test
-    void statement_givenCustomerWithOneRentalFor3DaysContainingANewReleaseMovie_thenReturnCorrectResult() {
+    void createStatement_givenCustomerWithOneRentalFor3DaysContainingANewReleaseMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Bruce",
                 new Rental[]{
                         new Rental(new NewRelease("A Quiet Place"), 3)
@@ -53,7 +53,7 @@ class CustomerStatementFactoryTest {
     }
 
     @Test
-    void statement_givenCustomerWithOneRentalFor3DaysContainingAChildrensMovie_thenReturnCorrectResult() {
+    void createStatement_givenCustomerWithOneRentalFor3DaysContainingAChildrensMovie_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Lil' Timmy",
                 new Rental[]{
                         new Rental(new ChildrensMovie("Wall-E"), 3)
@@ -70,7 +70,7 @@ class CustomerStatementFactoryTest {
     }
 
     @Test
-    public void statement_givenCustomerWithThreeRentalsContainingMoviesWithDifferentPriceCodes_thenReturnCorrectResult() {
+    public void createStatement_givenCustomerWithThreeRentalsContainingMoviesWithDifferentPriceCodes_thenReturnCorrectResult() {
         Customer customer = createCustomerWithRentals("Suzzy",
                 new Rental[]{
                         new Rental(new ChildrensMovie("Monsters, inc."), 6),

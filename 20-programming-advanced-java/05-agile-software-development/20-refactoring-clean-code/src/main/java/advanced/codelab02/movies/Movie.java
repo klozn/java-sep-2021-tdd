@@ -14,10 +14,6 @@ public abstract class Movie {
         return priceCode;
     }
 
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
-    }
-
     public String getTitle() {
         return title;
     }
