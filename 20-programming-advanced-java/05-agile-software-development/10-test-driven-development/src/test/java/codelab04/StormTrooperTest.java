@@ -98,8 +98,8 @@ class StormTrooperTest {
         StormTrooper s1 = new StormTrooper("Kurt");
         StormTrooper s2 = new StormTrooper("Sarah");
         StormTrooper s3 = new StormTrooper("Bruno");
-        s1.addFriend(s3);
-        s2.addFriend(s3);
+        assertTrue(s1.addFriend(s3));
+        assertTrue(s2.addFriend(s3));
         Message message1 = new Message(LocalDateTime.now(), s1, "Test body");
         Message message2 = new Message(LocalDateTime.now(), s2, "Test body");
         Message message3 = new Message(LocalDateTime.now(), s1, "Test body");

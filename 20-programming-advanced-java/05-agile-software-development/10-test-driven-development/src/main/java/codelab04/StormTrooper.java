@@ -1,6 +1,5 @@
 package codelab04;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -19,10 +18,15 @@ public class StormTrooper {
     }
 
     public boolean addFriend(StormTrooper friend) {
-        return friends.add(friend) && friend.friends.add(this);
+        if (!friends.contains(friend)) {
+            if (friends.add(friend)) {
+                return friend.friends.add(this);
+            }
+        }
+        return false;
     }
 
-    private boolean addMessage(Message message) {
+    private boolean receiveMessage(Message message) {
         return messages.add(message);
     }
 
@@ -45,7 +49,7 @@ public class StormTrooper {
 
     public boolean sendMessage(Message message, StormTrooper friend) {
         if (friends.contains(friend)) {
-            return friend.addMessage(message);
+            return friend.receiveMessage(message);
         }
         return false;
     }
