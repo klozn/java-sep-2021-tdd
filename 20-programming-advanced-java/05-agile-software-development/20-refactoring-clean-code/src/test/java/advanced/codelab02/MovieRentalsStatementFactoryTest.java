@@ -20,7 +20,8 @@ class MovieRentalsStatementFactoryTest {
                 Rental Record for Becky
                 \tMinority Report\t3.5
                 Amount owed is 3.5
-                You earned 1 frequent renter points""";
+                You earned 1 frequent renter points
+                You now have 1 points in total.""";
 
         String actualResult = factory.createStatementFor(customer).toString();
 
@@ -45,7 +46,8 @@ class MovieRentalsStatementFactoryTest {
                 Rental Record for Bruce
                 \tA Quiet Place\t9.0
                 Amount owed is 9.0
-                You earned 2 frequent renter points""";
+                You earned 2 frequent renter points
+                You now have 2 points in total.""";
 
         String actualResult = factory.createStatementFor(customer).toString();
 
@@ -62,7 +64,8 @@ class MovieRentalsStatementFactoryTest {
                 Rental Record for Lil' Timmy
                 \tWall-E\t1.5
                 Amount owed is 1.5
-                You earned 1 frequent renter points""";
+                You earned 1 frequent renter points
+                You now have 1 points in total.""";
 
         String actualResult = factory.createStatementFor(customer).toString();
 
@@ -83,11 +86,11 @@ class MovieRentalsStatementFactoryTest {
                 \tGame Night\t6.0
                 \tThe theory of everything\t11.0
                 Amount owed is 23.0
-                You earned 4 frequent renter points""";
+                You earned 4 frequent renter points
+                You now have 4 points in total.""";
 
         String actualResult = factory.createStatementFor(customer).toString();
 
         assertEquals(expectedResult, actualResult);
     }
-
 }

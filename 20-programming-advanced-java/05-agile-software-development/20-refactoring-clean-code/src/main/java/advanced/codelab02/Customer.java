@@ -7,6 +7,7 @@ public class Customer {
 
     private final String name;
     private final List<Rental> rentals;
+    private int frequentRenterPoints;
 
     public Customer(String name) {
         this.name = name;
@@ -25,5 +26,15 @@ public class Customer {
         return name;
     }
 
+    public void gainPoints(int frequentRenterPoints) {
+        if (frequentRenterPoints < 0) {
+            throw new IllegalArgumentException("No negative values");
+        }
+        this.frequentRenterPoints += frequentRenterPoints;
+    }
+
+    public int totalPoints() {
+        return frequentRenterPoints;
+    }
 
 }

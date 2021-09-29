@@ -8,21 +8,24 @@ public class MovieRentalsStatementFactory implements CustomerStatementFactory {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 
-        statement.setHeaderLines("Rental Record for " + customer.getName() + "\n");
+        statement.setHeader("Rental Record for " + customer.getName() + "\n");
 
         for (Rental rental : customer.getRentals()) {
             double thisAmount = MovieRentalUtil.calcRentalPrice(rental);
             frequentRenterPoints += MovieRentalUtil.getFrequenterPoints(rental);
-            statement.addStatementLine(statementLine(rental, thisAmount));
+            statement.addStatementLine("\t" + movieTitle(rental) + "\t" + thisAmount + "\n");
             totalAmount += thisAmount;
         }
 
-        statement.setFooterLines("Amount owed is " + totalAmount
-                + "\nYou earned " + frequentRenterPoints + " frequent renter points");
+        customer.gainPoints(frequentRenterPoints);
+        statement.setFooter("Amount owed is " + totalAmount
+                + "\nYou earned " + frequentRenterPoints + " frequent renter points"
+                + "\nYou now have " + customer.totalPoints() + " points in total.");
+
         return statement;
     }
 
-    private String statementLine(Rental rental, double rentalPrice) {
-        return "\t" + rental.getMovie().getTitle() + "\t" + rentalPrice + "\n";
+    private String movieTitle(Rental rental) {
+        return rental.getMovie().getTitle();
     }
 }
