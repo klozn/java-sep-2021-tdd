@@ -76,11 +76,11 @@ public class PhoneBookTest {
 
     @Test
     void getAllPhoneBookContent(){
+        //given
         addContentToMap();
-
-        //then
+        //when
         Set<Entry<Name, PhoneNumber>> allInfo = phoneBook.getThemAll();
-
+        //then
         assertTrue(allInfo.containsAll(Set.of(
                 new AbstractMap.SimpleEntry<>(new Name("kim", "kimkimkim"),
                         new PhoneNumber("+32", "482334564")),
