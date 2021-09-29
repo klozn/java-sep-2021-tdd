@@ -20,7 +20,7 @@ public class StormTrooper {
     public boolean addFriend(StormTrooper friend) {
         if (!friends.contains(friend)) {
             if (friends.add(friend)) {
-                return friend.friends.add(this);
+                return friend.getFriends().add(this);
             }
         }
         return false;

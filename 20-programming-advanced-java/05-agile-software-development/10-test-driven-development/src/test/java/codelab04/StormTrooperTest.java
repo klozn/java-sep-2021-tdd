@@ -20,6 +20,7 @@ class StormTrooperTest {
         s1.addFriend(s2);
         //then
         assertTrue(s2.getFriends().contains(s1));
+        assertTrue(s1.getFriends().contains(s2));
     }
 
     @Test
@@ -89,7 +90,6 @@ class StormTrooperTest {
         assertEquals(message2, messages.pollFirst());
         assertEquals(message4, messages.pollFirst());
     }
-
 
     @Test
     @DisplayName("getMessagesFrom returns all messages from friend sorted by date")

@@ -1,6 +1,7 @@
 package codelab04;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Message implements Comparable<Message>{
     private final LocalDateTime dateTime;
@@ -28,5 +29,18 @@ public class Message implements Comparable<Message>{
     @Override
     public int compareTo(Message o) {
         return -dateTime.compareTo(o.dateTime);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(dateTime, message.dateTime) && Objects.equals(sender, message.sender) && Objects.equals(body, message.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dateTime, sender, body);
     }
 }
