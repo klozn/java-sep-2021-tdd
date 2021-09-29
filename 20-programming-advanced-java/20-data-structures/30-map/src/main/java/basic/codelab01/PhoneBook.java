@@ -1,7 +1,9 @@
 package basic.codelab01;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class PhoneBook {
 
@@ -19,7 +21,19 @@ public class PhoneBook {
         return phoneBookEntries.get(name);
     }
 
-    public void removeTheNumberByGivenTheName(Name name) {
-        phoneBookEntries.replace(name, null);
+    public void removePhoneNumberByName(Name name) {
+        phoneBookEntries.remove(name);
+    }
+
+    public void updatePhoneNumber(Name name, PhoneNumber phoneNumber) {
+        phoneBookEntries.replace(name, phoneNumber);
+    }
+
+    public Set<Name> getAllNamesInPhoneBook() {
+        return phoneBookEntries.keySet();
+    }
+
+    public Set<Map.Entry<Name, PhoneNumber>> getThemAll() {
+        return phoneBookEntries.entrySet();
     }
 }
