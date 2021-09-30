@@ -141,4 +141,29 @@ class StormTrooperTest {
         assertNull(messages);
     }
 
+    @Test
+    @DisplayName("soldiers can not befriends generals")
+    void addFriend_whenSoldierAddsGeneral_thenThrowIllegalArgumentException() {
+        //given
+        StormTrooper s1 = new StormTrooper("Kurt");
+        StormTrooper s2 = new StormTrooper("Sarah");
+        //when
+        s1.setRank(Rank.SOLDIER);
+        s2.setRank(Rank.GENERAL);
+        //then
+        assertThrows(IllegalArgumentException.class, () -> s1.addFriend(s2));
+    }
+
+    @Test
+    @DisplayName("generals can not befriend soldiers")
+    void addFriend_whenGeneralAddsSoldier_thenThrowIllegalArgumentException() {
+        //given
+        StormTrooper s1 = new StormTrooper("Kurt");
+        StormTrooper s2 = new StormTrooper("Sarah");
+        //when
+        s1.setRank(Rank.GENERAL);
+        s2.setRank(Rank.SOLDIER);
+        //then
+        assertThrows(IllegalArgumentException.class, () -> s1.addFriend(s2));
+    }
 }

@@ -8,9 +8,11 @@ public class StormTrooper {
     private final String username;
     private final Set<StormTrooper> friends = new HashSet<>();
     private final List<Message> messages = new ArrayList<>();
+    private Rank rank;
 
     public StormTrooper(String username) {
         this.username = username;
+        rank = Rank.SOLDIER;
     }
 
     public Set<StormTrooper> getFriends() {
@@ -18,12 +20,23 @@ public class StormTrooper {
     }
 
     public boolean addFriend(StormTrooper friend) {
+        if (!possibleFriendship(friend)) {
+            throw  new IllegalArgumentException("Not a possible friend");
+        }
         if (!friends.contains(friend)) {
             if (friends.add(friend)) {
                 return friend.getFriends().add(this);
             }
         }
         return false;
+    }
+
+    private boolean possibleFriendship(StormTrooper possibleFriend) {
+        return switch (rank) {
+            default -> true;
+            case SOLDIER -> possibleFriend.rank != Rank.GENERAL;
+            case GENERAL -> possibleFriend.rank != Rank.SOLDIER;
+        };
     }
 
     private void receiveMessage(Message message) {
@@ -70,4 +83,7 @@ public class StormTrooper {
         return Objects.hash(username);
     }
 
+    public void setRank(Rank rank) {
+        this.rank = rank;
+    }
 }
