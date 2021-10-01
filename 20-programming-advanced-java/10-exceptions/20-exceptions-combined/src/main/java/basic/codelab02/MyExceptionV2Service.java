@@ -1,12 +1,14 @@
 package basic.codelab02;
 
+import java.io.IOException;
+
 /**
  * Read the README.md file
  */
 class MyExceptionV2Service {
 
-    void doSomethingExceptional() {
-        // throw an exception (read the readme.md file)
+    void doSomethingExceptional() throws IOException {
+        throw new IOException("I'm so exceptional");
     }
 
 }

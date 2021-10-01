@@ -1,5 +1,7 @@
 package basic.codelab03;
 
+import java.time.DateTimeException;
+
 /**
  * Read the README.md file
  */
@@ -35,15 +37,24 @@ public class MyOwnLocalDate {
     }
 
     private static int validateYear(int year) {
-        return -1; // implement me properly!
+        if (year < MIN_YEAR ||year > MAX_YEAR) {
+            throw new DateTimeException("The provided year is not allowed!");
+        }
+        return year;
     }
 
     private static int validateMonth(int month) {
-        return -1; // implement me properly!
+        if (month < 1 || month > 12) {
+            throw new DateTimeException("The provided month is not allowed!");
+        }
+        return month;
     }
 
     private static int validateDayOfMonth(int dayOfMonth) {
-        return -1; // implement me properly!
+        if (dayOfMonth < 1 ||dayOfMonth > 31) {
+            throw new DateTimeException("The provided dayOfMonth is not allowed!");
+        }
+        return dayOfMonth;
     }
 
     @Override

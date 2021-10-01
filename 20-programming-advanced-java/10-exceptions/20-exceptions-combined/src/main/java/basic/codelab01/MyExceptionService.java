@@ -6,7 +6,7 @@ package basic.codelab01;
 class MyExceptionService {
 
     void doSomethingExceptional() {
-        // throw an exception (read the readme.md file)
+        throw new IllegalStateException("I'm so exceptional");
     }
 
 }
