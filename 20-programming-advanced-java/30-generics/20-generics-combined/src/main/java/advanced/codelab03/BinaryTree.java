@@ -17,16 +17,20 @@ public class BinaryTree<T> {
     }
 
     public void drawNodes(Node<T> node, int level) {
-        String spacing = "\t".repeat(level);
+        String spacing = "\t".repeat(level * 2);
         if (node != null) {
             if (node.getLeft() != null) {
-                System.out.print("\n" + spacing + "\\ --- " + node.getLeft());
+                System.out.print(prefix(spacing) + node.getLeft());
             }
             drawNodes(node.getLeft(), level + 1);
             if (node.getRight() != null) {
-                System.out.print("\n" + spacing + "\\ --- " + node.getRight());
+                System.out.print(prefix(spacing) + node.getRight());
             }
             drawNodes(node.getRight(), level + 1);
         }
+    }
+
+    private static String prefix(String spacing) {
+        return "\n  " + spacing + "\\ --- ";
     }
 }
