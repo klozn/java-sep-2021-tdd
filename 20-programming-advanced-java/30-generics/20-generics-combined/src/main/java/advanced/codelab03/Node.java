@@ -1,28 +1,32 @@
 package advanced.codelab03;
 
-import java.util.List;
-
 public class Node<T> {
-    private Node<T> node1;
-    private Node<T> node2;
+    private Node<T> left;
+    private Node<T> right;
     private T label;
 
     public Node(T label) {
         this.label = label;
     }
 
+    public Node<T> getLeft() {
+        return left;
+    }
+
+    public Node<T> getRight() {
+        return right;
+    }
+
+    public void setLeft(Node<T> left) {
+        this.left = left;
+    }
+
+    public void setRight(Node<T> right) {
+        this.right = right;
+    }
+
     @Override
     public String toString() {
         return label.toString();
     }
-
-    public Node(Node<T> node1, Node<T> node2) {
-        this.node1 = node1;
-        this.node2 = node2;
-    }
-
-    public List<Node<T>> getNodes() {
-        return List.of(node1, node2);
-    }
-
 }
