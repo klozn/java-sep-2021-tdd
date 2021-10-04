@@ -25,12 +25,12 @@ public class SimpleList<E> implements List<E> {
         return (E) dataArray[index];
     }
 
-    //  UNIMPLEMENTED METHODS
-
     @Override
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
+
+    //  UNIMPLEMENTED METHODS
 
     @Override
     public boolean contains(Object o) {
@@ -44,7 +44,7 @@ public class SimpleList<E> implements List<E> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return dataArray;
     }
 
     @Override
