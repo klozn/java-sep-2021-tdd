@@ -11,7 +11,6 @@ public class BinaryTree<T> {
         return root;
     }
 
-    // TODO: 4/10/2021
     public void draw() {
         System.out.print(root);
         drawNodes(root, 0);
