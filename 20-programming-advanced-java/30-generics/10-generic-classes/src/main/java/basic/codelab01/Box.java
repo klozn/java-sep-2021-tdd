@@ -1,14 +1,14 @@
 package basic.codelab01;
 
-public class Box {
+public class Box<T> {
 
-    private Object contentOfBox;
+    private T contentOfBox;
 
-    void store(Object contentOfBox) {
+    void store(T contentOfBox) {
         this.contentOfBox = contentOfBox;
     }
 
-    Object getContentOfBox() {
+    T getContentOfBox() {
         return contentOfBox;
     }
 }
