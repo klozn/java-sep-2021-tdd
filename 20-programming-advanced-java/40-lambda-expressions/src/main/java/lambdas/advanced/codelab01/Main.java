@@ -13,9 +13,9 @@ public class Main {
         List<Person> people = createListOfPeople();
         AutomatedContactService service = new AutomatedContactService();
 
-        String calledDrivers = service.call(people, DRIVER_TEST);
-        String emailedDraftees = service.email(people, DRAFTEE_TEST);
-        String mailedPilots = service.mail(people, PILOT_TEST);
+        String calledDrivers = service.contact(people, CALL_FUNCTION, DRIVER_TEST);
+        String emailedDraftees = service.contact(people, EMAIL_FUNCTION, DRAFTEE_TEST);
+        String mailedPilots = service.contact(people, MAIL_FUNCTION, PILOT_TEST);
 
         System.out.println("=== CALLED DRIVERS ===");
         System.out.println(calledDrivers);

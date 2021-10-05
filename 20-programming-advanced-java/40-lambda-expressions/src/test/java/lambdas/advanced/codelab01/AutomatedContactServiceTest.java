@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
+import static lambdas.advanced.codelab01.AutomatedContactService.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AutomatedContactServiceTest {
@@ -48,7 +48,7 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String calledDrivers = service.call(people, AutomatedContactService.DRIVER_TEST);
+        String calledDrivers = service.contact(people, CALL_FUNCTION, DRIVER_TEST);
 
         assertEquals(calledDrivers, "Calling Rob Butcher age 21 at 0484854502\nCalling Tanya Tanem age 25 at 0485411125");
 
@@ -92,7 +92,7 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String emailedDraftees = service.email(people, AutomatedContactService.DRAFTEE_TEST);
+        String emailedDraftees = service.contact(people, EMAIL_FUNCTION, DRAFTEE_TEST);
 
         assertEquals(emailedDraftees, "Emailing Rob Butcher age 21 at rob.butcher@my-email.be");
     }
@@ -124,7 +124,7 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String mailedPilots = service.mail(people, AutomatedContactService.PILOT_TEST);
+        String mailedPilots = service.contact(people, MAIL_FUNCTION, PILOT_TEST);
 
         assertEquals(mailedPilots, "Mailing Tanya Tanem age 25 at Parkstraat 12, 3000 Leuven");
     }

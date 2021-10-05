@@ -2,6 +2,7 @@ package lambdas.advanced.codelab01;
 
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -13,47 +14,21 @@ class AutomatedContactService {
     public static final Predicate<Person> DRAFTEE_TEST = person -> person.getGender() == Gender.MALE
             && person.getAge() >= 18 && person.getAge() <= 25;
     public static final Predicate<Person> PILOT_TEST = person -> person.getAge() >= 23 && person.getAge() <= 65;
+    public static final Function<Person, String> CALL_FUNCTION =
+            p -> "Calling " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getPhone();
+    public static final Function<Person, String> EMAIL_FUNCTION =
+            p -> "Emailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getEmail();
+    public static final Function<Person, String> MAIL_FUNCTION =
+            p -> "Mailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getAddress();
 
-    String call(List<Person> pl, Predicate<Person> personPredicate) {
+    String contact(List<Person> pl, Function<Person, String> function, Predicate<Person> predicate) {
         StringJoiner joiner = new StringJoiner("\n");
         for (Person p : pl) {
-            if (personPredicate.test(p)) {
-                joiner.add(automatedCall(p));
+            if (predicate.test(p)) {
+                joiner.add(function.apply(p));
             }
         }
         return joiner.toString();
-    }
-
-    String email(List<Person> pl, Predicate<Person> personPredicate) {
-        StringJoiner joiner = new StringJoiner("\n");
-        for (Person p : pl) {
-            if (personPredicate.test(p)) {
-                joiner.add(automatedEmail(p));
-            }
-        }
-        return joiner.toString();
-    }
-
-    String mail(List<Person> pl, Predicate<Person> personPredicate) {
-        StringJoiner joiner = new StringJoiner("\n");
-        for (Person p : pl) {
-            if (personPredicate.test(p)) {
-                joiner.add(automatedMail(p));
-            }
-        }
-        return joiner.toString();
-    }
-
-    private String automatedCall(Person p) {
-        return "Calling " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getPhone();
-    }
-
-    private String automatedEmail(Person p) {
-        return "Emailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getEmail();
-    }
-
-    private String automatedMail(Person p) {
-        return "Mailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getAddress();
     }
 
 }
