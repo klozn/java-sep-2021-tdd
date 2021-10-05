@@ -2,6 +2,7 @@ package basic.codelab05.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,7 +13,7 @@ class BlogPostTest {
 
     @Test
     void getAllUniqueWordsFromBodyTest() {
-        BlogPost blogPost = new BlogPost(new Author("testAuthor"), "testTitle", TEST_BODY, Category.DIY);
+        BlogPost blogPost = new BlogPost(new Author("testAuthor"), "testTitle", TEST_BODY, Category.DIY, LocalDate.now());
 
         Collection<String> uniqueWords = blogPost.getAllUniqueWordsFromBody();
 

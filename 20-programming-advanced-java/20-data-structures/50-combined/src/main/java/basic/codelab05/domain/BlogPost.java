@@ -1,6 +1,6 @@
 package basic.codelab05.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.*;
 
 public class BlogPost implements Comparable<BlogPost> {
@@ -8,14 +8,14 @@ public class BlogPost implements Comparable<BlogPost> {
     private final String title;
     private final String body;
     private final Category category;
-    private final LocalDateTime creationDateTime;
+    private final LocalDate creationDate;
 
-    public BlogPost(Author author, String title, String body, Category category) {
+    public BlogPost(Author author, String title, String body, Category category, LocalDate creationDate) {
         this.author = author;
         this.title = title;
         this.body = body;
         this.category = category;
-        this.creationDateTime = LocalDateTime.now();
+        this.creationDate = creationDate;
     }
 
     public Author getAuthor() {
@@ -36,6 +36,6 @@ public class BlogPost implements Comparable<BlogPost> {
 
     @Override
     public int compareTo(BlogPost other) {
-        return creationDateTime.compareTo(other.creationDateTime);
+        return -creationDate.compareTo(other.creationDate);
     }
 }

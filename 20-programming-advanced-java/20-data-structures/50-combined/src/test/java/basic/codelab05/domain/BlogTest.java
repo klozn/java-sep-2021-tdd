@@ -2,6 +2,7 @@ package basic.codelab05.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +36,11 @@ class BlogTest {
     }
 
     private static List<BlogPost> generatePostsFor(Author author) {
-        return new ArrayList<>(List.of(new BlogPost(author, "title", "test", Category.FUNNY),
-                new BlogPost(author, "title", "test", Category.DIY),
-                new BlogPost(author, "title", "test", Category.BEAUTY),
-                new BlogPost(author, "title", "test", Category.MOVIES),
-                new BlogPost(author, "title", "test", Category.SERIES),
-                new BlogPost(author, "title", "test", Category.GAMING)));
-
+        return new ArrayList<>(List.of(new BlogPost(author, "title", "test", Category.FUNNY, LocalDate.of(2020,4,21)),
+                new BlogPost(author, "title", "test", Category.DIY, LocalDate.of(2020,5,20)),
+                new BlogPost(author, "title", "test", Category.BEAUTY, LocalDate.of(2020, 6, 21)),
+                new BlogPost(author, "title", "test", Category.MOVIES, LocalDate.of(2020,7,21)),
+                new BlogPost(author, "title", "test", Category.SERIES, LocalDate.of(2020,8,20)),
+                new BlogPost(author, "title", "test", Category.GAMING, LocalDate.of(2020, 9, 20))));
     }
 }
