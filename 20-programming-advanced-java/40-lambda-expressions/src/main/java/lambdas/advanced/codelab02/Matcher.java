@@ -9,11 +9,11 @@ import java.util.function.Predicate;
  */
 public class Matcher {
 
-    public static List<String> allMatches(List<String> stringList, Predicate<String> predicate) {
-        List<String> matches = new ArrayList<>();
-        for (String s : stringList) {
-            if (predicate.test(s)) {
-                matches.add(s);
+    public static <E> List<E> allMatches(List<E> list, Predicate<E> predicate) {
+        List<E> matches = new ArrayList<>();
+        for (E element : list) {
+            if (predicate.test(element)) {
+                matches.add(element);
             }
         }
         return matches;

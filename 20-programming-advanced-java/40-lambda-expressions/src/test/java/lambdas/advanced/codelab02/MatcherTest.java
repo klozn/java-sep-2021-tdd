@@ -34,4 +34,12 @@ class MatcherTest {
                 "prawns", "woodlice")));
         assertEquals(8, matches.size());
     }
+
+    @Test
+    void allMatches_numbersBiggerThanFiveHundred() {
+        List<Integer> nums = Arrays.asList(1, 10, 100, 1000, 10_000);
+        var matches = Matcher.allMatches(nums, n -> n > 500);
+        assertTrue(matches.containsAll(List.of(1000, 10_000)));
+        assertEquals(2, matches.size());
+    }
 }
