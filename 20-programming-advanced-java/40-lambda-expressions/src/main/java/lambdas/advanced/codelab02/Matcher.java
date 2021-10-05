@@ -22,10 +22,10 @@ public class Matcher {
         return matches;
     }
 
-    public static <T, U> List<U> transformedList(List<T> list, Function<T, U> operator) {
+    public static <T, U> List<U> transformedList(List<T> list, Function<T, U> function) {
         List<U> transformed = new ArrayList<>();
         for (T element: list) {
-            transformed.add(operator.apply(element));
+            transformed.add(function.apply(element));
         }
         return transformed;
     }
