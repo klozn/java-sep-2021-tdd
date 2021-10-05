@@ -14,7 +14,8 @@ public enum Category {
         this.printValue = printValue;
     }
 
-    public String getPrintValue() {
+    @Override
+    public String toString() {
         return printValue;
     }
 }

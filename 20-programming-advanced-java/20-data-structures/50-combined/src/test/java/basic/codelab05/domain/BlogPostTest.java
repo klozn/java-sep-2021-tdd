@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BlogPostTest {
-    private final static String TEST_BODY = "A very short and a very silly post.";
+    private final static String TEST_BODY = "A very short, and a very silly post.";
 
     @Test
     void getAllUniqueWordsFromBodyTest() {
