@@ -2,7 +2,10 @@ package lambdas.advanced.codelab02;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 /**
  * Read the README.md file
@@ -17,5 +20,13 @@ public class Matcher {
             }
         }
         return matches;
+    }
+
+    public static <T, U> List<U> transformedList(List<T> list, Function<T, U> operator) {
+        List<U> transformed = new ArrayList<>();
+        for (T element: list) {
+            transformed.add(operator.apply(element));
+        }
+        return transformed;
     }
 }
