@@ -2,10 +2,8 @@ package lambdas.advanced.codelab02;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 
 /**
  * Read the README.md file
