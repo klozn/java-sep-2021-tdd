@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -47,9 +48,9 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String calledDrivers = service.callDrivers(people);
+        String calledDrivers = service.call(people, AutomatedContactService.DRIVER_TEST);
 
-        assertEquals(calledDrivers, String.format("Calling Rob Butcher age 21 at 0484854502%nCalling Tanya Tanem age 25 at 0485411125"));
+        assertEquals(calledDrivers, "Calling Rob Butcher age 21 at 0484854502\nCalling Tanya Tanem age 25 at 0485411125");
 
     }
 
@@ -91,9 +92,9 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String calledDrivers = service.emailDraftees(people);
+        String emailedDraftees = service.email(people, AutomatedContactService.DRAFTEE_TEST);
 
-        assertEquals(calledDrivers, "Emailing Rob Butcher age 21 at rob.butcher@my-email.be");
+        assertEquals(emailedDraftees, "Emailing Rob Butcher age 21 at rob.butcher@my-email.be");
     }
 
     @Test
@@ -123,9 +124,9 @@ class AutomatedContactServiceTest {
         );
 
         AutomatedContactService service = new AutomatedContactService();
-        String calledDrivers = service.mailPilots(people);
+        String mailedPilots = service.mail(people, AutomatedContactService.PILOT_TEST);
 
-        assertEquals(calledDrivers, "Mailing Tanya Tanem age 25 at Parkstraat 12, 3000 Leuven");
+        assertEquals(mailedPilots, "Mailing Tanya Tanem age 25 at Parkstraat 12, 3000 Leuven");
     }
 
 }

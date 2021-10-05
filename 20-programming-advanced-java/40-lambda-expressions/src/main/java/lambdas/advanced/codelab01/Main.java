@@ -3,6 +3,7 @@ package lambdas.advanced.codelab01;
 import java.util.ArrayList;
 import java.util.List;
 
+import static lambdas.advanced.codelab01.AutomatedContactService.*;
 /**
  * Read the README.md file
  */
@@ -12,9 +13,9 @@ public class Main {
         List<Person> people = createListOfPeople();
         AutomatedContactService service = new AutomatedContactService();
 
-        String calledDrivers = service.callDrivers(people);
-        String emailedDraftees = service.emailDraftees(people);
-        String mailedPilots = service.mailPilots(people);
+        String calledDrivers = service.call(people, DRIVER_TEST);
+        String emailedDraftees = service.email(people, DRAFTEE_TEST);
+        String mailedPilots = service.mail(people, PILOT_TEST);
 
         System.out.println("=== CALLED DRIVERS ===");
         System.out.println(calledDrivers);
