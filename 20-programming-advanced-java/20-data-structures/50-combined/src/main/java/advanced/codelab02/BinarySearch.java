@@ -4,9 +4,22 @@ import java.util.List;
 
 public class BinarySearch {
 
-    // Make sure to sort before searching!
-    boolean isElementInList(int elementToSearch, List<Integer> listToSearchFrom) {
-        throw new UnsupportedOperationException("Implement me");
+    <T extends Comparable<T>> boolean isElementInList(T elementToSearch, List<T> listToSearchFrom) {
+        int listSize = listToSearchFrom.size();
+        double leftIndex = 0;
+        double rightIndex = listSize - 1;
+        while (leftIndex <= rightIndex) {
+            int index = (int) Math.floor((leftIndex + rightIndex)/2);
+            T current = listToSearchFrom.get(index);
+            if (current.compareTo(elementToSearch) < 0) {
+                leftIndex = index + 1;
+            } else if (current.compareTo(elementToSearch) > 0) {
+                rightIndex = index - 1;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
