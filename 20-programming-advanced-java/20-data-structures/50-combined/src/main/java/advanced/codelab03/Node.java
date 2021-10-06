@@ -2,6 +2,8 @@ package advanced.codelab03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Node {
     private final String label;
@@ -23,14 +25,13 @@ public class Node {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+        if (visited) {
+            Logger.getAnonymousLogger().log(Level.INFO, "Node " + label + " visited.");
+        }
     }
 
     public String getLabel() {
         return label;
-    }
-
-    public List<Node> getChildNodes() {
-        return childNodes;
     }
 
     public void addChildNode(Node node) {

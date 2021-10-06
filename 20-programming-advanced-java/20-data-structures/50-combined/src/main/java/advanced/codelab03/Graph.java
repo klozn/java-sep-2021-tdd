@@ -2,6 +2,7 @@ package advanced.codelab03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Graph {
     private final List<Node> nodes;
@@ -16,19 +17,25 @@ public class Graph {
         this.edges = edges;
     }
 
-    public void addNode(Node node) {
-        nodes.add(node);
-    }
-
-    public void addEdge(Edge edge) {
-        edges.add(edge);
-    }
-
     public List<Node> getNodes() {
         return nodes;
     }
 
     public List<Edge> getEdges() {
         return edges;
+    }
+
+    public Node getNode(int index) {
+        return nodes.get(index);
+    }
+
+    public List<Edge> getEdgesByNode(Node node) {
+        return edges.stream()
+                .filter(e -> e.getLeft().equals(node))
+                .collect(Collectors.toList());
+    }
+
+    public Node getAdjacentNode(Node node, Edge edge) {
+        return edge.getLeft().equals(node) ? edge.getRight() : edge.getLeft();
     }
 }
