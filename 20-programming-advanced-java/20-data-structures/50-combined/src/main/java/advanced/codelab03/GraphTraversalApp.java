@@ -2,6 +2,9 @@ package advanced.codelab03;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class GraphTraversalApp {
 
     public static void main(String[] args) {
@@ -12,14 +15,20 @@ public class GraphTraversalApp {
         Node nodeF = graph.getNode(5);
         Node nodeK = graph.getNode(10);
 
-        DepthFirstSearcher dfSearcher = new DepthFirstSearcher();
+        var dfSearcher = new DepthFirstSearcher();
+        var bfSearcher = new BreadthFirstSearcher();
+
+        Logger.getAnonymousLogger().log(Level.INFO, "\n\nDEPTH FIRST\n\n");
 
         searchGraph(dfSearcher, graph, nodeS);
-        resetGraph(graph);
         searchGraph(dfSearcher, graph, nodeF);
-        resetGraph(graph);
         searchGraph(dfSearcher, graph, nodeK);
-        resetGraph(graph);
+
+        Logger.getAnonymousLogger().log(Level.INFO, "\n\nBREADTH FIRST\n\n");
+
+        searchGraph(bfSearcher, graph, nodeS);
+        searchGraph(bfSearcher, graph, nodeF);
+        //searchGraph(bfSearcher, graph, nodeK);
 
     }
     private static void resetGraph(Graph graph) {
@@ -30,6 +39,7 @@ public class GraphTraversalApp {
     private static void searchGraph(SearchAlgorithm searchAlgorithm, Graph graph, Node goalNode) {
         Node nodeA = graph.getNode(0);
         searchAlgorithm.searchFromNodeToNode(graph, nodeA, goalNode);
+        resetGraph(graph);
     }
 
     private static Graph initializeGraph() {
