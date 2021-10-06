@@ -4,8 +4,10 @@ import java.util.List;
 
 public class Sum {
 
-    public static int calculate(List<Integer> people) {
-        throw new UnsupportedOperationException("Implement me");
+    public static int calculate(List<Integer> numbers) {
+        return numbers.stream()
+                .reduce(Integer::sum)
+                .orElse(0);
     }
 
 }
