@@ -11,4 +11,8 @@ public class Person {
         this.age = age;
         this.nationality = nationality;
     }
+
+    public String getNationality() {
+        return nationality;
+    }
 }
