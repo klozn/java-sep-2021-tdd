@@ -73,18 +73,25 @@ public class RentalApplication {
         System.out.println("Enter your email");
         String email = scanner.nextLine();
         Customer customer = service.getCustomerByEmail(email);
-        if (customer != null) {
+        if (customer == null) {
+            System.out.println("No customer found with that email address. Please register first.");
+        } else {
             System.out.printf("Hello %s, which movie do you want to rent?\n", customer.getName());
             service.printMovies();
             int input = scanner.nextInt();
             Movie movie = service.getMovieByIndex(input - 1);
-            Rental rental = service.rent(movie, customer);
-            System.out.println("That will be €" + movie.getRentPrice());
-            System.out.println("Please return before " + rental.returnDate());
-            System.out.printf("Rental history of %s:\n", customer.getName());
-            customer.printRentalHistory();
-        } else {
-            System.out.println("No customer found with that email address. Please register first.");
+            Rental rental = null;
+            try {
+                rental = service.rent(movie, customer);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+            if (rental != null) {
+                System.out.println("That will be €" + movie.getRentPrice());
+                System.out.println("Please return before " + rental.returnDate());
+                System.out.printf("Rental history of %s:\n", customer.getName());
+                customer.printRentalHistory();
+            }
         }
     }
 

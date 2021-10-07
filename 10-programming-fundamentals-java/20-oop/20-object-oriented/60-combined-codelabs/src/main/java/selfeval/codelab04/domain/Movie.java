@@ -11,16 +11,15 @@ public class Movie {
     private final String director;
     private final Genre genre;
     private double rentPrice;
-    private MovieStatus status;
+    private Status status;
     private Period returnBefore;
 
     public Movie(String title, String director) {
-        this(title, director, Genre.UNDEFINED, MovieStatus.ONE_DAY_MOVIE);
-        status = MovieStatus.ONE_DAY_MOVIE;
+        this(title, director, Genre.UNDEFINED, Status.ONE_DAY_MOVIE);
         returnBefore = Period.ofDays(1);
     }
 
-    public Movie(String title, String director, Genre genre, MovieStatus status) {
+    public Movie(String title, String director, Genre genre, Status status) {
         this.title = title;
         this.director = director;
         this.genre = genre;
@@ -30,7 +29,7 @@ public class Movie {
             case TRENDING_MOVIE -> TRENDING_RENT_PRICE;
             case OLDER_MOVIE -> OLD_MOVIE_RENT_PRICE;
         };
-        returnBefore = status.equals(MovieStatus.ONE_DAY_MOVIE) ? Period.ofDays(1) : Period.ofDays(3);
+        returnBefore = status.equals(Status.ONE_DAY_MOVIE) ? Period.ofDays(1) : Period.ofDays(3);
     }
 
     public String getTitle() {
@@ -45,7 +44,7 @@ public class Movie {
         return genre;
     }
 
-    public MovieStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -59,7 +58,7 @@ public class Movie {
 
     public void downGrade() {
         status = status.downGrade();
-        if (status.equals(MovieStatus.TRENDING_MOVIE)) {
+        if (status.equals(Status.TRENDING_MOVIE)) {
             rentPrice = TRENDING_RENT_PRICE;
         } else {
             rentPrice = OLD_MOVIE_RENT_PRICE;
@@ -89,5 +88,20 @@ public class Movie {
         sb.append(", rentPrice=").append(rentPrice);
         sb.append('}');
         return sb.toString();
+    }
+
+    public enum Genre {
+        HORROR, ACTION, ROMANCE, SCI_FI, FANTASY, COMEDY, XXX, UNDEFINED
+    }
+
+    public enum Status {
+        ONE_DAY_MOVIE, TRENDING_MOVIE, OLDER_MOVIE;
+
+        public Status downGrade() {
+            if (this.equals(ONE_DAY_MOVIE)) {
+                return TRENDING_MOVIE;
+            }
+            return OLDER_MOVIE;
+        }
     }
 }

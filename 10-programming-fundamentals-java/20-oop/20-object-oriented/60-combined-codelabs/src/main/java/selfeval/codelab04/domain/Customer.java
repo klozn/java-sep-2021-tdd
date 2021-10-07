@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class Customer {
-    private String name;
-    private LocalDate birthday;
-    private String email;
+    private final String name;
+    private final LocalDate birthday;
+    private final String email;
     private boolean emailList;
-    private List<Rental> rentalHistory = new ArrayList<>();
+    private final List<Rental> rentalHistory = new ArrayList<>();
 
     public Customer(String name, LocalDate birthday, String email, boolean emailList) {
         this.name = name;
