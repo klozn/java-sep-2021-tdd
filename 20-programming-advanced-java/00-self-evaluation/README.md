@@ -32,7 +32,7 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - [:heavy_check_mark:] **advanced/Codelab02** (Members) of sub-module `10-inheritance`
 - [:heavy_check_mark:] **basic/Codelab02** (Agenda) of sub-module `20-composition`
 - [:heavy_check_mark:] **basic/Codelab01** (Make some poly-sound!) of sub-module `30-polymorphism`
-- [:x:] **advanced/Codelab01** (Battle sim.) of sub-module `30-polymorphism`
+- [:heavy_check_mark:] **advanced/Codelab01** (Battle sim.) of sub-module `30-polymorphism`
 - [:x:] **basic/Codelab01** (Employee) of sub-module `40-abstract-classes`
 - [:x:] **basic/Codelab02** (Clickable & downloadable) of sub-module `50-interfaces`
 - [:x:] **Codelab02** (Treehehehe) of sub-module `60-combined-codelabs`
