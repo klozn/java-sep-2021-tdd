@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Mail {
+public class Email {
     private final String subject;
     private final String body;
-    private final MailAddress sender;
-    private final MailAddress recipient;
-    private final List<MailAddress> ccList = new ArrayList<>();
-    private final List<MailAddress> bcList = new ArrayList<>();
+    private final EmailAddress sender;
+    private final EmailAddress recipient;
+    private final List<EmailAddress> ccList = new ArrayList<>();
+    private final List<EmailAddress> bcList = new ArrayList<>();
 
-    public Mail(String subject, String body, MailAddress sender, MailAddress recipient) {
+    public Email(String subject, String body, EmailAddress sender, EmailAddress recipient) {
         this.subject = subject;
         this.body = body;
         this.sender = sender;
@@ -27,22 +27,22 @@ public class Mail {
         return body;
     }
 
-    public MailAddress getSender() {
+    public EmailAddress getSender() {
         return sender;
     }
 
-    public MailAddress getRecipient() {
+    public EmailAddress getRecipient() {
         return recipient;
     }
 
-    public boolean addToCC(MailAddress address) {
+    public boolean addToCC(EmailAddress address) {
         if (address == null || ccList.contains(address)) {
             return false;
         }
         return ccList.add(address);
     }
 
-    public boolean addToBC(MailAddress address) {
+    public boolean addToBC(EmailAddress address) {
         if (address == null || bcList.contains(address)) {
             return false;
         }
@@ -53,7 +53,7 @@ public class Mail {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Mail mail = (Mail) o;
+        Email mail = (Email) o;
         return Objects.equals(subject, mail.subject) && Objects.equals(body, mail.body) && Objects.equals(sender, mail.sender) && Objects.equals(recipient, mail.recipient);
     }
 
