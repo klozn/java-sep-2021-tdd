@@ -29,7 +29,7 @@ Please do this after each finished codelab. It will help us in keeping track of 
 
 ### Codelabs
 
-- [:x:] **advanced/Codelab02** (Members) of sub-module `10-inheritance`
+- [:heavy_check_mark:] **advanced/Codelab02** (Members) of sub-module `10-inheritance`
 - [:x:] **basic/Codelab02** (Agenda) of sub-module `20-composition`
 - [:x:] **basic/Codelab01** (Make some poly-sound!) of sub-module `30-polymorphism`
 - [:x:] **advanced/Codelab01** (Battle sim.) of sub-module `30-polymorphism`
