@@ -1,5 +1,7 @@
 package selfeval.codelab03;
 
+import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,11 +17,11 @@ public class Application {
 
         Employee[] employees = {employeeAdam, employeeBert, employeeCharlotte, employeeDavidWhoIsExceptional};
 
-        BonusService.setBonusCalculatorsBasedOnYear(employees, 2015);
+        BonusService.setBonusCalculatorsBasedOnYear(Arrays.asList(employees), 2015);
 
         employeeDavidWhoIsExceptional.setBonusCalculator(BonusService.CALC_FOR_EXCEPTIONAL_EMPL);
 
-        String bonusesAsText = BonusService.calculateBonuses(employees);
+        String bonusesAsText = BonusService.calculateBonuses(Arrays.asList(employees));
 
         System.out.println(bonusesAsText);
 
@@ -31,6 +33,7 @@ public class Application {
             }
             String lastname = askForLastname(scanner);
             String fullName = firstname + " " + lastname;
+
             double yearlySalary = askForYearlySalary(scanner);
 
             Employee employee = new Employee(fullName, yearlySalary);
@@ -45,7 +48,14 @@ public class Application {
 
     private static String askForFirstname(Scanner scanner) {
         System.out.println("Please enter your firstname. Or enter 'QUIT' to quit the application.");
-        String input = scanner.nextLine();
+
+        String input;
+        try {
+            input = scanner.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Don't try anything funny, now.");
+            return askForFirstname(scanner);
+        }
         if (isInValidName(input)) {
             return askForFirstname(scanner);
         }
@@ -54,7 +64,13 @@ public class Application {
 
     private static String askForLastname(Scanner scanner) {
         System.out.println("Please enter your lastname.");
-        String input = scanner.nextLine();
+        String input = null;
+        try {
+            input = scanner.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Don't try anything funny, now.");
+            return askForLastname(scanner);
+        }
         if (isInValidName(input)) {
             return askForLastname(scanner.reset());
         }
@@ -76,8 +92,14 @@ public class Application {
 
     private static double askForYearlySalary(Scanner scanner) {
         System.out.println("Please enter your yearly salary.");
-        String input = scanner.nextLine();
-        double salary = 0;
+        String input = null;
+        try {
+            input = scanner.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Don't try anything funny, now.");
+            return askForYearlySalary(scanner);
+        }
+        double salary;
         try {
             salary = Double.parseDouble(input);
         } catch (NumberFormatException nfe) {
@@ -97,8 +119,14 @@ public class Application {
         System.out.println("Option [2]: Bad Year Bonus Calculator");
         System.out.println("Option [3]: Exceptional Employee Bonus Calculator");
 
-        String input = scanner.nextLine();
-        int optionIndex = 0;
+        String input = null;
+        try {
+            input = scanner.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Don't try anything funny, now.");
+            return askForBonusCalculatorType(scanner);
+        }
+        int optionIndex;
         try {
             optionIndex = Integer.parseInt(input);
         } catch (NumberFormatException e) {

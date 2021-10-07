@@ -36,7 +36,7 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - [:heavy_check_mark:] **basic/Codelab01** (Employee) of sub-module `40-abstract-classes`
 - [:heavy_check_mark:] **basic/Codelab02** (Clickable & downloadable) of sub-module `50-interfaces`
 - [:heavy_check_mark:] **Codelab02** (Treehehehe) of sub-module `60-combined-codelabs`
-- [:x:] **Codelab03** (Swappable Bonus calculators (during runtime)) of sub-module `60-combined-codelabs`
+- [:heavy_check_mark:] **Codelab03** (Swappable Bonus calculators (during runtime)) of sub-module `60-combined-codelabs`
 - [:x:] **Codelab04** (Movie Rental) of sub-module `60-combined-codelabs`
 - [:x:] **Codelab05** (Mails) of sub-module `60-combined-codelabs`
 
