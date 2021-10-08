@@ -48,9 +48,9 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - Make sure you have a notion of how to refactor and write clean code.
     
 ### Codelabs
-- [:x:] **Codelab01** (TDD FizzBuzz) of sub-module `10-test-driven-development`
-- [:x:] **Codelab03** (B@ttle) of sub-module `10-test-driven-development`
-- [:x:] **advanced/Codelab02** (Movie Rental) of sub-module `20-refactoring-clean-code`
+- [:heavy_check_mark:] **Codelab01** (TDD FizzBuzz) of sub-module `10-test-driven-development`
+- [:heavy_check_mark:] **Codelab03** (B@ttle) of sub-module `10-test-driven-development`
+- [:heavy_check_mark:] **advanced/Codelab02** (Movie Rental) of sub-module `20-refactoring-clean-code`
 
 ## Exception handling
 

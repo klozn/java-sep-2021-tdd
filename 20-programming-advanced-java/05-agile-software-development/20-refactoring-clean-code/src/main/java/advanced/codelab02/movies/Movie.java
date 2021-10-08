@@ -3,7 +3,7 @@ package advanced.codelab02.movies;
 public abstract class Movie {
 
     private final String title;
-    private int priceCode;
+    private final int priceCode;
 
     public Movie(String title, int priceCode) {
         this.title = title;

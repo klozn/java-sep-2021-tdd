@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("FizzBuzz:")
 class FizzBuzzServiceTest {
-    final FizzBuzzService service = new FizzBuzzService();
+    private final FizzBuzzService service = new FizzBuzzService();
 
     @Test
     @DisplayName("Given X returns array of strings with size X")
@@ -15,7 +15,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 6;
         //when
-        String[] resultArray = fizzBuzz(testArgument);
+        String[] resultArray = service.fizzBuzz(testArgument);
         //then
         assertEquals(testArgument, resultArray.length);
     }
@@ -26,7 +26,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 0;
         //then
-        assertThrows(IllegalArgumentException.class, () -> fizzBuzz(testArgument));
+        assertThrows(IllegalArgumentException.class, () -> service.fizzBuzz(testArgument));
     }
 
     @Test
@@ -35,7 +35,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 1;
         //then
-        assertThrows(IllegalArgumentException.class, () -> fizzBuzz(testArgument));
+        assertThrows(IllegalArgumentException.class, () -> service.fizzBuzz(testArgument));
     }
 
     @Test
@@ -59,7 +59,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 4;
         //when
-        String[] resultArray = fizzBuzz(testArgument);
+        String[] resultArray = service.fizzBuzz(testArgument);
         //then
         assertEquals("Fizz", resultArray[2]);
     }
@@ -70,7 +70,7 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 11;
         //when
-        String[] resultArray = fizzBuzz(testArgument);
+        String[] resultArray = service.fizzBuzz(testArgument);
         //then
         assertEquals("Buzz", resultArray[4]);
     }
@@ -81,14 +81,9 @@ class FizzBuzzServiceTest {
         //given
         int testArgument = 16;
         //when
-        String[] resultArray = fizzBuzz(testArgument);
+        String[] resultArray = service.fizzBuzz(testArgument);
         //then
         assertArrayEquals(new String[] {"1","2","Fizz","4","Buzz", "Fizz", "7", "8",
         "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz", "16"}, resultArray);
     }
-
-    private String[] fizzBuzz(int argument) {
-        return service.fizzBuzz(argument);
-    }
-
 }

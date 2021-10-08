@@ -17,10 +17,6 @@ public class Soldier {
         return weapon.getDamage();
     }
 
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
