@@ -8,11 +8,11 @@ public class Person {
     private final LocalDate birthDay;
     private final int id;
 
-    private Person(String name, String firstName, LocalDate birthDay, int id) {
-        this.name = name;
-        this.firstName = firstName;
-        this.birthDay = birthDay;
-        this.id = id;
+    private Person(Builder builder) {
+        this.name = builder.name;
+        this.firstName = builder.firstName;
+        this.birthDay = builder.birthDay;
+        this.id = builder.id;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Person {
         }
 
         public Person build() {
-            return new Person(name, firstName, birthDay, id);
+            return new Person(this);
         }
     }
 }

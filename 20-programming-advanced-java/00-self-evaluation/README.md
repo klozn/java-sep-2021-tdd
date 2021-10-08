@@ -116,8 +116,8 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - Make sure you know how to create nested classes
 
 ### Codelabs
-- [:x:] **basic/Codelab02** (Bob the builder) of module `35-nested-classes` 
-- [:x:] **basic/Codelab03** (Callback) of module `35-nested-classes` 
+- [:heavy_check_mark:] **basic/Codelab02** (Bob the builder) of module `35-nested-classes` 
+- [:heavy_check_mark:] **basic/Codelab03** (Callback) of module `35-nested-classes` 
 
 ## Lambda expressions
 
