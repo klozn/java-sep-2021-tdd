@@ -1,6 +1,7 @@
 package advanced.codelab02;
 
 import advanced.codelab02.movies.Movie;
+import advanced.codelab02.movies.NewRelease;
 
 public class Rental {
 
@@ -16,7 +17,15 @@ public class Rental {
         return daysRented;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public int getMoviePriceCode() {
+        return movie.getPriceCode();
+    }
+
+    public boolean isNewReleaseRental() {
+        return getMoviePriceCode() == NewRelease.PRICE_CODE;
+    }
+
+    public String getMovieTitle() {
+        return movie.getTitle();
     }
 }
