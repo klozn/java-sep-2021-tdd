@@ -2,8 +2,8 @@ package basic.codelab01;
 
 public class MainApp {
     public static void main(String[] args) {
-        Pair<Integer> integerPair = new IntegerPair();
-        Pair<String> stringPair = new StringPair();
+        var integerPair = new IntegerPair();
+        var stringPair = new StringPair();
         integerPair.store(5, 7);
         stringPair.store("good", "boy");
         //integerPair.store("hello", "goodbye");

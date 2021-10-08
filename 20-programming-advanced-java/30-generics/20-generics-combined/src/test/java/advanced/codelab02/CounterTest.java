@@ -14,13 +14,15 @@ class CounterTest {
 
     @Test
     void genericCounter_worksWithStrings() {
-        int count = counter.genericCounter(Set.of("HELLO", "Wooooooorld", "ok"), new MaxLength5());
+        Filter<String> filter = new MaxLength5();
+        int count = counter.genericCounter(Set.of("HELLO", "Wooooooorld", "ok"), filter);
         assertEquals(2, count);
     }
 
     @Test
     void genericCounter_worksWithIntegers() {
-        int count = counter.genericCounter(List.of(1, 2, 3, 4, 5, 6, 7), new UnevenInts());
+        Filter<Integer> filter = new UnevenInts();
+        int count = counter.genericCounter(List.of(1, 2, 3, 4, 5, 6, 7), filter);
         assertEquals(4, count);
     }
 }

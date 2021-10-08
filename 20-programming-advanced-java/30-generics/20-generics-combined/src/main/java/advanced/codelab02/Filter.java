@@ -1,5 +1,6 @@
 package advanced.codelab02;
 
+@FunctionalInterface
 public interface Filter<T> {
-    boolean test(T object);
+    boolean apply(T object);
 }

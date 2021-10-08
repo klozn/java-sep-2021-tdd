@@ -2,10 +2,10 @@ package basic.codelab04;
 
 public class MainApp {
     public static void main(String[] args) {
-        Fish fish = new Fish();
-        Camel camel = new Camel();
-        Desert desert = new Desert();
-        Ocean ocean = new Ocean();
+        var fish = new Fish();
+        var camel = new Camel();
+        var desert = new Desert();
+        var ocean = new Ocean();
         desert.addInhabitant(camel);
         ocean.addInhabitant(fish);
         ocean.addInhabitant(new Fish());

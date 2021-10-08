@@ -92,12 +92,12 @@ Please do this after each finished codelab. It will help us in keeping track of 
 
 ### Codelabs
 
-- [:x:] **basic/Codelab02** (Fruit tree) of sub-module `10-generic-classes`
-- [:x:] **basic/Codelab01** (Generic interface) of sub-module `20-generics-combined`
-- [:x:] **basic/Codelab02** (Generic class and generic interface) of sub-module `20-generics-combined`
-- [:x:] **basic/Codelab04** (Habitats for Animals) of sub-module `20-generics-combined`
-- [:x:] **advanced/Codelab01** (Generic swapper) of sub-module `20-generics-combined`
-- [:x:] **advanced/Codelab02** (Generic count) of sub-module `20-generics-combined`
+- [:heavy_check_mark:] **basic/Codelab02** (Fruit tree) of sub-module `10-generic-classes`
+- [:heavy_check_mark:] **basic/Codelab01** (Generic interface) of sub-module `20-generics-combined`
+- [:heavy_check_mark:] **basic/Codelab02** (Generic class and generic interface) of sub-module `20-generics-combined`
+- [:heavy_check_mark:] **basic/Codelab04** (Habitats for Animals) of sub-module `20-generics-combined`
+- [:heavy_check_mark:] **advanced/Codelab01** (Generic swapper) of sub-module `20-generics-combined`
+- [:heavy_check_mark:] **advanced/Codelab02** (Generic count) of sub-module `20-generics-combined`
 
 ## Design patterns and principles
 
