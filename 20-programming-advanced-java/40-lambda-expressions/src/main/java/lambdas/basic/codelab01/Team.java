@@ -1,5 +1,6 @@
 package lambdas.basic.codelab01;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Team {
@@ -18,7 +19,7 @@ public class Team {
     }
 
     void sortFootballersAttackingScoreAscending() {
-        footballers.sort((f1, f2) -> Integer.compare(f1.getAttackingScore(), f2.getAttackingScore()));
+        footballers.sort(Comparator.comparingInt(Footballer::getAttackingScore));
     }
 
     void sortFootballersDefendingScoreDescending() {
@@ -26,7 +27,7 @@ public class Team {
     }
 
     void sortFootballersDefendingScoreAscending() {
-        footballers.sort((f1, f2) -> Integer.compare(f1.getDefendingScore(), f2.getDefendingScore()));
+        footballers.sort(Comparator.comparingInt(Footballer::getDefendingScore));
     }
 
     void sortFootballersAverageScoreDescending() {

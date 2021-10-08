@@ -1,9 +1,9 @@
 package lambdas.advanced.codelab02;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Read the README.md file
@@ -11,20 +11,10 @@ import java.util.function.Predicate;
 public class Matcher {
 
     public static <E> List<E> allMatches(List<E> list, Predicate<E> predicate) {
-        List<E> matches = new ArrayList<>();
-        for (E element : list) {
-            if (predicate.test(element)) {
-                matches.add(element);
-            }
-        }
-        return matches;
+        return list.stream().filter(predicate).collect(Collectors.toList());
     }
 
     public static <T, U> List<U> transformedList(List<T> list, Function<T, U> function) {
-        List<U> transformed = new ArrayList<>();
-        for (T element: list) {
-            transformed.add(function.apply(element));
-        }
-        return transformed;
+        return list.stream().map(function).collect(Collectors.toList());
     }
 }

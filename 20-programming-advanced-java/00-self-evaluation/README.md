@@ -126,9 +126,9 @@ Please do this after each finished codelab. It will help us in keeping track of 
     - **Remember**, They're only available in Java 8 and up
 
 ### Codelabs
-- [:x:] **basic/Codelab01** (Sorting) of module `40-lambda-expressions` 
-- [:x:] **basic/Codelab02** (One problem, 3 solutions) of module `40-lambda-expressions` 
-- [:x:] **advanced/Codelab02** (Matcher) of module `40-lambda-expressions` 
+- [:heavy_check_mark:] **basic/Codelab01** (Sorting) of module `40-lambda-expressions` 
+- [:heavy_check_mark:] **basic/Codelab02** (One problem, 3 solutions) of module `40-lambda-expressions` 
+- [:heavy_check_mark:] **advanced/Codelab02** (Matcher) of module `40-lambda-expressions` 
 
 ## Stream API
 
