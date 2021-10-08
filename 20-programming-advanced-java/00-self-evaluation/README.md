@@ -137,12 +137,12 @@ Please do this after each finished codelab. It will help us in keeping track of 
     - **Remember**, They're only available in Java 8 and up
     
 ### Codelabs
-- [:x:] **basic/Codelab01** (ToUpperCase) of module `50-stream-api` 
-- [:x:] **basic/Codelab02** (FilterCollection) of module `50-stream-api` 
-- [:x:] **basic/Codelab03** (FlatCollection) of module `50-stream-api` 
-- [:x:] **basic/Codelab04** (OldestPerson) of module `50-stream-api` 
-- [:x:] **advanced/Codelab03** (Grouping) of module `50-stream-api` 
-- [:x:] **advanced/Codelab05** (Library) of module `50-stream-api`
+- [:heavy_check_mark:] **basic/Codelab01** (ToUpperCase) of module `50-stream-api` 
+- [:heavy_check_mark:] **basic/Codelab02** (FilterCollection) of module `50-stream-api` 
+- [:heavy_check_mark:] **basic/Codelab03** (FlatCollection) of module `50-stream-api` 
+- [:heavy_check_mark:] **basic/Codelab04** (OldestPerson) of module `50-stream-api` 
+- [:heavy_check_mark:] **advanced/Codelab03** (Grouping) of module `50-stream-api` 
+- [:heavy_check_mark:] **advanced/Codelab05** (Library) of module `50-stream-api`
 
 ## Finished?
 
