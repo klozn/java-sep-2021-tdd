@@ -28,7 +28,6 @@ public class ABCEmailSortingService implements EmailSortingService {
     private static int countEmailsSortedTo(EmailAddress emailAddress, List<Email> sorted) {
         return (int) emailAddress.getInbox().stream()
                 .filter(sorted::contains)
-                .distinct()
                 .count();
     }
 }

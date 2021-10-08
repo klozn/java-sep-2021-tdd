@@ -38,7 +38,7 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - [:heavy_check_mark:] **Codelab02** (Treehehehe) of sub-module `60-combined-codelabs`
 - [:heavy_check_mark:] **Codelab03** (Swappable Bonus calculators (during runtime)) of sub-module `60-combined-codelabs`
 - [:heavy_check_mark:] **Codelab04** (Movie Rental) of sub-module `60-combined-codelabs`
-- [:x:] **Codelab05** (Mails) of sub-module `60-combined-codelabs`
+- [:heavy_check_mark:] **Codelab05** (Mails) of sub-module `60-combined-codelabs`
 
 ## Agile Software Development
 

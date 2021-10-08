@@ -3,6 +3,8 @@ package selfeval.codelab05;
 import selfeval.codelab05.mails.Email;
 import selfeval.codelab05.mails.EmailAddress;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         EmailAddress infoAddress = ABCEmailAddressDB.getByAddress("info@abc.com");
@@ -22,7 +24,7 @@ public class Main {
                 "pro mo tion. ", me, infoAddress);
         Email colleagueMail = new Email("Payslips", "When???", colleague, infoAddress);
 
-        Email[] mails = new Email[] {recruitmentMail, firstSpamMail, secondSpamMail,
+        Email[] mails = new Email[]{recruitmentMail, firstSpamMail, secondSpamMail,
                 salesMail, receptionMail, colleagueMail};
 
         for (Email mail : mails) {
@@ -32,9 +34,25 @@ public class Main {
         EmailSortingService service = new ABCEmailSortingService();
         service.sortInbox(new ABCEmailSorter(), infoAddress);
 
+        purgeEmailBoxes();
+
         for (Email mail : mails) {
             infoAddress.receiveEmail(mail);
         }
         service.sortInbox(new EmailSorterSimpl(), infoAddress);
+    }
+
+    private static void purgeEmailBoxes() {
+        var emailBoxes = List.of(
+                ABCEmailAddressDB.getByAddress("reception@abc.com"),
+                ABCEmailAddressDB.getByAddress("spam@abc.com"),
+                ABCEmailAddressDB.getByAddress("recruitment@abc.com"),
+                ABCEmailAddressDB.getByAddress("sales@abc.com")
+        );
+        for (EmailAddress emailBox : emailBoxes) {
+            for (int i = emailBox.getNrOfEmailsInInbox() - 1; i >= 0; i--) {
+                emailBox.getInbox().remove(i);
+            }
+        }
     }
 }
