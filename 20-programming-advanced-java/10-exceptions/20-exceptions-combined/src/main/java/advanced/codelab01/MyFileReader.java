@@ -12,20 +12,22 @@ import java.util.List;
 class MyFileReader {
 
     public void read(String fileName) {
+
         Path pathToFile = null;
         try {
-            pathToFile = Paths
-                    .get(Paths.get(getClass().getResource(fileName).toURI())
-                            .toString());
+            pathToFile = Paths.get(Paths.get(getClass().getResource(fileName).toURI()).toString());
+
         } catch (NullPointerException | URISyntaxException e) {
             System.err.println(e.getMessage());
         }
+
         List<String> lines = null;
         try {
             lines = Files.readAllLines(pathToFile);
         } catch (NullPointerException | IOException e) {
             System.err.println(e.getMessage());
         }
+
         try {
             for (String line : lines) {
                 System.out.println(line);

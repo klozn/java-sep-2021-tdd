@@ -7,7 +7,7 @@ public class ExceptionApplication {
 
     public static void main(String[] args) {
 
-        MyExceptionService myExceptionService = new MyExceptionService();
+        var myExceptionService = new MyExceptionService();
         try {
             myExceptionService.doSomethingExceptional();
         } catch (Exception e) {

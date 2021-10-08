@@ -13,6 +13,6 @@ public class LoggingExample {
     }
 
     public static void main(String[] args) {
-        new LoggingExample().helloExample();
+        log.info(new LoggingExample().helloExample());
     }
 }

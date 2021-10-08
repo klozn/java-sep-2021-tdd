@@ -62,13 +62,13 @@ Please do this after each finished codelab. It will help us in keeping track of 
     - *What is the intended behavior?*
     
 ### Codelabs
-- [:x:] **advanced/Codelab01** (Safe calculations) of sub-module `10-exceptions/10-exception-handling`
-- [:x:] **basic/Codelab01** (Exceptions V1) of sub-module `10-exceptions/20-exceptions-combined`
-- [:x:] **basic/Codelab02** (Exceptions V2) of sub-module `10-exceptions/20-exceptions-combined`
-- [:x:] **basic/Codelab05** (Strict bank account) of sub-module `10-exceptions/20-exceptions-combined`
-- [:x:] **advanced/Codelab01** (File reading) of sub-module `10-exceptions/20-exceptions-combined`
-- [:x:] **advanced/Codelab02** (System.out.println is forbidden) of sub-module `10-exceptions/20-exceptions-combined`
-- [:x:] **advanced/Codelab03** (You're exceptional) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **advanced/Codelab01** (Safe calculations) of sub-module `10-exceptions/10-exception-handling`
+- [:heavy_check_mark:] **basic/Codelab01** (Exceptions V1) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **basic/Codelab02** (Exceptions V2) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **basic/Codelab05** (Strict bank account) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **advanced/Codelab01** (File reading) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **advanced/Codelab02** (System.out.println is forbidden) of sub-module `10-exceptions/20-exceptions-combined`
+- [:heavy_check_mark:] **advanced/Codelab03** (You're exceptional) of sub-module `10-exceptions/20-exceptions-combined`
 
 ## Data structures
 

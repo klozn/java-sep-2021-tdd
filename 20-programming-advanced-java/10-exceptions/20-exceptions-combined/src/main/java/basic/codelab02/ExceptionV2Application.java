@@ -9,15 +9,13 @@ public class ExceptionV2Application {
 
     public static void main(String[] args) {
 
-        MyExceptionV2Service myExceptionService = new MyExceptionV2Service();
+        var myExceptionService = new MyExceptionV2Service();
         try {
             myExceptionService.doSomethingExceptional();
         } catch (IOException e) {
             System.out.println("Caught: " + e.getMessage());
-            ;
         }
         System.out.println("I can show you the world!");
-
     }
 
 }

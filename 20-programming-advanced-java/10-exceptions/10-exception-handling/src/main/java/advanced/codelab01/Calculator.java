@@ -38,7 +38,7 @@ public class Calculator {
         } catch (InputMismatchException ime) {
             number = numberType.equals("nominator") ? 10 : 5;
             System.out.println("\n(invalid " + numberType + " provided. Therefore it is set to value " + number + ")");
-            System.out.println("Please try again");
+            System.out.println("Please try again\n");
             return askFor(numberType);
         }
         return number;
