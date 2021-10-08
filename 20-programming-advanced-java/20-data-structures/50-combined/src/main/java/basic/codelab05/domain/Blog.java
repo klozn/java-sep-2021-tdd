@@ -20,13 +20,6 @@ public class Blog {
         return posts.stream()
                 .filter(post -> post.getAuthor().equals(author))
                 .collect(Collectors.toList());
-        /*List<BlogPost> result = new ArrayList<>();
-        for (BlogPost post : posts) {
-            if (post.getAuthor() == author) {
-                result.add(post);
-            }
-        }
-        return result;*/
     }
 
     BlogPost suggestABlogPost() {

@@ -24,8 +24,7 @@ public class SolarSystem {
     }
 
     void swapPositions(int planetIndex1, int planetIndex2) {
-        String planet1 = planets.set(planetIndex1, planets.get(planetIndex2));
-        planets.set(planetIndex2, planet1);
+        Collections.swap(planets, planetIndex1, planetIndex2);
     }
 
     void reversePlanetOrder() {

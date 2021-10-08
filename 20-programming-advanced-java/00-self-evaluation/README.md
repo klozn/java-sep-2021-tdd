@@ -77,13 +77,13 @@ Please do this after each finished codelab. It will help us in keeping track of 
 - Make sure you know the difference between a `List`, a `Queue`, a `Map` and a `Set`
 
 ### Codelabs
-- [:x:] **basic/Codelab03** (Solar System) of sub-module `10-list`
-- [:x:] **advanced/Codelab02** (Supermarket) of sub-module `20-queue`
-- [:x:] **basic/Codelab01** (Phone book) of sub-module `30-map`
-- [:x:] **basic/Codelab01** (Movie Catalog) of sub-module `40-set`
-- [:x:] **basic/Codelab02** (Word reader) of sub-module `50-combined`
-- [:x:] **basic/Codelab03** (Supermarket Racks) of sub-module `50-combined`
-- [:x:] **basic/Codelab05** (Blog) of sub-module `50-combined`
+- [:heavy_check_mark:] **basic/Codelab03** (Solar System) of sub-module `10-list`
+- [:heavy_check_mark:] **advanced/Codelab01** (Supermarket) of sub-module `20-queue`
+- [:heavy_check_mark:] **basic/Codelab01** (Phone book) of sub-module `30-map`
+- [:heavy_check_mark:] **basic/Codelab01** (Movie Catalog) of sub-module `40-set`
+- [:heavy_check_mark:] **basic/Codelab02** (Word reader) of sub-module `50-combined`
+- [:heavy_check_mark:] **basic/Codelab03** (Supermarket Racks) of sub-module `50-combined`
+- [:heavy_check_mark:] **basic/Codelab05** (Blog) of sub-module `50-combined`
 
 ## Generics
 

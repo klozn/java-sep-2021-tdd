@@ -1,8 +1,8 @@
 package basic.codelab02;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WordReader {
 
@@ -11,10 +11,8 @@ public class WordReader {
     }
 
     public List<String> capitalizeAll(Collection<String> wordCollection) {
-        List<String> capitalized = new ArrayList<>();
-        for(String word: wordCollection) {
-            capitalized.add(word.toUpperCase());
-        }
-        return capitalized;
+        return wordCollection.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
     }
 }

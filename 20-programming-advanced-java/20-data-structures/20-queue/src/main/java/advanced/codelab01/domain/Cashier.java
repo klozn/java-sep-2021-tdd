@@ -1,4 +1,4 @@
-package advanced.codelab01;
+package advanced.codelab01.domain;
 
 public class Cashier {
     private final String name;

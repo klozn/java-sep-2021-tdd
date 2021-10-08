@@ -11,24 +11,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class BlogTest {
     @Test
     void getBlogPostsPerAuthor_returnsExpectedResult() {
-        Author author = new Author("John");
-        Author differentAuthor = new Author("Not John");
-        List<BlogPost> postsByAuthor = new ArrayList<>(generatePostsFor(author));
-        List<BlogPost> allPosts = new ArrayList<>(generatePostsFor(differentAuthor));
+        var author = new Author("John");
+        var differentAuthor = new Author("Not John");
+        var postsByAuthor = new ArrayList<>(generatePostsFor(author));
+        var allPosts = new ArrayList<>(generatePostsFor(differentAuthor));
         allPosts.addAll(postsByAuthor);
-        Blog blog = new Blog(allPosts);
+        var blog = new Blog(allPosts);
 
         List<BlogPost> result = blog.getBlogPostsPerAuthor(author);
 
         assertTrue(result.containsAll(postsByAuthor));
-        assertEquals(result.size(), postsByAuthor.size());
     }
 
     @Test
     void suggestABlogPost_returnsLastPostAdded() {
-        List<BlogPost> posts = generatePostsFor(new Author("John"));
-        BlogPost lastPost = posts.get(posts.size() - 1);
-        Blog blog = new Blog(posts);
+        var posts = generatePostsFor(new Author("John"));
+        var lastPost = posts.get(posts.size() - 1);
+        var blog = new Blog(posts);
 
         BlogPost suggested = blog.suggestABlogPost();
 

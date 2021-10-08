@@ -1,4 +1,4 @@
-package advanced.codelab01;
+package advanced.codelab01.domain;
 
 public class Price {
     private final double decimal;

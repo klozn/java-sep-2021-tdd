@@ -1,12 +1,12 @@
 package advanced.codelab01;
 
-import advanced.codelab01.exceptions.CheckoutCounterClosedException;
-import advanced.codelab01.exceptions.CheckoutLineNotEmptyException;
+import advanced.codelab01.domain.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class CheckoutCounterImpl implements CheckoutCounter {
+public class EuroCheckoutCounter implements CheckoutCounter {
+
     private Cashier cashier;
     private boolean open;
     private final Queue<Customer> checkoutLine = new LinkedList<>();
@@ -32,16 +32,16 @@ public class CheckoutCounterImpl implements CheckoutCounter {
     @Override
     public void close() {
         if (!checkoutLine.isEmpty()) {
-            throw new CheckoutLineNotEmptyException("You are trying to close but there are still customers in the checkout line.");
+            throw new IllegalStateException("The checkout line is not empty.");
         }
-        setCashier(null);
         setOpen(false);
+        setCashier(null);
     }
 
     @Override
     public void joinCheckoutLine(Customer customer) {
         if (!isOpen()) {
-            throw new CheckoutCounterClosedException("You are trying to join the line of a closed checkout counter.");
+            throw new IllegalStateException("The checkout counter is closed.");
         }
         checkoutLine.offer(customer);
     }
@@ -49,13 +49,14 @@ public class CheckoutCounterImpl implements CheckoutCounter {
     @Override
     public Price processNextCustomerInLine() {
         if (!isOpen()) {
-            throw new CheckoutCounterClosedException("You are trying to process customers when closed");
+            throw new IllegalStateException("The checkout counter is closed.");
         }
         if (checkoutLine.isEmpty()) {
-            return null;
+            throw new IllegalStateException("The checkout line is empty.");
         }
         Customer nextCustomer = checkoutLine.poll();
         double totalAllGroceries = 0;
+
         for (Grocery grocery: nextCustomer.getGroceries()) {
             totalAllGroceries += grocery.getPrice().getDecimal() * grocery.getAmount();
         }

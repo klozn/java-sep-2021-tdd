@@ -18,20 +18,18 @@ public class Rack {
     }
 
     public void fill(List<Grocery> groceries, int indexOfShelf) {
-        throwExceptionIfInvalid(indexOfShelf);
+        assertValidShelfIndex(indexOfShelf);
         Shelf shelf = shelves.get(indexOfShelf);
-        for (Grocery grocery: groceries) {
-            shelf.addGrocery(grocery);
-        }
+        groceries.forEach(shelf::addGrocery);
     }
 
     public Grocery takeGroceryFromShelf(int indexOfShelf) {
-        throwExceptionIfInvalid(indexOfShelf);
+        assertValidShelfIndex(indexOfShelf);
         Shelf shelf = shelves.get(indexOfShelf);
         return shelf.getLastGroceryAdded();
     }
 
-    private void throwExceptionIfInvalid(int indexOfShelf) {
+    private void assertValidShelfIndex(int indexOfShelf) {
         if (indexOfShelf < 0 || indexOfShelf > getAmountOfShelves() - 1) {
             throw new IllegalArgumentException("Unvalid index for shelves");
         }
@@ -42,9 +40,7 @@ public class Rack {
         final StringBuilder sb = new StringBuilder();
         for (Shelf shelf : shelves) {
             sb.append("[");
-            for (int i = 0; i < shelf.getNumberOfGroceries(); i++) {
-                sb.append("*");
-            }
+            sb.append("*".repeat(Math.max(0, shelf.getNumberOfGroceries())));
             sb.append("]");
         }
         return sb.toString();

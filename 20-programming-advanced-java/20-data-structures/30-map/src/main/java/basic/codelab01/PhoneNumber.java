@@ -11,14 +11,6 @@ public class PhoneNumber {
         this.numberItSelf = numberItSelf;
     }
 
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public String getNumberItSelf() {
-        return numberItSelf;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

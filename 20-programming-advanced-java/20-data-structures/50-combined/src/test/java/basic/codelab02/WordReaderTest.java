@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class WordReaderTest {
     private static final Collection<String> WORD_COLLECTION = List.of("Never", "Gonna", "Give", "You", "Up");
@@ -16,24 +16,24 @@ class WordReaderTest {
     @Test
     void capitalizeAll_whenCollectionTest() {
         List<String> words = wordReader.capitalizeAll(WORD_COLLECTION);
-        assertTrue(words.containsAll(List.of("NEVER", "GONNA", "GIVE", "YOU", "UP")));
+        assertThat(words).containsExactly("NEVER", "GONNA", "GIVE", "YOU", "UP");
     }
 
     @Test
     void capitalizeAll_whenSetTest() {
         List<String> words = wordReader.capitalizeAll(WORD_SET);
-        assertTrue(words.containsAll(List.of("NEVER", "GONNA", "GIVE", "YOU", "UP")));
+        assertThat(words).containsExactlyInAnyOrder("NEVER", "GONNA", "GIVE", "YOU", "UP");
     }
 
     @Test
     void capitalizeAll_whenListTest() {
         List<String> words = wordReader.capitalizeAll(WORD_LIST);
-        assertTrue(words.containsAll(List.of("NEVER", "GONNA", "GIVE", "YOU", "UP")));
+        assertThat(words).containsExactly("NEVER", "GONNA", "GIVE", "YOU", "UP");
     }
 
     @Test
     void capitalizeAll_whenQueueTest() {
         List<String> words = wordReader.capitalizeAll(WORD_QUEUE);
-        assertTrue(words.containsAll(List.of("NEVER", "GONNA", "GIVE", "YOU", "UP")));
+        assertThat(words).containsExactlyInAnyOrder("NEVER", "GONNA", "GIVE", "YOU", "UP");
     }
 }

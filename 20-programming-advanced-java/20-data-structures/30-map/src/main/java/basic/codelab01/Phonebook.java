@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class PhoneBook {
+public class Phonebook {
 
     private final Map<Name, PhoneNumber> phoneBookEntries = new HashMap<>();
 
-    public void addPhoneBookEntry(Name name, PhoneNumber phoneNumber) {
+    public void addPhonebookEntry(Name name, PhoneNumber phoneNumber) {
         phoneBookEntries.put(name, phoneNumber);
     }
 
-    public Map<Name, PhoneNumber> getPhoneBookEntries() {
+    public Map<Name, PhoneNumber> getPhonebookEntries() {
         return phoneBookEntries;
     }
 
@@ -35,4 +35,5 @@ public class PhoneBook {
     public Set<Map.Entry<Name, PhoneNumber>> getThemAll() {
         return phoneBookEntries.entrySet();
     }
+
 }

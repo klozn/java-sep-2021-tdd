@@ -1,4 +1,4 @@
-package advanced.codelab01;
+package advanced.codelab01.domain;
 
 import java.util.HashSet;
 import java.util.Set;

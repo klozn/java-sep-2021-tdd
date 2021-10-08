@@ -2,6 +2,7 @@ package basic.codelab05.domain;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BlogPost implements Comparable<BlogPost> {
     private final Author author;
@@ -23,15 +24,11 @@ public class BlogPost implements Comparable<BlogPost> {
     }
 
     public Collection<String> getAllUniqueWordsFromBody() {
-        String[] wordsInBody = body.split(" ");
-        Set<String> uniqueWords = new HashSet<>();
-        for (String word : wordsInBody) {
-            word = word.toLowerCase(Locale.ROOT);
-            word = word.replaceAll("[^A-Za-z0-9]", "");
-            uniqueWords.add(word);
-        }
-        System.out.println(uniqueWords);
-        return uniqueWords;
+        return Arrays.stream(body.split(" "))
+                .map(String::toLowerCase)
+                .map(s -> s.replaceAll("[^a-z0-9]", ""))
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     @Override
