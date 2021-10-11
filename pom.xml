@@ -12,6 +12,7 @@
     <modules>
         <module>10-programming-fundamentals-java</module>
         <module>20-programming-advanced-java</module>
+        <module>30-enterprise-software-development-java</module>
     </modules>
 
     <reporting>
