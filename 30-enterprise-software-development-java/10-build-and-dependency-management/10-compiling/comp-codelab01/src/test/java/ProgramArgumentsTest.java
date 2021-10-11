@@ -19,7 +19,7 @@ class ProgramArgumentsTest {
     @Test
     void printArray_shouldPrintEachItemOnALineWithIndexColonPrefix() throws Exception {
         String[] strings = {"first", "second", "third"};
-        String expected = String.format("0:%s" + separator + "1:%s" + separator + "2:%s" + separator, (Object[]) strings);
+        String expected = String.format("Program arguments:%n0:%s" + separator + "1:%s" + separator + "2:%s" + separator, (Object[]) strings);
 
         ProgramArguments.printArray(strings);
 
@@ -29,7 +29,7 @@ class ProgramArgumentsTest {
     @Test
     void printArray_shouldPrintNothingWhenStringsIsEmpty() throws Exception {
         String[] strings = {};
-        String expected = "";
+        String expected = "Program arguments:" + separator + "None" + separator;
 
         ProgramArguments.printArray(strings);
 
@@ -39,7 +39,7 @@ class ProgramArgumentsTest {
     @Test
     void printArray_shouldPrintNothingWhenStringsIsNull() throws Exception {
         String[] strings = null;
-        String expected = "";
+        String expected = "Program arguments:" + separator + "None" + separator;
 
         ProgramArguments.printArray(strings);
 
