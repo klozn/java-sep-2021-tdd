@@ -11,7 +11,7 @@ public class Driver {
     private DriversLicense license;
 
     @Autowired
-    public Driver(@Qualifier("DriversLicenseC") DriversLicense license, @Qualifier("DriverName") String name, @Qualifier("DriverAge") int age) {
+    public Driver(@Qualifier("driversLicenseC") DriversLicense license, @Qualifier("DriverName") String name, @Qualifier("DriverAge") int age) {
         this.license = license;
         this.name = name;
         this.age = age;

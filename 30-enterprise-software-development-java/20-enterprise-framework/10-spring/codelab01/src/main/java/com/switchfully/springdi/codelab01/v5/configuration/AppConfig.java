@@ -32,19 +32,19 @@ public class AppConfig {
         return 120;
     }
 
-    @Bean("DriversLicenceA")
+    @Bean
     @Primary
-    public DriversLicense getDriversLicenseA() {
+    public DriversLicense driversLicenseA() {
         return new DriversLicense(DriverLicenseType.A);
     }
 
-    @Bean("DriversLicenceB")
-    public DriversLicense getDriversLicenseB() {
+    @Bean
+    public DriversLicense driversLicenseB() {
         return new DriversLicense(DriverLicenseType.B);
     }
 
-    @Bean("DriversLicenseC")
-    public DriversLicense getDriversLicenseC() {
+    @Bean
+    public DriversLicense driversLicenseC() {
         return new DriversLicense(DriverLicenseType.C);
     }
 

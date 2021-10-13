@@ -22,4 +22,14 @@ public class Bread {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Bread{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", color='").append(color).append('\'');
+        sb.append(", price=").append(price);
+        sb.append('}');
+        return sb.toString();
+    }
 }
