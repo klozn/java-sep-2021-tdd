@@ -10,9 +10,9 @@ public class SpringSongWithLyrics {
         // --> + Make changes in the ApplicationConfiguration class
         String newLine = applicationContext.getBean("NewLine", String.class);
         String whoTo = applicationContext.getBean("WhoAmITalkingTo", String.class);
-        String whoAbout = applicationContext.getBean(String.class);
-        String whoAboutWhat = applicationContext.getBean(String.class);
-        String whatAbout = applicationContext.getBean(String.class);
+        String whoAbout = applicationContext.getBean("WhoAbout", String.class);
+        String whoAboutWhat = applicationContext.getBean("WhoAboutWhat", String.class);
+        String whatAbout = applicationContext.getBean("AboutWhat", String.class);
         // <-- End of changes
 
         System.out.print("Oh " + whoTo + ", won't you buy me a " + whatAbout + "?" + newLine +

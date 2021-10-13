@@ -12,22 +12,21 @@ public class ApplicationConfiguration {
     }
 
     @Bean("WhoAmITalkingTo")
-    @Primary
     public String getSubject() {
         return "Lord";
     }
 
-    @Bean
+    @Bean("WhoAbout")
     public String abc() {
         return "friends";
     }
 
-    @Bean
+    @Bean("WhoAboutWhat")
     public String more() {
         return "Porsches";
     }
 
-    @Bean
+    @Bean("AboutWhat")
     public String theFinalString() {
         return "Mercedes Benz";
     }

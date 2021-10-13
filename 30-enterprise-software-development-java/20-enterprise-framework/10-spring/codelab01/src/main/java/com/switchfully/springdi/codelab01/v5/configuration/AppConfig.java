@@ -22,29 +22,29 @@ public class AppConfig {
         return "Amazon Echo";
     }
 
-    @Bean
+    @Bean("DriverAge")
     public int getDriverAge() {
         return 21;
     }
 
-    @Bean
+    @Bean("PriceOfParcel")
     public int getPriceOfParcel() {
         return 120;
     }
 
-    @Bean
+    @Bean("DriversLicenceA")
     @Primary
-    public DriversLicense getDriversLicense() {
+    public DriversLicense getDriversLicenseA() {
         return new DriversLicense(DriverLicenseType.A);
     }
 
-    @Bean
-    public DriversLicense getAnOtherDriversLicense() {
+    @Bean("DriversLicenceB")
+    public DriversLicense getDriversLicenseB() {
         return new DriversLicense(DriverLicenseType.B);
     }
 
-    @Bean
-    public DriversLicense i_can_call_this_method_anything_i_want_but_that_is_not_a_good_idea() {
+    @Bean("DriversLicenseC")
+    public DriversLicense getDriversLicenseC() {
         return new DriversLicense(DriverLicenseType.C);
     }
 
@@ -54,7 +54,7 @@ public class AppConfig {
      * It supports the autowiring of the DeliveryVan.
      *
      * In reality it is very unlikely to turn an Enum into a bean.
-     * When a bean requires an enum, you'll usually configure it in a a different way.
+     * When a bean requires an enum, you'll usually configure it in a different way.
      * Ex: The 2 DriversLicense beans.
      * */
     public DeliveryVanType getVanType() {

@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Driver {
     private String name;
     private int age;
     private DriversLicense license;
 
     @Autowired
-    public Driver(DriversLicense license, @Qualifier("DriverName") String name, int age) {
+    public Driver(@Qualifier("DriversLicenseC") DriversLicense license, @Qualifier("DriverName") String name, @Qualifier("DriverAge") int age) {
         this.license = license;
         this.name = name;
         this.age = age;

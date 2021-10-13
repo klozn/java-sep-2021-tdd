@@ -20,12 +20,9 @@ public class DriversLicense {
     }
 
     public boolean isPermitForLargeVehicle() {
-        switch (licenseType) {
-            case C:
-            case D:
-                return true;
-            default:
-                return false;
-        }
+        return switch (licenseType) {
+            case C, D -> true;
+            default -> false;
+        };
     }
 }
