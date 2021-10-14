@@ -1,16 +1,16 @@
 package com.switchfully.spring.dependencyinversion.backery.bread;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Primary
+@Profile({"fancy", "normal"})
 public class SelfMadeBreadService implements BreadService {
-    private NormalBreadRepository repository;
+    private final BreadRepository repository;
 
     @Autowired
-    public SelfMadeBreadService(NormalBreadRepository repository) {
+    public SelfMadeBreadService(BreadRepository repository) {
         this.repository = repository;
     }
 

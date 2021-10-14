@@ -1,11 +1,11 @@
-package com.switchfully.spring.dependencyinversion.backery.bread.extras;
+package com.switchfully.spring.dependencyinversion.backery.bread;
 
-import com.switchfully.spring.dependencyinversion.backery.bread.Bread;
-import com.switchfully.spring.dependencyinversion.backery.bread.BreadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-@Service("wholesale")
+@Service
+@Profile("wholesale")
 public class WholeSaleBreadService implements BreadService {
     private final NetworkConnectionToWholeSale connection;
 

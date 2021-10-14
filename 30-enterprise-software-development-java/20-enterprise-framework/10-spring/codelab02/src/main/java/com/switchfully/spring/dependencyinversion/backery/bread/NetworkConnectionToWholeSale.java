@@ -1,6 +1,5 @@
-package com.switchfully.spring.dependencyinversion.backery.bread.extras;
+package com.switchfully.spring.dependencyinversion.backery.bread;
 
-import com.switchfully.spring.dependencyinversion.backery.bread.Bread;
 import org.springframework.stereotype.Component;
 
 @Component

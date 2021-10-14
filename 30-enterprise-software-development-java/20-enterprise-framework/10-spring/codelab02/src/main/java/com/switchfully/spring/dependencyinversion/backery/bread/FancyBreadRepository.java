@@ -1,13 +1,15 @@
-package com.switchfully.spring.dependencyinversion.backery.bread.extras;
+package com.switchfully.spring.dependencyinversion.backery.bread;
 
 import com.google.common.collect.ImmutableMap;
 import com.switchfully.spring.dependencyinversion.backery.bread.Bread;
 import com.switchfully.spring.dependencyinversion.backery.bread.BreadRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("fancy")
+@Repository
+@Profile("fancy")
 public class FancyBreadRepository implements BreadRepository {
 
     Map<String, Bread> breadRepo = ImmutableMap.<String, Bread>builder()
