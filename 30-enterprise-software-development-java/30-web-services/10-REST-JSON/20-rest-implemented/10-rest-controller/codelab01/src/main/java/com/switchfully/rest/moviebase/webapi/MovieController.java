@@ -32,7 +32,7 @@ public class MovieController {
 
     @GetMapping(produces = "application/json")
     public List<MovieDto> getAllMovies() {
-        return repository.getAll().stream().map(MovieController::toDto).collect(Collectors.toList());
+        return repository.getAll().stream().map(this::toDto).collect(Collectors.toList());
     }
 
     @GetMapping(path = "/{id}", produces = "application/json")
@@ -49,7 +49,7 @@ public class MovieController {
         return toDto(repository.save(toUpdate));
     }
 
-    private static MovieDto toDto(Movie movie) {
+    private MovieDto toDto(Movie movie) {
         var dto = new MovieDto();
         dto.setId(movie.getId());
         dto.setTitle(movie.getTitle());
