@@ -1,9 +1,11 @@
 package com.switchfully.rest.moviebase.webapi;
 
+import com.switchfully.rest.moviebase.domain.MovieRepository;
 import com.switchfully.rest.moviebase.webapi.dtos.CreateMovieDto;
 import com.switchfully.rest.moviebase.webapi.dtos.MovieDto;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class MovieControllerIntegrationTest {
+    @Autowired
+    MovieRepository repository;
 
     @Value("${server.port}")
     private int port;
@@ -44,5 +48,6 @@ class MovieControllerIntegrationTest {
         assertThat(movieDto.getDescription()).isEqualTo(createMovieDto.getDescription());
         assertThat(movieDto.getRuntimeInSeconds()).isEqualTo(createMovieDto.getRuntimeInSeconds());
     }
+
 
 }

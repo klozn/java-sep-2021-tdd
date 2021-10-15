@@ -42,7 +42,15 @@ public class Movie {
         return runtimeInSeconds;
     }
 
-    public void changeRuntime(int runtimeInSeconds) {
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRuntimeInSeconds(int runtimeInSeconds) {
         this.runtimeInSeconds = runtimeInSeconds;
     }
 
