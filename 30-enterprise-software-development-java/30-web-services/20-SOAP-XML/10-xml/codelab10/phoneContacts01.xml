@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phoneContacts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="phoneContacts.xsd" >
+    <contact>
+        <lastname>Murdoch</lastname>
+        <birthDate>1956-05-12</birthDate>
+        <phoneNumber isMobileNumber="true">0485546213</phoneNumber>
+    </contact>
+    <contact>
+        <lastname>Bezos</lastname>
+        <birthDate>2013-11-30</birthDate>
+        <phoneNumber>85412168</phoneNumber>
+        <firstname>Jeff</firstname>
+    </contact>
+</phoneContacts>

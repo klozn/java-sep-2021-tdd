@@ -18,6 +18,22 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+                <xs:element name="project" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="project_id">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer" />
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="project_name">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string" />
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
