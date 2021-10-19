@@ -5,7 +5,7 @@
            elementFormDefault="qualified">
 
     <!-- an XML instance containing as its root element a person element,
-    can be validate against to XML Schema now as well -->
+    can be validate against to XML Schema now as well (wut?????)-->
     <xs:element name="person">
         <xs:complexType>
             <xs:all>
