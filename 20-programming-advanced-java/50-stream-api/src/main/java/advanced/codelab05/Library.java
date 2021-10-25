@@ -25,6 +25,7 @@ public class Library {
     public int getSumOfAgesOfAllFemaleAuthorsYoungerThan25() {
         return books.stream()
                 .map(Book::getAuthor)
+                .distinct()
                 .filter(author -> author.getGender().equals(Author.Gender.FEMALE))
                 .map(Author::getAge)
                 .filter(age -> age < 25)

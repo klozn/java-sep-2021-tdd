@@ -11,12 +11,12 @@ public class BlogPost implements Comparable<BlogPost> {
     private final Category category;
     private final LocalDate creationDate;
 
-    public BlogPost(Author author, String title, String body, Category category, LocalDate creationDate) {
+    public BlogPost(Author author, String title, String body, Category category, LocalDate localDate) {
         this.author = author;
         this.title = title;
         this.body = body;
         this.category = category;
-        this.creationDate = creationDate;
+        creationDate = localDate;
     }
 
     public Author getAuthor() {

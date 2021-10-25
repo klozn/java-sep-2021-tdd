@@ -1,10 +1,10 @@
 package basic.codelab03;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Shelf {
-    private final List<Grocery> groceries = new ArrayList<>();
+    private final Deque<Grocery> groceries = new ArrayDeque<>();
 
     public void addGrocery(Grocery grocery) {
         groceries.add(grocery);
@@ -14,9 +14,7 @@ public class Shelf {
         if (groceries.size() == 0) {
             throw new IllegalStateException("No more groceries on shelf.");
         }
-        Grocery last = groceries.get(groceries.size() - 1);
-        groceries.remove(last);
-        return last;
+        return groceries.pop();
     }
 
     public int getNumberOfGroceries() {

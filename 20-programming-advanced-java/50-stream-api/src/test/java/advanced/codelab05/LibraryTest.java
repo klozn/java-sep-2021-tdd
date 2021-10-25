@@ -35,7 +35,8 @@ class LibraryTest {
                 new Book("Book3", "content3", new Author("Burtens2", "Burt2", 58, Author.Gender.MALE)),
                 new Book("Book4", "content4", new Author("Trulens2", "Truus2", 17, Author.Gender.FEMALE)),
                 new Book("Book5", "content5", new Author("Trulens3", "Truus3", 28, Author.Gender.FEMALE)),
-                new Book("Book6", "content6", new Author("Trulens4", "Truus4", 60, Author.Gender.FEMALE))
+                new Book("Book6", "content6", new Author("Trulens4", "Truus4", 60, Author.Gender.FEMALE)),
+                new Book("Book7", "content7", new Author("Trulens2", "Truus2", 17, Author.Gender.FEMALE))
         ));
 
         int sum = library.getSumOfAgesOfAllFemaleAuthorsYoungerThan25();
