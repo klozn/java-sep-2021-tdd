@@ -13,6 +13,10 @@ public class Attraction {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object other){
         return EqualsBuilder.reflectionEquals(this, other);

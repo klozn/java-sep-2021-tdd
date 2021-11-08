@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @SpringJUnitConfig(DatasourceConfig.class)
 class AttractionRepositoryTest {
     private AttractionRepository attractionRepository;
@@ -17,6 +20,11 @@ class AttractionRepositoryTest {
 
     @Test
     void getAllCountries() {
-        Assertions.assertThat(true).isFalse();
+        List<Attraction> attractions = attractionRepository.getAllAttractions();
+        List<String> names = attractions.stream()
+                .map(Attraction::getName)
+                .collect(Collectors.toList());
+        Assertions.assertThat(names).containsExactly("The Eifel Tower", "Côte d'azur",
+                "The Colosseum", "Venice", "Seville");
     }
 }

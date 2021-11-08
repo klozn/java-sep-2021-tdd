@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class AttractionRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
     public AttractionRepository(JdbcTemplate jdbcTemplate) {
@@ -17,6 +17,7 @@ public class AttractionRepository {
     }
 
     public List<Attraction> getAllAttractions() {
-        return jdbcTemplate.query("YOUR QUERY HERE", (row, rowNum) -> new Attraction(row.getString("name")));
+        return jdbcTemplate.query("select * from attraction;",
+                (resultSet, rowNum) -> new Attraction(resultSet.getString("name")));
     }
 }
