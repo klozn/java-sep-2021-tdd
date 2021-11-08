@@ -1,7 +1,7 @@
 package advanced.switchtothesun.resultsetmappers;
 
-import advanced.switchtothesun.country.Continent;
-import advanced.switchtothesun.country.Country;
+import advanced.switchtothesun.domain.country.Continent;
+import advanced.switchtothesun.domain.country.Country;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

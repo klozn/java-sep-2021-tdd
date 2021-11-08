@@ -1,4 +1,4 @@
-package advanced.switchtothesun.attraction;
+package advanced.switchtothesun.domain.attraction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

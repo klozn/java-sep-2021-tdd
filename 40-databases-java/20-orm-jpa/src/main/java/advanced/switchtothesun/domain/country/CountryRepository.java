@@ -1,4 +1,4 @@
-package advanced.switchtothesun.country;
+package advanced.switchtothesun.domain.country;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

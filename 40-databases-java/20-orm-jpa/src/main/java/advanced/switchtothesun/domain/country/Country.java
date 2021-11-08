@@ -1,4 +1,4 @@
-package advanced.switchtothesun.country;
+package advanced.switchtothesun.domain.country;
 
 public class Country {
     private String name;

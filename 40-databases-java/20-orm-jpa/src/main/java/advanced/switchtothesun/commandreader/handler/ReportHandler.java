@@ -1,7 +1,7 @@
 package advanced.switchtothesun.commandreader.handler;
 
-import advanced.switchtothesun.attraction.AttractionRepository;
-import advanced.switchtothesun.country.CountryRepository;
+import advanced.switchtothesun.domain.attraction.AttractionRepository;
+import advanced.switchtothesun.domain.country.CountryRepository;
 import advanced.switchtothesun.metadata.MetadataRepository;
 import org.springframework.stereotype.Service;
 

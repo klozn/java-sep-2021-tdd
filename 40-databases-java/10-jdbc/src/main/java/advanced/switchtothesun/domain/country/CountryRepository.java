@@ -1,4 +1,4 @@
-package advanced.switchtothesun.country;
+package advanced.switchtothesun.domain.country;
 
 import advanced.switchtothesun.resultsetmappers.CountryMapper;
 import org.springframework.beans.factory.annotation.Autowired;

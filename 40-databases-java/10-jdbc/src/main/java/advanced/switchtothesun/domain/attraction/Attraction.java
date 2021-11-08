@@ -1,4 +1,4 @@
-package advanced.switchtothesun.attraction;
+package advanced.switchtothesun.domain.attraction;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

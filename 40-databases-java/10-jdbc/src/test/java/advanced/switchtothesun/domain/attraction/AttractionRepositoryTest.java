@@ -1,4 +1,4 @@
-package advanced.switchtothesun.attraction;
+package advanced.switchtothesun.domain.attraction;
 
 import advanced.switchtothesun.DatasourceConfig;
 import org.assertj.core.api.Assertions;

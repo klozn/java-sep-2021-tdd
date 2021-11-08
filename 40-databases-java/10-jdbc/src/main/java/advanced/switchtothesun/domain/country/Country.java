@@ -1,4 +1,4 @@
-package advanced.switchtothesun.country;
+package advanced.switchtothesun.domain.country;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -13,6 +13,18 @@ public class Country {
         this.id = id;
         this.name = name;
         this.continent = continent;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Continent getContinent() {
+        return continent;
     }
 
     @Override

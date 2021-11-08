@@ -1,6 +1,6 @@
-package advanced.switchtothesun.attraction;
+package advanced.switchtothesun.domain.attraction;
 
-import advanced.switchtothesun.country.Country;
+import advanced.switchtothesun.domain.country.Country;
 
 public class Attraction {
 

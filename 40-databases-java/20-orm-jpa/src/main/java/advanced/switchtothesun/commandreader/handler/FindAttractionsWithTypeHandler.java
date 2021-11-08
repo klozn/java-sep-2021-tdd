@@ -1,6 +1,6 @@
 package advanced.switchtothesun.commandreader.handler;
 
-import advanced.switchtothesun.attraction.AttractionRepository;
+import advanced.switchtothesun.domain.attraction.AttractionRepository;
 import org.springframework.stereotype.Service;
 
 @Service

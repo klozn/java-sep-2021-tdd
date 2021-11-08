@@ -1,8 +1,9 @@
 package advanced.switchtothesun;
 
-import advanced.switchtothesun.attraction.AttractionRepository;
-import advanced.switchtothesun.DatasourceConfig;
-import advanced.switchtothesun.country.CountryRepository;
+import advanced.switchtothesun.domain.attraction.AttractionRepository;
+import advanced.switchtothesun.domain.country.CountryRepository;
+import advanced.switchtothesun.domain.metadata.MetaDataRepository;
+import advanced.switchtothesun.services.ReportService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Import;
 
@@ -16,12 +17,12 @@ public class SwitchToTheSun {
 
         System.out.println("Welcome to Switch To The Sun");
 
-        AttractionRepository attractionRepository = context.getBean(AttractionRepository.class);
-        attractionRepository.getAllAttractions().forEach(System.out::println);
-        CountryRepository countryRepository = context.getBean(CountryRepository.class);
-        countryRepository.getAll().forEach(System.out::println);
+        ReportService reportService = context.getBean(ReportService.class);
+
         Scanner scanner = new Scanner(System.in);
+
         while(true){
+            reportService.report();
             String line = scanner.nextLine();
             if(line.equals("quit")){
                 return;

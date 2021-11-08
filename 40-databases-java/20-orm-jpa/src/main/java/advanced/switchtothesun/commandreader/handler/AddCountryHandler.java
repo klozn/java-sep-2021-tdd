@@ -1,6 +1,6 @@
 package advanced.switchtothesun.commandreader.handler;
 
-import advanced.switchtothesun.country.CountryRepository;
+import advanced.switchtothesun.domain.country.CountryRepository;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 

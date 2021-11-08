@@ -1,6 +1,6 @@
-package advanced.switchtothesun.attraction;
+package advanced.switchtothesun.domain.attraction;
 
-import advanced.switchtothesun.country.Country;
+import advanced.switchtothesun.domain.country.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

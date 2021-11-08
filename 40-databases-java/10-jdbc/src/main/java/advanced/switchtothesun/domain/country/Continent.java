@@ -1,4 +1,4 @@
-package advanced.switchtothesun.country;
+package advanced.switchtothesun.domain.country;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -11,6 +11,10 @@ public class Continent {
     public Continent(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
