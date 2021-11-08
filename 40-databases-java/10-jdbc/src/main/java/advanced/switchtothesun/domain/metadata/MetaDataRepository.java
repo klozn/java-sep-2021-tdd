@@ -15,10 +15,11 @@ public class MetaDataRepository {
     }
 
     public void incrementNrOfVisits() {
-        jdbcTemplate.update("update metadata set number_of_visits = number_of_visits + 1 where id = 0;");
+        jdbcTemplate.update("update switchtothesun.metadata set number_of_visits = number_of_visits + 1 where id = 0;");
     }
 
     public int getNumberOfVisits() {
-        return jdbcTemplate.queryForObject("select number_of_visits from metadata where id = 0", Integer.class);
+        String sql = "select number_of_visits from switchtothesun.metadata where id = 0";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 }

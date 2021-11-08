@@ -17,7 +17,7 @@ public class AttractionRepository {
     }
 
     public List<Attraction> getAllAttractions() {
-        return jdbcTemplate.query("select * from attraction;",
+        return jdbcTemplate.query("select * from switchtothesun.attraction;",
                 (resultSet, rowNum) -> new Attraction(resultSet.getString("name")));
     }
 }
