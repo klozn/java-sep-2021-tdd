@@ -20,4 +20,16 @@ public class AttractionRepository {
         return jdbcTemplate.query("select * from switchtothesun.attraction;",
                 (resultSet, rowNum) -> new Attraction(resultSet.getString("name")));
     }
+
+    public List<Attraction> getByType(String type) {
+        return jdbcTemplate.query("select name, type from switchtothesun.attraction where type like '%" + type + "%';",
+                ((resultSet, i) -> new Attraction(resultSet.getString("name"))));
+    }
+
+    public List<Attraction> getByCountry(String countryName) {
+        return jdbcTemplate.query("select a.name as name, c.name from switchtothesun.attraction a " +
+                        "join switchtothesun.country c on a.fk_country_id = c.id " +
+                        "and lower(c.name) like '" + countryName.toLowerCase() + "';",
+                (resultSet, i) -> new Attraction(resultSet.getString("name")));
+    }
 }
