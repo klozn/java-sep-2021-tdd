@@ -22,7 +22,7 @@ Create a new Maven project:
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
+        <version>2.5.5</version>
     </parent>
     <dependencies>
         <dependency>
