@@ -12,13 +12,13 @@ import java.util.List;
 @Service
 public class ReportService {
 
-    private final AttractionRepository attractionRepository;
+    private final AttractionService attractionService;
     private final CountryRepository countryRepository;
     private final MetaDataService metaDataService;
 
     @Autowired
-    public ReportService(AttractionRepository attractionRepository, CountryRepository countryRepository, MetaDataService metaDataService) {
-        this.attractionRepository = attractionRepository;
+    public ReportService(AttractionService attractionService, CountryRepository countryRepository, MetaDataService metaDataService) {
+        this.attractionService = attractionService;
         this.countryRepository = countryRepository;
         this.metaDataService = metaDataService;
     }
@@ -26,9 +26,7 @@ public class ReportService {
     public void report() {
         int nrOfVisits = metaDataService.incrementNrOfVisits();
         System.out.println("|Report|\n\nAttractions:");
-        attractionRepository.getAllAttractions().stream()
-                .map(Attraction::getName)
-                .forEach(System.out::println);
+        attractionService.printAllAttractions();
         System.out.println("\nCountries:");
          List<Country> countries = countryRepository.getAll();
          for (Country country: countries) {

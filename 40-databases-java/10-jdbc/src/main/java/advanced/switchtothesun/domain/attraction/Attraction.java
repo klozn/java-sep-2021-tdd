@@ -1,5 +1,6 @@
 package advanced.switchtothesun.domain.attraction;
 
+import advanced.switchtothesun.domain.country.Country;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -7,14 +8,21 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public class Attraction {
-    private String name;
 
-    public Attraction(String name) {
+    private String name;
+    private Country country;
+
+    public Attraction(String name, Country country) {
         this.name = name;
+        this.country = country;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Country getCountry() {
+        return country;
     }
 
     @Override

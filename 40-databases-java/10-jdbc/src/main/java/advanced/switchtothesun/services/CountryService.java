@@ -3,7 +3,6 @@ package advanced.switchtothesun.services;
 import advanced.switchtothesun.domain.country.Country;
 import advanced.switchtothesun.domain.country.CountryRepository;
 import org.apache.commons.lang3.StringUtils;
-import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -24,6 +23,10 @@ public class CountryService {
         assertCountryNameDoesNotAlreadyExist(countryName);
         int id = repository.getAll().size() + 1;
         repository.save(new Country(id , countryName, null));
+    }
+
+    public Country getById(int id) {
+        return repository.getById(id);
     }
 
     private void assertCountryNameDoesNotAlreadyExist(String countryName) {

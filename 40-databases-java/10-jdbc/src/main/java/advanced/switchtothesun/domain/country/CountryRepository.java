@@ -50,4 +50,8 @@ public class CountryRepository {
         jdbcTemplate.update("delete from switchtothesun.country where id = ?", id);
 
     }
+
+    public Country getById(int id) {
+        return jdbcTemplate.queryForObject("select * from switchtothesun.country where id = " + id, Country.class);
+    }
 }
