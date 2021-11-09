@@ -8,7 +8,7 @@
         <groupId>com.switchfully.databases.orm</groupId>
         <artifactId>40-databases-orm-java</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>20-orm-jpa</artifactId>
@@ -18,6 +18,11 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
 
