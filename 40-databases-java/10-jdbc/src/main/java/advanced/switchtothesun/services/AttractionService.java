@@ -1,6 +1,5 @@
 package advanced.switchtothesun.services;
 
-import advanced.switchtothesun.domain.attraction.Attraction;
 import advanced.switchtothesun.domain.attraction.AttractionRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +17,17 @@ public class AttractionService {
     }
 
     public void printAllAttractions() {
-        repository.getAllAttractions().forEach(this::printAttraction);
+        repository.getAllAttractions().forEach(System.out::println);
     }
 
     public void printAttractionsWithType(String line) {
         String type = StringUtils.substringAfter(line.toLowerCase(Locale.ROOT), "with ")
                 .strip().toUpperCase(Locale.ROOT);
-        repository.getByType(type).forEach(this::printAttraction);
+        repository.getByType(type).forEach(System.out::println);
     }
 
     public void printAttractionsInCountry(String line) {
         String countryName = StringUtils.substringAfter(line.toLowerCase(Locale.ROOT), "in ").strip();
-        repository.getByCountry(countryName).forEach(this::printAttraction);
-    }
-
-    private void printAttraction(Attraction attraction) {
-        System.out.println(attraction.getName() + " - " + attraction.getCountry().getName());
+        repository.getByCountry(countryName).forEach(System.out::println);
     }
 }

@@ -1,8 +1,6 @@
 package advanced.switchtothesun.domain.country;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
-import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import java.util.Objects;
 
 public class Country {
     private final int id;
@@ -28,7 +26,20 @@ public class Country {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Country country = (Country) o;
+        return id == country.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString(){
-        return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
+        return name + ", " + continent;
     }
 }

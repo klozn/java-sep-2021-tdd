@@ -3,12 +3,10 @@ package advanced.switchtothesun.domain.attraction;
 import advanced.switchtothesun.domain.country.Country;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+import java.util.Objects;
 
 public class Attraction {
-
     private String name;
     private Country country;
 
@@ -26,17 +24,20 @@ public class Attraction {
     }
 
     @Override
-    public boolean equals(Object other){
-        return EqualsBuilder.reflectionEquals(this, other);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Attraction that = (Attraction) o;
+        return Objects.equals(name, that.name) && Objects.equals(country, that.country);
     }
 
     @Override
-    public int hashCode(){
-        return HashCodeBuilder.reflectionHashCode(this);
+    public int hashCode() {
+        return Objects.hash(name, country);
     }
 
     @Override
     public String toString(){
-        return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
+        return name + " - " + country;
     }
 }
