@@ -1,5 +1,7 @@
 package advanced.switchtothesun.services;
 
+import advanced.switchtothesun.domain.country.Continent;
+import advanced.switchtothesun.domain.country.ContinentRepository;
 import advanced.switchtothesun.domain.country.Country;
 import advanced.switchtothesun.domain.country.CountryRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -7,30 +9,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 
 @Service
 public class CountryService {
     private final CountryRepository repository;
+    private final ContinentRepository continentRepository;
 
     @Autowired
-    public CountryService(CountryRepository repository) {
+    public CountryService(CountryRepository repository, ContinentRepository continentRepository) {
         this.repository = repository;
+        this.continentRepository = continentRepository;
     }
 
-    public void createCountry(String line) {
+    public void createCountry(String line, Continent continent) {
         String countryName = StringUtils.substringAfter(line,"country ");
         assertCountryNameDoesNotAlreadyExist(countryName);
         int id = repository.getAll().size() + 1;
-        repository.save(new Country(id , countryName, null));
+        repository.save(new Country(id , countryName, continent));
     }
 
 
-    public Country getById(int id) {
-        return repository.getById(id);
+    public List<Country> getByContinentName(String line) {
+        String continentName = StringUtils.substringAfter(line.toLowerCase(Locale.ROOT), "countries in ").strip();
+        return repository.getByContinentName(continentName);
     }
 
-    private void assertCountryNameDoesNotAlreadyExist(String countryName) {
+    public void assertCountryNameDoesNotAlreadyExist(String countryName) {
         if (repository.getAll().stream()
                 .map(Country::getName)
                 .map(String::toLowerCase)
@@ -49,4 +55,11 @@ public class CountryService {
         }
     }
 
+    public void printCountriesInContinent(String line) {
+        getByContinentName(line).forEach(System.out::println);
+    }
+
+    public Continent getContinentByName(String continentName) {
+        return continentRepository.getContinentByName(continentName);
+    }
 }

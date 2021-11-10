@@ -9,6 +9,10 @@ public class Continent {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

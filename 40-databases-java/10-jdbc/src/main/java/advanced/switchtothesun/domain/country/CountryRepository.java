@@ -5,6 +5,7 @@ import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,23 +25,23 @@ public class CountryRepository {
         return jdbcTemplate.query("select country.id as id, country.name as country_name," +
                         " cont.id as continent_id, cont.name as continent_name from switchtothesun.country country " +
                         "left join switchtothesun.continent cont on country.fk_continent_id = cont.id;",
-                (resultSet, rowNumber) -> new CountryMapper().map(resultSet));
+                toRowMapper());
     }
 
     public void save(Country country) {
-        jdbcTemplate.update("insert into switchtothesun.country (id, name) " +
-                "values (" + country.getId() + ", '" + country.getName() + "');");
+        jdbcTemplate.update("insert into switchtothesun.country (id, name, fk_continent_id) " +
+                "values ( ?, ?, ?);", country.getId(), country.getName(), country.getContinent().getId());
     }
 
     public int getIdByName(String countryName) {
         List<Country> countries =  jdbcTemplate.query(
-                "select id, name from switchtothesun.country where lower(name) like '%" + countryName.toLowerCase(Locale.ROOT) + "%';",
-                (resultSet, rowNumber) -> new Country(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        null));
+                "select country.id as id, country.name as country_name, " +
+                        "cont.id as continent_id, cont.name as continent_name from switchtothesun.country country " +
+                        "left join switchtothesun.continent cont on country.fk_continent_id = cont.id " +
+                        "where lower(country.name) like ? ", toRowMapper(), countryName.toLowerCase(Locale.ROOT));
+
         if (countries.size() == 0) {
-            throw new IllegalArgumentException("No country found with name:" + countryName);
+            throw new IllegalArgumentException("No country found with name: " + countryName);
         }
         return countries.get(0).getId();
 
@@ -51,7 +52,15 @@ public class CountryRepository {
 
     }
 
-    public Country getById(int id) {
-        return jdbcTemplate.queryForObject("select * from switchtothesun.country where id = " + id, Country.class);
+    public List<Country> getByContinentName(String continentName) {
+        return jdbcTemplate.query("select country.id as id, country.name as country_name," +
+                " cont.id as continent_id, cont.name as continent_name from switchtothesun.country country " +
+                "join switchtothesun.continent cont on country.fk_continent_id = cont.id " +
+                        "and lower(cont.name) like ?",
+                toRowMapper(), continentName.toLowerCase(Locale.ROOT));
+    }
+
+    private RowMapper<Country> toRowMapper() {
+        return (resultSet, rowNumber) -> new CountryMapper().map(resultSet);
     }
 }

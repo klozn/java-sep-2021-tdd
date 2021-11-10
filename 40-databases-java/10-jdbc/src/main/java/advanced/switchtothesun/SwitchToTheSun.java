@@ -1,5 +1,6 @@
 package advanced.switchtothesun;
 
+import advanced.switchtothesun.domain.country.Continent;
 import advanced.switchtothesun.services.CountryService;
 import advanced.switchtothesun.services.AttractionService;
 import advanced.switchtothesun.services.ReportService;
@@ -33,7 +34,10 @@ public class SwitchToTheSun {
             }
             if (line.toLowerCase(Locale.ROOT).contains("add country ")) {
                 try {
-                    countryService.createCountry(line);
+                    System.out.print("Enter continent:\n> ");
+                    String continentName = scanner.nextLine();
+                    Continent continent = countryService.getContinentByName(continentName.toLowerCase(Locale.ROOT));
+                    countryService.createCountry(line, continent);
                 } catch (IllegalArgumentException e) {
                     System.err.println("Illegal Argument: " + e.getMessage());
                 }
@@ -50,6 +54,10 @@ public class SwitchToTheSun {
             }
             if (line.toLowerCase(Locale.ROOT).contains("find attractions in ")) {
                 attractionService.printAttractionsInCountry(line);
+            }
+
+            if (line.toLowerCase().contains("find countries in ")) {
+                countryService.printCountriesInContinent(line);
             }
 
         }
