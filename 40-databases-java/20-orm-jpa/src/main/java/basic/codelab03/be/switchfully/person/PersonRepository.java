@@ -18,8 +18,13 @@ public class PersonRepository {
         return person;
     }
 
+    public Person remove(Person person) {
+        entityManager.remove(person);
+        return person;
+    }
+
     public Person findByName(String lastName){
-        return entityManager.createQuery("select p from Person p where p.lastname = :lastName", Person.class)
+        return entityManager.createQuery("select p from Person p where p.lastName = :lastName", Person.class)
                     .setParameter("lastName", lastName)
                     .getSingleResult();
     }

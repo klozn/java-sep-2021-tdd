@@ -1,5 +1,6 @@
 package basic.codelab03.be.switchfully.person;
 
+import basic.codelab03.be.switchfully.address.Address;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 @Entity
-@Table(name = "person2")
+@Table(name = "people")
 public class Person {
 
     @Id
@@ -21,13 +22,17 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
 
+    @Embedded
+    private Address address;
+
     public Person() {
 
     }
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.address = address;
     }
 
     public int getId() {
