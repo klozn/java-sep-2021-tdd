@@ -19,7 +19,7 @@ public class PersonRepository {
     }
 
     public Person findByName(String lastName){
-        return entityManager.createQuery("from Person where lastName = :lastName", Person.class)
+        return entityManager.createQuery("select p from Person p where p.lastname = :lastName", Person.class)
                     .setParameter("lastName", lastName)
                     .getSingleResult();
     }

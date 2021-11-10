@@ -7,7 +7,7 @@ import javax.persistence.*;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 @Entity
-@Table(name = "PERSON")
+@Table(name = "person2")
 public class Person {
 
     @Id
@@ -21,13 +21,17 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
 
-    private Person() {
+    public Person() {
 
     }
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getLastName() {
@@ -41,9 +45,5 @@ public class Person {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
-    }
-
-    public int getId() {
-        return id;
     }
 }
