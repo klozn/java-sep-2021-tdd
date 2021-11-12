@@ -14,18 +14,25 @@ public class PersonRepository {
     private EntityManager entityManager;
 
     public Person save(Person person){
+        entityManager.persist(person.getAddress());
         entityManager.persist(person);
         return person;
     }
 
-    public Person remove(Person person) {
+    public void remove(Person person) {
         entityManager.remove(person);
-        return person;
     }
 
-    public Person findByName(String lastName){
-        return entityManager.createQuery("select p from Person p where p.lastName = :lastName", Person.class)
+    public Person findByName(String firstName, String lastName){
+        return entityManager.createQuery("select p from Person p " +
+                        "where p.lastName = :lastName " +
+                        "and p.firstName = :firstName", Person.class)
                     .setParameter("lastName", lastName)
+                    .setParameter("firstName", firstName)
                     .getSingleResult();
+    }
+
+    public Person findById(int personId) {
+        return entityManager.find(Person.class, personId);
     }
 }
