@@ -16,7 +16,7 @@ public class PersonRepository {
     public Person save(Person person){
         entityManager.persist(person.getAddress());
         entityManager.persist(person);
-        return person;
+        return entityManager.find(Person.class, person.getId());
     }
 
     public void remove(Person person) {

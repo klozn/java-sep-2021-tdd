@@ -1,12 +1,13 @@
 package basic.codelab03.be.switchfully.address;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import basic.codelab03.be.switchfully.person.Person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,6 +30,9 @@ public class Address {
     @Column(name = "zip_code")
     private int zipCode;
 
+    @OneToOne(mappedBy = "address")
+    private Person resident;
+
     public Address() {
     }
 
@@ -37,6 +41,14 @@ public class Address {
         this.houseNumber = houseNumber;
         this.region = region;
         this.zipCode = zipCode;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setResident(Person person) {
+        resident = person;
     }
 
     @Override
