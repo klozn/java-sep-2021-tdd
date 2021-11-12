@@ -1,11 +1,15 @@
 package basic.codelab03.be.switchfully.book;
 
+import basic.codelab03.be.switchfully.person.Person;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
@@ -20,6 +24,8 @@ public class Book {
 
     private String title;
     private String author;
+    @ManyToMany(mappedBy = "books")
+    private List<Person> readers;
 
     public Book() {
     }
@@ -39,6 +45,14 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+
+    public void addReader(Person person) {
+        readers.add(person);
+    }
+
+    public void removeReader(Person person) {
+        readers.remove(person);
     }
 
     @Override

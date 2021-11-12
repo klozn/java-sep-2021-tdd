@@ -33,12 +33,13 @@ public class Person {
     @JoinColumn(name = "hobby_id", referencedColumnName = "id")
     private Hobby hobby;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "owner_id")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "people_books",
+            joinColumns = {@JoinColumn(name = "person_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private List<Book> books = new ArrayList<>();
 
     public Person() {
-
     }
 
     public Person(String firstName, String lastName, Address address) {
@@ -78,10 +79,12 @@ public class Person {
     }
 
     public boolean addBook(Book book) {
+        book.addReader(this);
         return books.add(book);
     }
 
     public boolean removeBook(Book book) {
+        book.removeReader(this);
         return books.remove(book);
     }
 

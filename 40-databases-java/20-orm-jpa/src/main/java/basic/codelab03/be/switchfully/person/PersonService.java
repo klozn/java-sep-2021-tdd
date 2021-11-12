@@ -41,7 +41,9 @@ public class PersonService {
     }
 
     public void addBookToCollection(int personId, Book book) {
-        personRepository.findById(personId).addBook(book);
+        Person person = personRepository.findById(personId);
+        person.addBook(book);
+        personRepository.save(person);
     }
 
     public void removeBookFromCollection(int personId, Book book) {
