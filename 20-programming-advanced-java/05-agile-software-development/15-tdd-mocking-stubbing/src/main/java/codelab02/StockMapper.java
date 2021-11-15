@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * Read the README.md.
- * These is 1 public method (API) you should test (both branches (if/else) should be unit tested)
+ * There is 1 public method (API) you should test (both branches (if/else) should be unit tested)
  */
 public class StockMapper {
 

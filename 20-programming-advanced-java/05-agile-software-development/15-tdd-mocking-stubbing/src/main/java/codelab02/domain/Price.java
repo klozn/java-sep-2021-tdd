@@ -19,6 +19,14 @@ public final class Price {
         this.value = value;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return String.format("%s (%s)", NumberFormat.getCurrencyInstance().format(value), currency);
