@@ -47,7 +47,9 @@ public class PersonService {
     }
 
     public void removeBookFromCollection(int personId, Book book) {
-        personRepository.findById(personId).removeBook(book);
+        Person person = personRepository.findById(personId);
+        person.removeBook(book);
+        personRepository.save(person);
     }
 
     public void setAddress(int personId, Address address) {
