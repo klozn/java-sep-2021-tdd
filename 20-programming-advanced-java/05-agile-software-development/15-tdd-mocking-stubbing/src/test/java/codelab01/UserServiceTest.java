@@ -4,6 +4,7 @@ import codelab01.domain.User;
 import codelab01.domain.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.List;
@@ -24,7 +25,7 @@ class UserServiceTest {
     }
 
     @Test
-    void addUser() {
+    void whenAddingUser_thenCallRepoAddMethodOnce() {
         //given
         User toAdd = new User("Akki");
         //when
@@ -34,19 +35,17 @@ class UserServiceTest {
     }
 
     @Test
-    void getUser() {
+    void whenGettingUserById_thenCallRepoGetByIdMethodOnce() {
         //given
         UUID uuidToGet = UUID.randomUUID();
-        User userToReturn = new User("test");
-        Mockito.when(mockRepo.getForId(uuidToGet)).thenReturn(userToReturn);
         //when
-        User returnedUser = userService.getUser(uuidToGet);
+        userService.getUser(uuidToGet);
         //then
-        assertEquals(userToReturn, returnedUser);
+        Mockito.verify(mockRepo, Mockito.times(1)).getForId(uuidToGet);
     }
 
     @Test
-    void getUsersSortedOnNicknameAsc() {
+    void whenGettingUsersSortedByNicknameAsc_thenReturnUsersInCorrectOrder() {
         //given
         List<User> users = List.of(new User("Akki"), new User("Tillo"), new User("Beire"));
         Mockito.when(mockRepo.getAll()).thenReturn(users);
